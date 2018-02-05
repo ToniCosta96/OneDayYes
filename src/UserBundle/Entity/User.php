@@ -9,12 +9,12 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 
 /**
- * Usuarios
+ * User
  *
  * @ORM\Table(name="usuarios")
  * @ORM\Entity(repositoryClass="UserBundle\Repository\UsuariosRepository")
  */
-class Usuarios implements UserInterface
+class User implements UserInterface
 {
     /**
      * @var int
@@ -30,6 +30,7 @@ class Usuarios implements UserInterface
      *
      * @ORM\Column(name="username", type="string", length=64, unique=true)
      * @Assert\NotBlank()
+     * @Assert\Length(max=64, maxMessage = "El nombre de usuario no puede exceder los {{ limit }} caracteres.")
      */
     private $username;
 
@@ -59,7 +60,7 @@ class Usuarios implements UserInterface
      *
      * @ORM\Column(name="email", type="string", length=255, unique=true)
      * @Assert\NotBlank()
-     * @Assert\Email()
+     * @Assert\Email(message = "El correo '{{ value }}' no es un correo válido.")
      */
     private $email;
 
@@ -94,7 +95,7 @@ class Usuarios implements UserInterface
      *
      * @param string $username
      *
-     * @return Usuarios
+     * @return User
      */
     public function setUsername($username)
     {
@@ -118,7 +119,7 @@ class Usuarios implements UserInterface
      *
      * @param string $name
      *
-     * @return Usuarios
+     * @return User
      */
     public function setName($name)
     {
@@ -142,7 +143,7 @@ class Usuarios implements UserInterface
      *
      * @param string $password
      *
-     * @return Usuarios
+     * @return User
      */
     public function setPassword($password)
     {
@@ -166,7 +167,7 @@ class Usuarios implements UserInterface
      *
      * @param string $email
      *
-     * @return Usuarios
+     * @return User
      */
     public function setEmail($email)
     {
@@ -190,7 +191,7 @@ class Usuarios implements UserInterface
      *
      * @param string $phone
      *
-     * @return Usuarios
+     * @return User
      */
     public function setPhone($phone)
     {

@@ -4,14 +4,66 @@ namespace UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use UserBundle\Entity\User;
+use UserBundle\Form\UserType;
 
 class UserController extends Controller
 {
     /**
      * @Route("/usuarios/login", name="login")
      */
-    public function usuariosLoginAction()
+    public function usuariosLoginAction(Request $request)
     {
-        return $this->render('@User/Default/login.html.twig');
+        $authenticationUtils = $this->get('security.authentication_utils');
+        // Get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
+        // Last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        return $this->render('@User/Default/login.html.twig', array(
+            'last_username' => $lastUsername,
+            'error'         => $error,
+        ));
+    }
+
+    /**
+     * @Route("/usuarios/registro", name="registro")
+     */
+    public function registroAction(Request $request)
+    {
+        // 1) Build the form
+        $user = new User();
+        $form = $this->createForm(UserType::class, $user);
+
+        // 2) Handle the submit (will only happen on POST)
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            // 3) Encode the password (you could also do this via Doctrine listener)
+            //$password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
+            $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPlainPassword());
+            $user->setPassword($password);
+
+            // 3.1) Guardar rol del usuario
+            $user->setRoles(["ROLE_USER"]);
+
+            // 4) Guardar el usuario
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+
+            // ... do any other work - like sending them an email, etc
+            // maybe set a "flash" success message for the user
+
+            return $this->redirectToRoute('ven_a_lamu');
+        }
+
+        return $this->render(
+            '@User/Default/register.html.twig',
+            array('form' => $form->createView())
+        );
     }
 }
