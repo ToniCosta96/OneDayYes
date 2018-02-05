@@ -15,7 +15,7 @@ class UserController extends Controller
     /**
      * @Route("/usuarios/login", name="login")
      */
-    public function usuariosLoginAction(Request $request)
+    public function loginAction(Request $request)
     {
         $authenticationUtils = $this->get('security.authentication_utils');
         // Get the login error if there is one
@@ -65,5 +65,23 @@ class UserController extends Controller
             '@User/Default/register.html.twig',
             array('form' => $form->createView())
         );
+    }
+
+    /**
+     * @Route("/usuarios/eliminarUsuario/id={id}", name="eliminar_usuario")
+     */
+    public function eliminarUsuarioAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository(User::class)->find($id);
+        if (!$usuario) {
+            throw $this->createNotFoundException(
+                'Ningún usuario coincide con la id '.$id
+            );
+        }
+        $em->remove($usuario);
+        $em->flush();
+
+        return $this->redirectToRoute('index');
     }
 }
