@@ -79,6 +79,10 @@ ul>li>a.nav-link:hover {
   min-height: 66vh;
 }
 
+.contenidoJumbotron {
+  margin-top: 155px;
+}
+
 /* FOOTER */
 footer {
   padding: 12px;
