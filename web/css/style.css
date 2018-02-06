@@ -69,3 +69,9 @@ body {
   color: white;
   float: right;
 }
+.footer {
+    padding: 12px;
+    background-color: #2a2928;
+    color: #888;
+    text-align: center;
+}
