@@ -30,4 +30,12 @@ class DefaultController extends Controller
     {
         return $this->render('@Principal/Default/contacto.html.twig');
     }
+
+    /**
+     * @Route("/galeria", name="galeria")
+     */
+    public function galeriaAction()
+    {
+        return $this->render('@Principal/Default/galeria.html.twig');
+    }
 }

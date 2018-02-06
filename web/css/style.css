@@ -80,6 +80,7 @@ ul>li>a.nav-link:hover {
 /* CONTENT */
 .contenido {
   margin-top: 200px;
+  min-height: 66vh;
 }
 
 /* FOOTER */
