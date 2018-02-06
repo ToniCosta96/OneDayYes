@@ -3,16 +3,17 @@
 {% block title %}Registro - One day yes{% endblock %}
 
 {% block body %}
-
-<h1>Crear cuenta de usuario</h1>
-{{ form_start(form) }}
-    {{ form_row(form.username) }}
-    {{ form_row(form.name) }}
-    {{ form_row(form.plainPassword.first) }}
-    {{ form_row(form.plainPassword.second) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.phone) }}
-    {{ form_row(form.guardar) }}
-    {{ form_row(form.borrar) }}
-{{ form_end(form) }}
+<div class="contenido">
+  <h1>Crear cuenta de usuario</h1>
+  {{ form_start(form) }}
+      {{ form_row(form.username) }}
+      {{ form_row(form.name) }}
+      {{ form_row(form.plainPassword.first) }}
+      {{ form_row(form.plainPassword.second) }}
+      {{ form_row(form.email) }}
+      {{ form_row(form.phone) }}
+      {{ form_row(form.guardar) }}
+      {{ form_row(form.borrar) }}
+  {{ form_end(form) }}
+</div>
 {% endblock %}
