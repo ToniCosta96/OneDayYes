@@ -2,7 +2,7 @@
 # https://symfony.com/doc/current/security.html
 security:
     encoders:
-        ClienteBundle\Entity\User: bcrypt
+        UserBundle\Entity\User: bcrypt
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
@@ -13,6 +13,8 @@ security:
 
     access_control:
         - {path: ^/usuarios/login, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - {path: ^/usuarios/eliminarUsuario, roles: ROLE_ADMIN}
+        - {path: ^/admin, roles: ROLE_ADMIN}
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs

@@ -15,8 +15,15 @@
       <div class="fixed-top navSuperior">
         <div class="login">
           <ul class="">
-            <li><a class="" href="{{asset('/usuarios/registro')}}">Registrarse</a></li>
-            <li><a class="" href="{{asset('/usuarios/login')}}">Iniciar Sesión</a></li>
+            {% if app.user %}
+              <li><a class="" href="{{asset('/usuarios/logout')}}">Cerrar sesión</a></li>
+              {% if is_granted('ROLE_ADMIN') %}
+              <li><a class="" href="{{asset('/admin')}}">Administrador</a></li>
+              {% endif %}
+            {% else %}
+              <li><a class="" href="{{asset('/usuarios/registro')}}">Registrarse</a></li>
+              <li><a class="" href="{{asset('/usuarios/login')}}">Iniciar sesión</a></li>
+            {% endif %}
           </ul>
         </div>
 
