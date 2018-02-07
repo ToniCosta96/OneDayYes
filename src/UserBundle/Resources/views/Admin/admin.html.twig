@@ -1,9 +1,82 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Administrador - One day yes{% endblock %}
+{% block title %}Administrador - Usuarios{% endblock %}
+{% block stylesheets %}
+<link href="{{asset('css/styleAdmin.css')}}" rel="stylesheet" type="text/css" media="all"/>
+{% endblock %}
 
 {% block body %}
-<div class="contenido">
-Zona de administración.
+<div class="contenidoJumbotron">
+  <div class="wrapper">
+      <!-- Sidebar Holder -->
+      <nav id="sidebar">
+          <div class="sidebar-header">
+              <h3>Administrador</h3>
+          </div>
+
+          <ul class="list-unstyled components">
+              <li class="active">
+                  <a href="{{asset('/admin')}}">Usuarios</a>
+              </li>
+              <li>
+                  <a href="#">Reservas</a>
+              </li>
+              <li>
+                  <a href="#">Datos</a>
+              </li>
+          </ul>
+      </nav>
+
+      <!-- Page Content Holder -->
+      <div id="content">
+          <div class="navbar-header">
+              <button type="button" id="sidebarCollapse" class="navbar-btn">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </button>
+          </div>
+          <div class="">
+            <!--TABLA DE USUARIOS-->
+            <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Usuario</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Rol de usuario</th>
+                <th>Fecha de creación</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for usuario in usuarios %}
+              <tr>
+                <th scope="row">{{usuario.id}}</th>
+                <td>{{usuario.username}}</td>
+                <td>{{usuario.name}}</td>
+                <td>{{usuario.email}}</td>
+                <td>{{usuario.phone}}</td>
+                <td>{% for role in usuario.roles %}{{role}} {% endfor %}</td>
+                <td>Fecha de creación</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+            </table>
+          </div>
+      </div>
+  </div>
 </div>
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+            $(this).toggleClass('active');
+        });
+    });
+</script>
 {% endblock %}
