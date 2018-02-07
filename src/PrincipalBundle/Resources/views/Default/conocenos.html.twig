@@ -2,6 +2,89 @@
 
 {% block title %}Conocenos - One day yes{% endblock %}
 
+{% block stylesheets %}
+    <style media="screen">
+    /* tamaño */
+        .productImage {
+        display: inline-block;
+        margin:50px;
+        width:500px;
+        height: 300px;
+        overflow: hidden;
+        margin-right: 2%;
+        }
+        /* Tiempo en ampliar la imagen */
+        .productImage-image {
+        cursor: pointer;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility:    hidden;
+        -ms-backface-visibility:     hidden;
+        }
+        /* zoom de las imagenes  */
+        .productImage-image:hover {
+        -webkit-transform: scale(1.1);
+        // arbitary scale number for this example
+        }
+      </style>
+{% endblock %}
+
 {% block body %}
-Conocenos.
+    <div class="contenido">
+      <div class="col-sm-12 col-md-12" style="background-color:White">
+          <div class="col-sm-6 col-md-6 productImage">
+          <img class="img-responsive rounded float-left productImage-image" style=" width:100%; height: 100%;" alt="Imagen responsive" src="/images/lamu7.jpg" />
+          </div>
+          <div class="col-sm-6 col-md-6 float-right">
+          <h6 class="text-center" style="margin-top:50px;">Titulo</h6>
+          <p class="text-center">Lorem ipsum dolor sit amet,</p>
+            <div id="primeraImagen" class="collapse">
+            <p class="text-center">consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          <a href="#primeraImagen" class="btn btn-info" data-toggle="collapse">MasInfo</a>
+          </div>
+      </div>
+      <div class="col-sm-12 col-md-12" style="background-color:grey">
+          <div class="col-sm-6 col-md-6 productImage">
+          <img class="img-responsive rounded float-right productImage-image" style="width:100%; height: 100%;" alt="Imagen responsive" src="/images/lamu7.jpg" />
+          </div>
+          <div class="col-sm-6 col-md-6 float-left">
+          <h6 class="text-center" style="margin-top:50px;">Titulo</h6>
+          <p class="text-center">Lorem ipsum dolor sit amet,</p>
+            <div id="SegundaImagen" class="collapse">
+            <p class="text-center">consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          <a href="#SegundaImagen" class="btn btn-info float-right" data-toggle="collapse">MasInfo</a>
+          </div>
+      </div>
+      <div class="col-sm-12 col-md-12" style="background-color:White">
+        <div class="col-sm-6 col-md-6 productImage">
+        <img class="img-responsive rounded float-left productImage-image" style="width:100%; height: 100%;" alt="Imagen responsive" src="/images/lamu7.jpg" />
+        </div>
+        <div class="col-sm-6 col-md-6 float-right">
+        <h6 class="text-center" style="margin-top:50px;">Titulo</h6>
+        <p class="text-center">Lorem ipsum dolor sit amet,</p>
+          <div id="TerceraImagen" class="collapse">
+          <p class="text-center">consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        <a href="#TerceraImagen" class="btn btn-info" data-toggle="collapse">MasInfo</a>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-12" style="background-color:grey">
+        <div class="col-sm-6 col-md-6 productImage">
+        <img class="img-responsive rounded float-right productImage-image" style="width:100%; height: 100%;" alt="Imagen responsive" src="/images/lamu7.jpg" />
+        </div>
+        <div class="col-sm-6 col-md-6 float-left">
+        <h6 class="text-center" style="margin-top:50px;">Titulo</h6>
+        <p class="text-center">Lorem ipsum dolor sit amet,</p>
+          <div id="CuartaImagen" class="collapse">
+          <p class="text-center">consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        <a href="#CuartaImagen" class="btn btn-info float-right" data-toggle="collapse">MasInfo</a>
+        </div>
+      </div>
+    </div>
 {% endblock %}
