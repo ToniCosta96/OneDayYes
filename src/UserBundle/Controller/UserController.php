@@ -82,6 +82,6 @@ class UserController extends Controller
         $em->remove($usuario);
         $em->flush();
 
-        return $this->redirectToRoute('index');
+        return $this->redirectToRoute('admin_usuarios');
     }
 }

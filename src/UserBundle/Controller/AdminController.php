@@ -16,6 +16,16 @@ class AdminController extends Controller
     {
         $repository = $this->getDoctrine()->getRepository(User::class);
         $usuarios = $repository->findAll();
+        return $this->redirectToRoute('admin_usuarios');
+    }
+
+    /**
+     * @Route("/admin/usuarios", name="admin_usuarios")
+     */
+    public function adminUsuariosAction(Request $request)
+    {
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $usuarios = $repository->findAll();
         return $this->render('@User/Admin/admin.html.twig', array('usuarios'=>$usuarios));
     }
 }

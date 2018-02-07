@@ -48,18 +48,30 @@
                 <th>Teléfono</th>
                 <th>Rol de usuario</th>
                 <th>Fecha de creación</th>
+                <th class="sin_estilo separacion"></th>
+                <th class="sin_estilo"></th>
               </tr>
             </thead>
             <tbody>
               {% for usuario in usuarios %}
               <tr>
-                <th scope="row">{{usuario.id}}</th>
+                <th class="idUsuario" scope="row">{{usuario.id}}</th>
                 <td>{{usuario.username}}</td>
                 <td>{{usuario.name}}</td>
                 <td>{{usuario.email}}</td>
                 <td>{{usuario.phone}}</td>
                 <td>{% for role in usuario.roles %}{{role}} {% endfor %}</td>
                 <td>Fecha de creación</td>
+                <td class="sin_estilo separacion">
+                  <a href="#">Editar
+                    <img class="editIcon" src="{{asset('images/icons/edit.svg')}}" alt="Editar usuario" height=18>
+                  </a>
+                </td>
+                <td class="sin_estilo">
+                  <a href="#" class="btn btn-default" id="btn-eliminar-{{usuario.id}}">Eliminar
+                    <img class="eliminateIcon" src="{{asset('images/icons/eliminar.svg')}}" height=15 alt="Eliminar usuario">
+                  </a>
+                </td>
               </tr>
               {% endfor %}
             </tbody>
@@ -68,15 +80,73 @@
       </div>
   </div>
 </div>
+<!-- MODAL (yes/no) -->
+<div class="modal fade" id="modal-eliminacion">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Eliminar usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="texto-dialogo">El usuario se eliminará.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="modal-btn-si">Si</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modal-btn-no">No</button>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block javascripts %}
 <script type="text/javascript">
+    /* SIDEBAR */
     $(document).ready(function () {
         $('#sidebarCollapse').on('click', function () {
             $('#sidebar').toggleClass('active');
             $(this).toggleClass('active');
         });
+    });
+
+    /* MODAL (yes/no) */
+    var idSeleccionada;
+    var modalConfirm = function(callback){
+      let filas = $("tbody").children();
+      for(let i=0;i<filas.length;i++){
+        let idUsuario = filas.eq(i).children().eq(0).html();
+        let nombre = filas.eq(i).children().eq(1).html();
+
+        $("#btn-eliminar-"+idUsuario).on("click", function mostrarDialogo($idUsuario, $nombre){
+          $("#texto-dialogo").html("El usuario <strong>"+nombre+"</strong> se eliminará.");
+          $("#modal-eliminacion").modal('show');
+          idSeleccionada = idUsuario;
+        });
+      }
+
+      $("#modal-btn-si").on("click", function aceptarEliminacion(){
+        callback(true);
+        $("#modal-eliminacion").modal('hide');
+      });
+
+      $("#modal-btn-no").on("click", function(){
+        callback(false);
+        $("#modal-eliminacion").modal('hide');
+      });
+
+    };
+
+    modalConfirm(function(confirm){
+      if(confirm){
+        //Acciones si el usuario confirma
+        window.location.href = "/usuarios/eliminarUsuario/id="+idSeleccionada;
+        //asset('/usuarios/eliminarUsuario/id='~usuario.id)
+      }else{
+        //Acciones si el usuario no confirma
+      }
     });
 </script>
 {% endblock %}

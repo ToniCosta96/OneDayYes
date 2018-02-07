@@ -1,21 +1,6 @@
 /*
     STYLE SIDEBAR
 */
-/* @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"; */
-
-
-/* body {
-    font-family: 'Poppins', sans-serif;
-    background: #fafafa;
-}
-
-p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-}*/
 
 .wrapper a, .wrapper a:hover, .wrapper a:focus {
     color: inherit;
@@ -221,4 +206,32 @@ ul.CTAs a {
         transform: rotate(-45deg) translate(1px, -1px);
     }
 
+}
+
+/* ---------------------------------------------------
+    ESTILO TABLA
+----------------------------------------------------- */
+
+.table thead th.sin_estilo, .table td.sin_estilo {
+  border-top: 0;
+  border-bottom: 0;
+  background-color: white;
+  vertical-align: middle;
+}
+
+.table thead th.separacion, .table td.separacion {
+  padding-left: 50px;
+}
+
+.table img{
+  margin-bottom: 4px;
+  padding-left: 10px;
+}
+
+.table .editIcon{
+  height: 18px;
+}
+
+.table .eliminateIcon{
+  height: 15px;
 }
