@@ -22,4 +22,12 @@ class ViajesController extends Controller
     {
         return $this->render('@Principal/Viajes/viajesIndex.html.twig');
     }
+
+    /**
+     * @Route("/viajes/reserva", name="reserva")
+     */
+    public function reservaAction()
+    {
+        return $this->render('@Principal/Viajes/reserva.html.twig');
+    }
 }

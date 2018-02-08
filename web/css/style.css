@@ -82,6 +82,7 @@ ul>li>a.nav-link:hover {
 
 .contenidoJumbotron {
   margin-top: 155px;
+  min-height: 70vh;
 }
 
 /* FOOTER */
