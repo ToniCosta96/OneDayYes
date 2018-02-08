@@ -12,6 +12,9 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+      {# Variable con la ruta actual de la página #}
+      {% set routeSelected = app.request.attributes.get('_route') %}
+
       {% block nav %}
       <!--NAV-->
       <div class="fixed-top navSuperior">
@@ -42,7 +45,7 @@
             <!-- Links -->
             <div class="collapse navbar-collapse" id="nav-content">
               <ul class="navbar-nav nav ml-auto">
-                {% set routeSelected = app.request.attributes.get('_route') %}
+
                 <li class="nav-item {% if routeSelected == 'index' %}active{% endif %}">
                   <a class="nav-link" href="{{asset('/')}}">One Day Yes</a>
                 </li>
@@ -72,25 +75,30 @@
             </div>
 
             <ul class="list-unstyled components">
-              <li class="active">
+              <li class="{% if routeSelected == 'admin_usuarios' %}active{% endif %}">
                 <a href="{{asset('/admin')}}">Usuarios</a>
               </li>
-              <li>
-                <a href="#">Reservas</a>
+              <li class="{% if routeSelected == 'admin_reservas' %}active{% endif %}">
+                <a href="{{asset('/admin/reservas')}}">Reservas</a>
               </li>
               <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Contenido de la página</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                  <li><a href="#">Actividades turistas</a></li>
-                  <li><a href="#">Actividades voluntarios</a></li>
-                  <li><a href="#">Descuentos</a></li>
+                {% if routeSelected == 'admin_actividades' or routeSelected == 'admin_descuentos' %}
+                  <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="true">Contenido de la página</a>
+                  <ul class="collapse list-unstyled show" id="pageSubmenu">
+                {% else %}
+                  <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Contenido de la página</a>
+                  <ul class="collapse list-unstyled" id="pageSubmenu">
+                {% endif %}
+                  <li><a href="{{asset('/admin/actividades')}}">Actividades turistas</a></li>
+                  <li><a href="{{asset('/admin/actividades')}}">Actividades voluntarios</a></li>
+                  <li><a href="{{asset('/admin/descuentos')}}">Descuentos</a></li>
                 </ul>
               </li>
-              <li>
+              <li class="{% if routeSelected == 'admin_estadisticas' %}active{% endif %}">
                 <a href="#">Estadísticas</a>
               </li>
-              <li>
-                <a href="#">Mensajes de contacto</a>
+              <li class="{% if routeSelected == 'admin_mensajes' %}active{% endif %}">
+                <a href="{{asset('/admin/mensajes')}}">Mensajes de contacto</a>
               </li>
             </ul>
           </nav>
