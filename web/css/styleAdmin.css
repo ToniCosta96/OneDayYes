@@ -2,6 +2,10 @@
     STYLE SIDEBAR
 */
 
+.contenido_seccion{
+  margin-left: 50px;
+}
+
 .wrapper a, .wrapper a:hover, .wrapper a:focus {
     color: inherit;
     text-decoration: none;
@@ -15,14 +19,14 @@
     border-radius: 0;
     margin-bottom: 40px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
+}*/
 
 .navbar-btn {
     box-shadow: none;
     outline: none !important;
     border: none;
 }
-
+/*
 .line {
     width: 100%;
     height: 1px;
@@ -89,15 +93,15 @@
 }
 
 .wrapper a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
-    content: '\e259';
+    content: '\f104';
     display: block;
     position: absolute;
     right: 20px;
-    font-family: 'Glyphicons Halflings';
-    font-size: 0.6em;
+    font-family: 'FontAwesome';
+    font-size: 1em;
 }
 .wrapper a[aria-expanded="true"]::before {
-    content: '\e260';
+    content: '\f107';
 }
 
 
@@ -135,7 +139,7 @@ ul.CTAs a {
     CONTENT STYLE
 ----------------------------------------------------- */
 #content {
-    padding: 20px;
+    padding: 20px 10px;
     min-height: 100vh;
     transition: all 0.3s;
 }
@@ -217,10 +221,12 @@ ul.CTAs a {
   border-bottom: 0;
   background-color: white;
   vertical-align: middle;
+  min-width: 120px;
+  padding: 0;
 }
 
 .table thead th.separacion, .table td.separacion {
-  padding-left: 50px;
+  padding-left: 35px;
 }
 
 .table img{

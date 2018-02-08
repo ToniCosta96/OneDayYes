@@ -1,85 +1,52 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseAdmin.html.twig' %}
 
 {% block title %}Administrador - Usuarios{% endblock %}
-{% block stylesheets %}
-<link href="{{asset('css/styleAdmin.css')}}" rel="stylesheet" type="text/css" media="all"/>
+
+{% block contenidoSeccion %}
+<div class="">
+  <!--TABLA DE USUARIOS-->
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Usuario</th>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Teléfono</th>
+      <th>Rol de usuario</th>
+      <th>Fecha de creación</th>
+      <th class="sin_estilo separacion"></th>
+      <th class="sin_estilo"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for usuario in usuarios %}
+    <tr>
+      <th class="idUsuario" scope="row">{{usuario.id}}</th>
+      <td>{{usuario.username}}</td>
+      <td>{{usuario.name}}</td>
+      <td>{{usuario.email}}</td>
+      <td>{{usuario.phone}}</td>
+      <td>{% for role in usuario.roles %}{{role}} {% endfor %}</td>
+      <td>Fecha de creación</td>
+      <td class="sin_estilo separacion">
+        <a href="#" class="btn btn-default">Editar
+          <img class="editIcon" src="{{asset('images/icons/edit.svg')}}" alt="" height=18>
+        </a>
+      </td>
+      <td class="sin_estilo">
+        <a href="#" class="btn btn-default" id="btn-eliminar-{{usuario.id}}">Eliminar
+          <img class="eliminateIcon" src="{{asset('images/icons/eliminar.svg')}}" height=15 alt="">
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+</div>
 {% endblock %}
 
-{% block body %}
-<div class="contenidoJumbotron">
-  <div class="wrapper">
-      <!-- Sidebar Holder -->
-      <nav id="sidebar">
-          <div class="sidebar-header">
-              <h3>Administrador</h3>
-          </div>
-
-          <ul class="list-unstyled components">
-              <li class="active">
-                  <a href="{{asset('/admin')}}">Usuarios</a>
-              </li>
-              <li>
-                  <a href="#">Reservas</a>
-              </li>
-              <li>
-                  <a href="#">Datos</a>
-              </li>
-          </ul>
-      </nav>
-
-      <!-- Page Content Holder -->
-      <div id="content">
-          <div class="navbar-header">
-              <button type="button" id="sidebarCollapse" class="navbar-btn">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-              </button>
-          </div>
-          <div class="">
-            <!--TABLA DE USUARIOS-->
-            <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Usuario</th>
-                <th>Nombre</th>
-                <th>Email</th>
-                <th>Teléfono</th>
-                <th>Rol de usuario</th>
-                <th>Fecha de creación</th>
-                <th class="sin_estilo separacion"></th>
-                <th class="sin_estilo"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for usuario in usuarios %}
-              <tr>
-                <th class="idUsuario" scope="row">{{usuario.id}}</th>
-                <td>{{usuario.username}}</td>
-                <td>{{usuario.name}}</td>
-                <td>{{usuario.email}}</td>
-                <td>{{usuario.phone}}</td>
-                <td>{% for role in usuario.roles %}{{role}} {% endfor %}</td>
-                <td>Fecha de creación</td>
-                <td class="sin_estilo separacion">
-                  <a href="#">Editar
-                    <img class="editIcon" src="{{asset('images/icons/edit.svg')}}" alt="Editar usuario" height=18>
-                  </a>
-                </td>
-                <td class="sin_estilo">
-                  <a href="#" class="btn btn-default" id="btn-eliminar-{{usuario.id}}">Eliminar
-                    <img class="eliminateIcon" src="{{asset('images/icons/eliminar.svg')}}" height=15 alt="Eliminar usuario">
-                  </a>
-                </td>
-              </tr>
-              {% endfor %}
-            </tbody>
-            </table>
-          </div>
-      </div>
-  </div>
-</div>
+{% block contenidoExtra %}
 <!-- MODAL (yes/no) -->
 <div class="modal fade" id="modal-eliminacion">
   <div class="modal-dialog" role="document">
@@ -94,8 +61,8 @@
         <p id="texto-dialogo">El usuario se eliminará.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" id="modal-btn-si">Si</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modal-btn-no">No</button>
+        <button type="button" class="btn btn-primary" id="modal-btn-si">Eliminar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modal-btn-no">Cancelar</button>
       </div>
     </div>
   </div>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Administrador - One day yes{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/logo-oneDayYes_icon.ico') }}" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css" media="all"/>
+        <link href="{{asset('css/styleAdmin.css')}}" rel="stylesheet" type="text/css" media="all"/>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+      {% block nav %}
+      <!--NAV-->
+      <div class="fixed-top navSuperior">
+        <div class="login">
+          <ul class="">
+            {% if app.user %}
+              <li><a class="" href="{{asset('/usuarios/logout')}}">Cerrar sesión</a></li>
+              {% if is_granted('ROLE_ADMIN') %}
+              <li><a class="" href="{{asset('/admin')}}">Administrador</a></li>
+              {% endif %}
+            {% else %}
+              <li><a class="" href="{{asset('/usuarios/registro')}}">Registrarse</a></li>
+              <li><a class="" href="{{asset('/usuarios/login')}}">Iniciar sesión</a></li>
+            {% endif %}
+          </ul>
+        </div>
+
+        <div class="container-fluid navPrincipal">
+          <nav class="navbar navbar-expand-sm navbar-light bg-faded">
+            <!-- Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Brand -->
+            <a class="navbar-brand" href="{{asset('/')}}"><img class="logo" src="{{asset('images/logo-oneDayYes.png')}}"></a>
+
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="nav-content">
+              <ul class="navbar-nav nav ml-auto">
+                {% set routeSelected = app.request.attributes.get('_route') %}
+                <li class="nav-item {% if routeSelected == 'index' %}active{% endif %}">
+                  <a class="nav-link" href="{{asset('/')}}">One Day Yes</a>
+                </li>
+                <li class="nav-item {% if routeSelected == 'conocenos' %}active{% endif %}">
+                  <a class="nav-link" href="{{asset('/conocenos')}}">Conocenos</a>
+                </li>
+                <li class="nav-item {% if routeSelected == 'ven_a_lamu' %}active{% endif %}">
+                  <a class="nav-link" href="{{asset('/viajes/index')}}">Ven a Lamu</a>
+                </li>
+                <li class="nav-item {% if routeSelected == 'contacto' %}active{% endif %}">
+                  <a class="nav-link" href="{{asset('/contacto')}}">Contacto</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+      {% endblock %}
+
+      <!-- CONTENIDO -->
+      <div class="contenidoJumbotron">
+        <div class="wrapper">
+          <!-- Sidebar Holder -->
+          <nav id="sidebar">
+            <div class="sidebar-header">
+              <h3>Administrador</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+              <li class="active">
+                <a href="{{asset('/admin')}}">Usuarios</a>
+              </li>
+              <li>
+                <a href="#">Reservas</a>
+              </li>
+              <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Contenido de la página</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                  <li><a href="#">Actividades turistas</a></li>
+                  <li><a href="#">Actividades voluntarios</a></li>
+                  <li><a href="#">Descuentos</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#">Estadísticas</a>
+              </li>
+              <li>
+                <a href="#">Mensajes de contacto</a>
+              </li>
+            </ul>
+          </nav>
+          <div id="content">
+            <div class="navbar-header">
+              <button type="button" id="sidebarCollapse" class="navbar-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+
+            <!-- CONTENIDO DE LA SECCIÓN -->
+            <div class="contenido_seccion">
+              {% block contenidoSeccion %}{% endblock %}
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTENIDO EXTRA (dialogs) -->
+      {% block contenidoExtra %}{% endblock %}
+
+      {% block footer %}
+      <!--FOOTER-->
+      <footer>
+        <div class="">
+          <div class="container">
+            <div class="">
+              <p>© Copyright 2018, todos los derechos reservados por ONE DAY YES!</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      {% endblock %}
+
+      <!-- BOOTSTRAP - jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script>
+        $(function() {
+          if ($('#bootstrapCssTest').is(':visible')) {
+            $("head").prepend('<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">');
+          }
+        });
+      </script>
+      {% block javascripts %}{% endblock %}
+    </body>
+</html>
