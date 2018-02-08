@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use UserBundle\Entity\User;
+use UserBundle\Entity\Role;
 use UserBundle\Form\UserType;
 
 class UserController extends Controller
@@ -83,5 +84,44 @@ class UserController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('admin_usuarios');
+    }
+
+    /**
+     * @Route("/admin/crearUsuario", name="admin_crearUsuario")
+     */
+    public function crearUsuarioAction(Request $request)
+    {
+        // 1) Build the form
+        $user = new User();
+        $roles = $this->getDoctrine()->getRepository(Role::class)->findAll();
+        $array = array();
+        foreach ($roles as $role) {
+          $array[$role->getRole()]=$role->getRole();
+        }
+        $form = $this->createForm(UserType::class, $user, array('roles' => $array));
+
+        // 2) Handle the submit (will only happen on POST)
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            // 3) Encode the password (you could also do this via Doctrine listener)
+            $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPlainPassword());
+            $user->setPassword($password);
+
+            // 4) Guardar el usuario
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+
+            // ... do any other work - like sending them an email, etc
+            // maybe set a "flash" success message for the user
+
+            return $this->redirectToRoute('ven_a_lamu');
+        }
+
+        return $this->render(
+            '@User/Default/crearUsuario.html.twig',
+            array('form' => $form->createView())
+        );
     }
 }

@@ -241,3 +241,28 @@ ul.CTAs a {
 .table .eliminateIcon{
   height: 15px;
 }
+
+/*PANEL DE FILTROS*/
+.wrapper a.btn-add{
+  background-color: white;
+  border-color: #6c757d;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border: 1px solid lightgray;
+  border-radius: 0.2rem;
+}
+.wrapper a.btn-add:after{
+  content: '\f234';
+  font-family: 'FontAwesome';
+}
+
+.btn-add:hover {
+  color: #fff;
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+.opcions_tabla{
+  margin: 20px 0;
+}

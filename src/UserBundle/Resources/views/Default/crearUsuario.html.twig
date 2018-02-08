@@ -4,13 +4,16 @@
 
 {% block body %}
 <div class="contenido">
-  <h1>Crear cuenta de usuario</h1>
+  <h2>Crear usuario</h2>
   {{ form_start(form) }}
       {{ form_row(form.username) }}
       {{ form_row(form.name) }}
       {{ form_row(form.plainPassword.first) }}
       {{ form_row(form.plainPassword.second) }}
       {{ form_row(form.email) }}
+      <div class="form-group">
+        {{ form_row(form.roles) }}
+      </div>
       {{ form_row(form.guardar) }}
       {{ form_row(form.borrar) }}
   {{ form_end(form) }}
