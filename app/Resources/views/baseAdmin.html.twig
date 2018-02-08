@@ -32,7 +32,7 @@
           </ul>
         </div>
 
-        <div class="container-fluid navPrincipal">
+        <div class="container-fluid navPrincipal navAdministrador">
           <nav class="navbar navbar-expand-sm navbar-light bg-faded">
             <!-- Button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,7 +66,7 @@
       {% endblock %}
 
       <!-- CONTENIDO -->
-      <div class="contenidoJumbotron">
+      <div class="contenidoAdministrador">
         <div class="wrapper">
           <!-- Sidebar Holder -->
           <nav id="sidebar">
@@ -83,8 +83,8 @@
               </li>
               <li>
                 {% if routeSelected == 'admin_actividades' or routeSelected == 'admin_descuentos' %}
-                  <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="true">Contenido de la página</a>
-                  <ul class="collapse list-unstyled show" id="pageSubmenu">
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="true">Contenido de la página</a>
+                <ul class="collapse list-unstyled show" id="pageSubmenu">
                 {% else %}
                   <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Contenido de la página</a>
                   <ul class="collapse list-unstyled" id="pageSubmenu">
