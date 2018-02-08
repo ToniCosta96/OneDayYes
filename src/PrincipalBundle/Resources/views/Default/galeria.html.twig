@@ -1,5 +1,123 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+<link href="{{asset('css/gallery.css')}}" rel="stylesheet" type="text/css" media="all"/>
+
+{% endblock %}
+
 {% block body %}
-  galeria
+{% block javascripts %}
+  <script src="{{asset('js/gallery.js')}}" charset="utf-8"></script>
+{% endblock %}
+<!-- Header -->
+
+
+<!-- MAIN (Center website) -->
+<div class="main">
+
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+  <button class="btn" onclick="filterSelection('app')"> App</button>
+  <button class="btn" onclick="filterSelection('logos')"> Logo</button>
+  <button class="btn" onclick="filterSelection('web')"> Web</button>
+</div>
+
+<!-- Portfolio Gallery Grid -->
+<div class="row">
+  <div class="column col-md-4 app">
+    <div class="content">
+      <div class="hovereffect">
+      <img src="images/portfolios/app/1.jpg" alt="Mountains" style="width:100%">
+      <div class="overlay">
+       <h2>Test</h2>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="column col-md-4 logos">
+    <div class="content">
+      <div class="hovereffect">
+    <img src="images/portfolios/logo/6.jpg" alt="Lights" style="width:100%">
+      <div class="overlay">
+       <h2>Test</h2>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="column col-md-4 web">
+    <div class="content">
+      <div class="hovereffect">
+    <img src="images/portfolios/web/1.jpg" alt="Nature" style="width:100%">
+    <div class="overlay">
+     <h2>Test</h2>
+    </div>
+      </div>
+    </div>
+  </div>
+  <div class="column col-md-4 app">
+    <div class="content">
+      <div class="hovereffect">
+      <img src="images/portfolios/app/2.jpg" alt="Car" style="width:100%">
+      <div class="overlay">
+       <h2>Test</h2>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="column col-md-4 web">
+    <div class="content">
+      <div class="hovereffect">
+    <img src="images/portfolios/web/2.jpg" alt="Car" style="width:100%">
+    <div class="overlay">
+     <h2>Test</h2>
+    </div>
+      </div>
+    </div>
+  </div>
+  <div class="column col-md-4 app">
+    <div class="content">
+      <div class="hovereffect">
+    <img src="images/portfolios/app/3.jpg" alt="Car" style="width:100%">
+    <div class="overlay">
+     <h2>Test</h2>
+    </div>
+      </div>
+    </div>
+  </div>
+  <div class="column col-md-4 logos">
+    <div class="content">
+      <div class="hovereffect">
+      <img src="images/portfolios/logo/2.jpg" alt="Car" style="width:100%">
+      <div class="overlay">
+       <h2>Test</h2>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="column col-md-4 web">
+    <div class="content">
+      <div class="hovereffect">
+    <img src="images/portfolios/web/4.jpg" alt="Car" style="width:100%">
+    <div class="overlay">
+     <h2>Test</h2>
+    </div>
+      </div>
+    </div>
+  </div>
+  <div class="column col-md-4 web">
+    <div class="content">
+      <div class="hovereffect">
+    <img src="images/portfolios/web/3.jpg" alt="Car" style="width:100%">
+    <div class="overlay">
+     <h2>Test</h2>
+    </div>
+      </div>
+    </div>
+  </div>
+<!-- END GRID -->
+</div>
+
+<!-- END MAIN -->
+</div>
+
 {% endblock %}

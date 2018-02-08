@@ -86,8 +86,9 @@ ul>li>a.nav-link:hover {
 
 /* FOOTER */
 footer {
-  padding: 12px;
+  padding: 10px;
   background-color: #2a2928;
+  font-size: 13px;
   color: #888;
   text-align: center;
 }
