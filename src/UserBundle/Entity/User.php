@@ -64,14 +64,6 @@ class User implements UserInterface
      */
     private $email;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="phone", type="string", length=20)
-     * @Assert\NotBlank()
-     */
-    private $phone;
-
       /**
      * @var string
      *
@@ -186,30 +178,6 @@ class User implements UserInterface
         return $this->email;
     }
 
-    /**
-     * Set phone
-     *
-     * @param string $phone
-     *
-     * @return User
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Get phone
-     *
-     * @return string
-     */
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-
     public function getPlainPassword()
     {
         return $this->plainPassword;
@@ -232,11 +200,11 @@ class User implements UserInterface
     }
 
     public function setRoles(array $roles)
-  {
-      $this->roles = $roles;
-      // allows for chaining
-      return $this;
-  }
+    {
+        $this->roles = $roles;
+        // allows for chaining
+        return $this;
+    }
 
     public function eraseCredentials()
     {

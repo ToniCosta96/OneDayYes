@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use UserBundle\Entity\User;
+use PrincipalBundle\Entity\Contacto;
 use PrincipalBundle\Entity\ActividadTurista;
 
 class AdminController extends Controller
@@ -67,8 +68,8 @@ class AdminController extends Controller
      */
     public function adminMensajesAction(Request $request)
     {
-        $repository = $this->getDoctrine()->getRepository(User::class);
-        $usuarios = $repository->findAll();
-        return $this->render('@User/Admin/admin.html.twig', array('usuarios'=>$usuarios));
+        $repository = $this->getDoctrine()->getRepository(Contacto::class);
+        $mensajes = $repository->findAll();
+        return $this->render('@User/Admin/admin.html.twig', array('mensajes'=>$mensajes));
     }
 }

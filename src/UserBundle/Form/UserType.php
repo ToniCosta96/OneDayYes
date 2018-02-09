@@ -21,7 +21,6 @@ class UserType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-      $test[] = array("a"=>2);
         $builder
         ->add('username', TextType::class, array('label' => 'Nombre de usuario: '))
         ->add('name', TextType::class, array('label' => 'Nombre y apellidos: '))
@@ -32,10 +31,13 @@ class UserType extends AbstractType
           ))
         ->add('email', EmailType::class, array('label' => 'Correo electrónico: '))
         ->add('roles', ChoiceType::class, array(
-            'choices'  => $options['roles'],
+            'choices'  => array(
+              'Usuario' => 'ROLE_USER',
+              'Administrador' => 'ROLE_ADMIN'
+            ),
             'multiple'  =>  true,
             'expanded' => false,
-            'attr' => array('class'=>'form-control', 'multiple'=>null)
+            'attr' => array('class'=>'form-control')
         ))
         ->add('guardar', SubmitType::class, array('label' => 'Registrarse'))
         ->add('borrar', ResetType::class, array('label' => 'Resetear valores'));
@@ -46,9 +48,7 @@ class UserType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'UserBundle\Entity\User'
-        ))->setDefault('roles', null)
-        ->setRequired('roles')
-        ->setAllowedTypes('roles', array('array'));
+        ));
     }
 
     /**

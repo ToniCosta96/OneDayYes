@@ -13,6 +13,6 @@
       {{ form_row(form.email) }}
       {{ form_row(form.guardar) }}
       {{ form_row(form.borrar) }}
-  {{ form_end(form) }}
+  {{ form_end(form, {'render_rest': false}) }}
 </div>
 {% endblock %}
