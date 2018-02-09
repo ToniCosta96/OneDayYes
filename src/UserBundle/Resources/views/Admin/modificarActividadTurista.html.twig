@@ -1,0 +1,20 @@
+{% extends "baseAdminSimple.html.twig" %}
+
+{% block title %}Modificar actividad - One day yes{% endblock %}
+
+{% block body %}
+<h2>Modificar actividad</h2>
+<p>
+  Modificar actividad <strong>{{actividad.titulo}}</strong>
+  <br>Id: {{actividad.id}}
+</p>
+<p></p>
+{{ form_start(form) }}
+  {{ form_row(form.titulo) }}
+  {{ form_row(form.descripcion) }}
+  {{ form_row(form.imagen) }}
+  {{ form_row(form.precio) }}
+  {{ form_row(form.guardar, { 'label': 'Guardar' }) }}
+  {{ form_row(form.borrar) }}
+{{ form_end(form) }}
+{% endblock %}

@@ -66,58 +66,8 @@
       {% endblock %}
 
       <!-- CONTENIDO -->
-      <div class="contenidoAdministrador">
-        <div class="wrapper">
-          <!-- Sidebar Holder -->
-          <nav id="sidebar">
-            <div class="sidebar-header">
-              <h3>Administrador</h3>
-            </div>
-
-            <ul class="list-unstyled components">
-              <li class="{% if routeSelected == 'admin_usuarios' %}active{% endif %}">
-                <a href="{{asset('/admin')}}">Usuarios</a>
-              </li>
-              <li class="{% if routeSelected == 'admin_reservas' %}active{% endif %}">
-                <a href="{{asset('/admin/reservas')}}">Reservas</a>
-              </li>
-              <li>
-                {% if routeSelected == 'admin_actividades' or routeSelected == 'admin_descuentos' %}
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="true">Contenido de la página</a>
-                <ul class="collapse list-unstyled show" id="pageSubmenu">
-                {% else %}
-                  <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Contenido de la página</a>
-                  <ul class="collapse list-unstyled" id="pageSubmenu">
-                {% endif %}
-                  <li><a href="{{asset('/admin/actividades_turista')}}">Actividades turistas</a></li>
-                  <li><a href="{{asset('/admin/actividades_voluntario')}}">Actividades voluntarios</a></li>
-                  <li><a href="{{asset('/admin/descuentos')}}">Descuentos</a></li>
-                </ul>
-              </li>
-              <li class="{% if routeSelected == 'admin_estadisticas' %}active{% endif %}">
-                <a href="#">Estadísticas</a>
-              </li>
-              <li class="{% if routeSelected == 'admin_mensajes' %}active{% endif %}">
-                <a href="{{asset('/admin/mensajes')}}">Mensajes de contacto</a>
-              </li>
-            </ul>
-          </nav>
-          <div id="content">
-            <div class="navbar-header">
-              <button type="button" id="sidebarCollapse" class="navbar-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-              </button>
-            </div>
-
-            <!-- CONTENIDO DE LA SECCIÓN -->
-            <div class="contenido_seccion">
-              {% block contenidoSeccion %}{% endblock %}
-            </div>
-
-          </div>
-        </div>
+      <div class="contenidoAdministrador formulario_admin">
+        {% block body %}{% endblock %}
       </div>
 
       <!-- CONTENIDO EXTRA (dialogs) -->

@@ -1,0 +1,15 @@
+{% extends 'baseAdminSimple.html.twig' %}
+
+{% block title %}Crear actividad - One day yes{% endblock %}
+
+{% block body %}
+  <h2>Crear nueva actividad para turistas</h2>
+  {{ form_start(form) }}
+      {{ form_row(form.titulo) }}
+      {{ form_row(form.descripcion) }}
+      {{ form_row(form.imagen) }}
+      {{ form_row(form.precio) }}
+      {{ form_row(form.guardar) }}
+      {{ form_row(form.borrar) }}
+  {{ form_end(form) }}
+{% endblock %}

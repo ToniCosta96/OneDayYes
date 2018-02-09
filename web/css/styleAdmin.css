@@ -243,6 +243,11 @@ ul.CTAs a {
 }
 
 /*PANEL DE FILTROS*/
+/* Opciones superiores de la tabla (añadir registros a la tabla)*/
+.opciones_tabla {
+  margin: 20px 0;
+}
+/* Botones de las opciones superiores*/
 .wrapper a.btn-add{
   background-color: white;
   border-color: #6c757d;
@@ -252,17 +257,16 @@ ul.CTAs a {
   border: 1px solid lightgray;
   border-radius: 0.2rem;
 }
-.wrapper a.btn-add:after{
+.wrapper a.btn-add.add-user:after {
   content: '\f234';
   font-family: 'FontAwesome';
 }
-
 .btn-add:hover {
   color: #fff;
   background-color: #5a6268;
   border-color: #545b62;
 }
 
-.opcions_tabla{
-  margin: 20px 0;
+div.contenidoAdministrador.formulario_admin {
+  padding-left: 30px;
 }

@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use UserBundle\Entity\User;
+use PrincipalBundle\Entity\ActividadTurista;
 
 class AdminController extends Controller
 {
@@ -40,13 +41,15 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/actividades", name="admin_actividades")
+     * @Route("/admin/actividades_{tipo}", name="admin_actividades")
      */
-    public function adminActividadesAction(Request $request)
+    public function adminActividadesAction($tipo)
     {
-        $repository = $this->getDoctrine()->getRepository(User::class);
-        $usuarios = $repository->findAll();
-        return $this->render('@User/Admin/admin.html.twig', array('usuarios'=>$usuarios));
+        if($tipo=="turista"){
+          $actividadesTurista = $this->getDoctrine()->getRepository(ActividadTurista::class)->findAll();
+        }
+
+        return $this->render('@User/Admin/adminActividadesTuristas.html.twig', array('actividades'=>$actividadesTurista));
     }
 
     /**
