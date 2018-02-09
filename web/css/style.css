@@ -2,7 +2,7 @@ body {
 
 }
 
-/* NAV */
+/* --------NAV-------- */
 /*NAV superior*/
 .navSuperior {
   top: -15px;
@@ -36,7 +36,7 @@ body {
   color: #fbefef;
 }
 
-/*NAV superior*/
+/*NAV principal*/
 .navPrincipal {
   width: 100%;
   padding: 0;
@@ -60,21 +60,22 @@ li>a.nav-link {
 ul>li>a.nav-link:hover {
   color: #827973;
 }
-
 /* nav-link active */
 .navbar-light .navbar-nav .active .nav-link {
   color: white;
   font-size: 18px;
 }
 
-/*.first {
-  display: inline-block;
-  margin-right: 50px;
-  color: white;
-  float: right;
-}*/
+/*NAV administrador*/
+.navAdministrador>nav{
+  padding: 0;
+}
 
-/* CONTENT */
+.navAdministrador .logo{
+  height: 66px;
+}
+
+/* --------CONTENT-------- */
 .contenido {
   margin-top: 200px;
   min-height: 66vh;
@@ -82,9 +83,15 @@ ul>li>a.nav-link:hover {
 
 .contenidoJumbotron {
   margin-top: 155px;
+  min-height: 70vh;
 }
 
-/* FOOTER */
+.contenidoAdministrador {
+  margin-top: 121px;
+  min-height: 70vh;
+}
+
+/* --------FOOTER-------- */
 footer {
   padding: 10px;
   background-color: #2a2928;
@@ -92,6 +99,7 @@ footer {
   color: #888;
   text-align: center;
 }
+
 
 /* Back to top button */
 .back-to-top {
