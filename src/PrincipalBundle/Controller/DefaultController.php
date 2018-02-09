@@ -4,6 +4,9 @@ namespace PrincipalBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use PrincipalBundle\Entity\Contacto;
+use Symfony\Component\HttpFoundation\Request;
+use PrincipalBundle\Form\ContactoType;
 
 class DefaultController extends Controller
 {
@@ -26,10 +29,29 @@ class DefaultController extends Controller
     /**
      * @Route("/contacto", name="contacto")
      */
-    public function contactoAction()
-    {
-        return $this->render('@Principal/Default/contacto.html.twig');
-    }
+     public function contactoAction(Request $request)
+ {
+         //dentro de la función añadimos un objeto de nuestra Entity:
+             $cont = new Contacto();
+             $form= $this->createForm(ContactoType::class,$cont);/*Aquí le añadimos la variable del objeto*/
+             $form->handleRequest($request);
+             //A continuación viene una comprobación si se aprieta el botón de enviar:
+             if ($form->isSubmitted() && $form->isValid()) {
+             // $form->getData() holds the submitted values
+             // but, the original `$task` variable has also been updated
+             $entity = $form->getData();
+
+             // ... perform some action, such as saving the task to the database
+             // for example, if Task is a Doctrine entity, save it!
+              $DB = $this->getDoctrine()->getManager();
+              $DB->persist($entity);
+              $DB->flush();
+
+               return $this->redirectToRoute('contacto');
+         }
+ //en el caso de que no haya validacion se mostrara el formulario
+         return $this->render('@Principal/Default/contacto.html.twig',array('form' => $form->createView()));
+     }
 
     /**
      * @Route("/galeria", name="galeria")

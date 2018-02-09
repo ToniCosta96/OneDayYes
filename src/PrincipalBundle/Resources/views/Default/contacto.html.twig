@@ -3,5 +3,13 @@
 {% block title %}Contacto - One day yes{% endblock %}
 
 {% block body %}
-Contacto.
+<div class="contenido">
+{{ form_start(form) }}
+    {{ form_row(form.nombre) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.titulo) }}
+    {{ form_row(form.comentario) }}
+    {{ form_row(form.guardar) }}
+{{ form_end(form) }}
+</div>
 {% endblock %}
