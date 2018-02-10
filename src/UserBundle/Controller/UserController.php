@@ -96,9 +96,45 @@ class UserController extends Controller
         }
 
         return $this->render(
-            '@User/Default/crearUsuario.html.twig',
+            '@User/Admin/crearUsuario.html.twig',
             array('form' => $form->createView())
         );
+    }
+
+    /**
+     * @Route("/admin/modificarUsuario/id={id}", name="admin_modificar_usuario")
+     */
+    public function modificarUsuarioAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(User::class)->find($id);
+        $user->setPlainPassword('plainPassword');
+
+        if (!$user) {
+            throw $this->createNotFoundException(
+                'Ningún usuario coincide con la id '.$id
+            );
+        }
+
+        $form = $this->createForm(UserType::class, $user);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+          // $form->getData() holds the submitted values
+          // but, the original `$user` variable has also been updated
+          $user = $form->getData();
+          $user->setPlainPassword("a");
+
+          // ... perform some action, such as saving the task to the database
+          // for example, if Task is a Doctrine entity, save it!
+          $em = $this->getDoctrine()->getManager();
+          $em->persist($user);
+          $em->flush();
+
+          return $this->redirectToRoute('admin_usuarios');
+        }
+        return $this->render('@User/Admin/modificarUsuario.html.twig',array('form' => $form->createView(),'usuario' => $user));
     }
 
     /**

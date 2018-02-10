@@ -35,12 +35,12 @@ class UserType extends AbstractType
               'Usuario' => 'ROLE_USER',
               'Administrador' => 'ROLE_ADMIN'
             ),
+            'label' => 'Permisos del usuario:',
             'multiple'  =>  true,
-            'expanded' => false,
-            'attr' => array('class'=>'form-control')
+            'expanded' => false
         ))
-        ->add('guardar', SubmitType::class, array('label' => 'Registrarse'))
-        ->add('borrar', ResetType::class, array('label' => 'Resetear valores'));
+        ->add('borrar', ResetType::class, array('label' => 'Resetear valores'))
+        ->add('guardar', SubmitType::class, array('label' => 'Registrarse'));
     }/**
      * {@inheritdoc}
      */

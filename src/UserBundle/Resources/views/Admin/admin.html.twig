@@ -34,12 +34,12 @@
       <td>{% for role in usuario.roles %}{{role}} {% endfor %}</td>
       <td>Fecha de creación</td>
       <td class="sin_estilo separacion">
-        <a href="#" class="btn btn-default">Editar
+        <a href="{{asset('/admin/modificarUsuario/id='~usuario.id)}}" class="btn btn-default">Editar
           <img class="editIcon" src="{{asset('images/icons/edit.svg')}}" alt="" height=18>
         </a>
       </td>
       <td class="sin_estilo">
-        <a href="#" class="btn btn-default" id="btn-eliminar-{{usuario.id}}">Eliminar
+        <a class="btn btn-default" id="btn-eliminar-{{usuario.id}}">Eliminar
           <img class="eliminateIcon" src="{{asset('images/icons/eliminar.svg')}}" height=15 alt="">
         </a>
       </td>
