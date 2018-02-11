@@ -23,7 +23,9 @@ class ActividadVoluntarioType extends AbstractType
         ->add('imagen', TextType::class, array('label' => 'Ruta de imagen: '))
         ->add('guardar', SubmitType::class, array('label' => 'Crear actividad'))
         ->add('borrar', ResetType::class, array('label' => 'Resetear valores'));
-    }/**
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
