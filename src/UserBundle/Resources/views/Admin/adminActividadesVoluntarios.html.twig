@@ -1,6 +1,6 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Administrador - Actividades turistas{% endblock %}
+{% block title %}Administrador - Actividades voluntarios{% endblock %}
 
 {% block contenidoSeccion %}
 <div class="">
@@ -8,7 +8,7 @@
 
   </div>
   <div class="opciones_tabla">
-    <a href="{{asset('/admin/crearActividadTurista')}}" class="btn-add">Añadir actividad </a>
+    <a href="{{asset('/admin/crearActividadVoluntario')}}" class="btn-add">Añadir actividad </a>
   </div>
   <!--TABLA DE USUARIOS-->
   <table class="table table-striped">
@@ -18,7 +18,6 @@
       <th>Título</th>
       <th>Descripción</th>
       <th>Imagen</th>
-      <th>Precio</th>
       <th class="sin_estilo separacion"></th>
       <th class="sin_estilo"></th>
     </tr>
@@ -30,9 +29,8 @@
       <td>{{actividad.titulo}}</td>
       <td>{{actividad.descripcion}}</td>
       <td>{{actividad.imagen}}</td>
-      <td>{{actividad.precio}}</td>
       <td class="sin_estilo separacion">
-        <a href="{{asset('admin/modificarActividadTurista/id='~actividad.id)}}" class="btn btn-default">Editar
+        <a href="{{asset('admin/modificarActividadVoluntario/id='~actividad.id)}}" class="btn btn-default">Editar
           <img class="editIcon" src="{{asset('images/icons/edit.svg')}}" alt="" height=18>
         </a>
       </td>
@@ -103,7 +101,7 @@
     modalConfirm(function(confirm){
       if(confirm){
         //Acciones si el usuario confirma
-        window.location.href = "/admin/eliminarActividadTurista/id="+idSeleccionada;
+        window.location.href = "/admin/eliminarActividadVoluntario/id="+idSeleccionada;
         //asset('/usuarios/eliminarUsuario/id='~usuario.id)
       }else{
         //Acciones si el usuario no confirma

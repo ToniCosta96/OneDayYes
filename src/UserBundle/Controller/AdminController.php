@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use UserBundle\Entity\User;
 use PrincipalBundle\Entity\Contacto;
 use PrincipalBundle\Entity\ActividadTurista;
+use PrincipalBundle\Entity\ActividadVoluntario;
 
 class AdminController extends Controller
 {
@@ -48,9 +49,11 @@ class AdminController extends Controller
     {
         if($tipo=="turista"){
           $actividadesTurista = $this->getDoctrine()->getRepository(ActividadTurista::class)->findAll();
+          return $this->render('@User/Admin/adminActividadesTuristas.html.twig', array('actividades'=>$actividadesTurista));
+        }else if($tipo=="voluntario"){
+          $actividadesVoluntario = $this->getDoctrine()->getRepository(ActividadVoluntario::class)->findAll();
+          return $this->render('@User/Admin/adminActividadesVoluntarios.html.twig', array('actividades'=>$actividadesVoluntario));
         }
-
-        return $this->render('@User/Admin/adminActividadesTuristas.html.twig', array('actividades'=>$actividadesTurista));
     }
 
     /**

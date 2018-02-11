@@ -43,14 +43,6 @@ class ActividadVoluntario
     private $imagen;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="precio", type="decimal", precision=9, scale=3)
-     */
-    private $precio;
-
-
-    /**
      * Get id
      *
      * @return int
@@ -130,29 +122,5 @@ class ActividadVoluntario
     public function getImagen()
     {
         return $this->imagen;
-    }
-
-    /**
-     * Set precio
-     *
-     * @param string $precio
-     *
-     * @return ActividadVoluntario
-     */
-    public function setPrecio($precio)
-    {
-        $this->precio = $precio;
-
-        return $this;
-    }
-
-    /**
-     * Get precio
-     *
-     * @return string
-     */
-    public function getPrecio()
-    {
-        return $this->precio;
     }
 }
