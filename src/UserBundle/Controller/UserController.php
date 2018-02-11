@@ -108,7 +108,7 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository(User::class)->find($id);
-        $user->setPlainPassword('plainPassword');
+        //$user->setPlainPassword('plainPassword');
 
         if (!$user) {
             throw $this->createNotFoundException(
@@ -124,7 +124,7 @@ class UserController extends Controller
           // $form->getData() holds the submitted values
           // but, the original `$user` variable has also been updated
           $user = $form->getData();
-          $user->setPlainPassword("a");
+          //$user->setPlainPassword("a");
 
           // ... perform some action, such as saving the task to the database
           // for example, if Task is a Doctrine entity, save it!

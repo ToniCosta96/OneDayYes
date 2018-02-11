@@ -1,11 +1,22 @@
 div.contenido{
   padding-left: 2%;
 }
+
+/* FORMULARIO */
 form{
   margin-top: 2%;
 }
 button{
   margin-right: 10px;
+}
+
+div.alert{
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  margin-left: 2em;
+}
+div.alert>ul{
+  margin-bottom: 0;
 }
 
 /* Botón de GUARDAR*/

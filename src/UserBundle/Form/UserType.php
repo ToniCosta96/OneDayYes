@@ -27,7 +27,8 @@ class UserType extends AbstractType
         ->add('plainPassword', RepeatedType::class, array(
               'type' => PasswordType::class,
               'first_options'  => array('label' => 'Contraseña: '),
-              'second_options' => array('label' => 'Repite la contraseña: ')
+              'second_options' => array('label' => 'Repite la contraseña: '),
+              'invalid_message' => 'Las contraseñas no coinciden.'
           ))
         ->add('email', EmailType::class, array('label' => 'Correo electrónico: '))
         ->add('roles', ChoiceType::class, array(

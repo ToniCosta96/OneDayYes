@@ -50,10 +50,9 @@ class User implements UserInterface
     private $password;
 
     /**
-      * @Assert\NotBlank()
-      * @Assert\Length(max=4096)
-      */
-      private $plainPassword;
+    * @Assert\Length(max=4096)
+    */
+    private $plainPassword;
 
     /**
      * @var string
@@ -64,7 +63,7 @@ class User implements UserInterface
      */
     private $email;
 
-      /**
+    /**
      * @var string
      *
      * @ORM\Column(name="roles", type="json_array")
