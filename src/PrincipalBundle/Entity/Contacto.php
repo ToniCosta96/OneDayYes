@@ -41,10 +41,10 @@ class Contacto
     /**
      * @var string
      *
-     * @ORM\Column(name="titulo", type="string", length=255)
+     * @ORM\Column(name="asunto", type="string", length=255)
      * @Assert\NotBlank()
      */
-    private $titulo;
+    private $asunto;
 
     /**
      * @var string
@@ -114,27 +114,27 @@ class Contacto
     }
 
     /**
-     * Set titulo
+     * Set asunto
      *
-     * @param string $titulo
+     * @param string $asunto
      *
      * @return contacto
      */
-    public function setTitulo($titulo)
+    public function setAsunto($asunto)
     {
-        $this->titulo = $titulo;
+        $this->asunto = $asunto;
 
         return $this;
     }
 
     /**
-     * Get titulo
+     * Get asunto
      *
      * @return string
      */
-    public function getTitulo()
+    public function getAsunto()
     {
-        return $this->titulo;
+        return $this->asunto;
     }
 
     /**
