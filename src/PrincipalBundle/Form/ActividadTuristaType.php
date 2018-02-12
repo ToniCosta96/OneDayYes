@@ -25,7 +25,9 @@ class ActividadTuristaType extends AbstractType
         ->add('precio', NumberType::class, array('label' => 'Precio: '))
         ->add('guardar', SubmitType::class, array('label' => 'Crear actividad'))
         ->add('borrar', ResetType::class, array('label' => 'Resetear valores'));
-    }/**
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

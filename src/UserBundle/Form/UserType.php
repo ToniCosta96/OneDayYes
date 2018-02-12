@@ -42,7 +42,9 @@ class UserType extends AbstractType
         ))
         ->add('borrar', ResetType::class, array('label' => 'Resetear valores'))
         ->add('guardar', SubmitType::class, array('label' => 'Registrarse'));
-    }/**
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

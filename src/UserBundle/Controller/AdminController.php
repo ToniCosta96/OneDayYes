@@ -73,6 +73,6 @@ class AdminController extends Controller
     {
         $repository = $this->getDoctrine()->getRepository(Contacto::class);
         $mensajes = $repository->findAll();
-        return $this->render('@User/Admin/admin.html.twig', array('mensajes'=>$mensajes));
+        return $this->render('@User/Admin/adminMensajes.html.twig', array('mensajes'=>$mensajes));
     }
 }

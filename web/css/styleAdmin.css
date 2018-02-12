@@ -243,6 +243,9 @@ ul.CTAs a {
 }
 
 /*PANEL DE FILTROS*/
+div.contenidoAdministrador.formulario_admin {
+  padding-left: 30px;
+}
 /* Opciones superiores de la tabla (añadir registros a la tabla)*/
 .opciones_tabla {
   margin: 20px 0;
@@ -267,6 +270,7 @@ ul.CTAs a {
   border-color: #545b62;
 }
 
-div.contenidoAdministrador.formulario_admin {
-  padding-left: 30px;
+.ver-info:after {
+  content: '\f06e';
+  font-family: 'FontAwesome';
 }

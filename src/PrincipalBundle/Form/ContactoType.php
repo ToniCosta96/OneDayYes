@@ -19,23 +19,25 @@ class ContactoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nombre', TextType::class, array('attr' => array(
-              'placeholder' => 'Nombre'),
-      ))
-            ->add('email', EmailType::class, array('attr' => array(
-              'placeholder' => 'Email'),
-      ))
-            ->add('asunto', TextType::class, array('attr' => array(
-              'placeholder' => 'asunto'),
-      ))
-            ->add('comentario', TextareaType::class, array(
-                  'attr' => array('cols' => 50,
-                    'rows' => 5,
-                    'placeholder' => 'Mensaje que quieres enviarme'),
-            ))
-            ->add('guardar', SubmitType::class, array('label' => 'Enviar'))
-            ->add('borrar', ResetType::class, array('label' => 'Resetear valores'));
-    }/**
+        ->add('nombre', TextType::class, array('attr' => array(
+          'placeholder' => 'Nombre')
+        ))
+        ->add('email', EmailType::class, array('attr' => array(
+          'placeholder' => 'Email')
+        ))
+        ->add('asunto', TextType::class, array('attr' => array(
+          'placeholder' => 'asunto')
+        ))
+        ->add('comentario', TextareaType::class, array(
+          'attr' => array('cols' => 50,
+            'rows' => 5,
+            'placeholder' => 'Mensaje que quieres enviarme')
+        ))
+        ->add('guardar', SubmitType::class, array('label' => 'Enviar'))
+        ->add('borrar', ResetType::class, array('label' => 'Resetear valores'));
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
