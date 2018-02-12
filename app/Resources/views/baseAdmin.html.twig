@@ -89,8 +89,8 @@
                   <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Contenido de la página</a>
                   <ul class="collapse list-unstyled" id="pageSubmenu">
                 {% endif %}
-                  <li><a href="{{asset('/admin/actividades')}}">Actividades turistas</a></li>
-                  <li><a href="{{asset('/admin/actividades')}}">Actividades voluntarios</a></li>
+                  <li><a href="{{asset('/admin/actividades_turista')}}">Actividades turistas</a></li>
+                  <li><a href="{{asset('/admin/actividades_voluntario')}}">Actividades voluntarios</a></li>
                   <li><a href="{{asset('/admin/descuentos')}}">Descuentos</a></li>
                 </ul>
               </li>
@@ -145,6 +145,14 @@
           if ($('#bootstrapCssTest').is(':visible')) {
             $("head").prepend('<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">');
           }
+        });
+
+        /* SIDEBAR */
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
         });
       </script>
       {% block javascripts %}{% endblock %}

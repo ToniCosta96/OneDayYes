@@ -44,7 +44,6 @@ class UserController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             // 3) Encode the password (you could also do this via Doctrine listener)
-            //$password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
             $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
 
@@ -59,13 +58,81 @@ class UserController extends Controller
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
 
-            return $this->redirectToRoute('ven_a_lamu');
+            return $this->redirectToRoute('index');
         }
 
         return $this->render(
             '@User/Default/register.html.twig',
             array('form' => $form->createView())
         );
+    }
+
+    /**
+     * @Route("/admin/crearUsuario", name="admin_crearUsuario")
+     */
+    public function crearUsuarioAction(Request $request)
+    {
+        // 1) Build the form
+        $user = new User();
+        $form = $this->createForm(UserType::class, $user);
+
+        // 2) Handle the submit (will only happen on POST)
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            // 3) Encode the password (you could also do this via Doctrine listener)
+            $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPlainPassword());
+            $user->setPassword($password);
+
+            // 4) Guardar el usuario
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+
+            // ... do any other work - like sending them an email, etc
+            // maybe set a "flash" success message for the user
+
+            return $this->redirectToRoute('admin_usuarios');
+        }
+
+        return $this->render(
+            '@User/Admin/crearUsuario.html.twig',
+            array('form' => $form->createView())
+        );
+    }
+
+    /**
+     * @Route("/admin/modificarUsuario/id={id}", name="admin_modificar_usuario")
+     */
+    public function modificarUsuarioAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(User::class)->find($id);
+
+        if (!$user) {
+            throw $this->createNotFoundException(
+                'Ningún usuario coincide con la id '.$id
+            );
+        }
+
+        $form = $this->createForm(UserType::class, $user);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+          // $form->getData() holds the submitted values
+          // but, the original `$user` variable has also been updated
+          $user = $form->getData();
+
+          // ... perform some action, such as saving the task to the database
+          // for example, if Task is a Doctrine entity, save it!
+          $em = $this->getDoctrine()->getManager();
+          $em->persist($user);
+          $em->flush();
+
+          return $this->redirectToRoute('admin_usuarios');
+        }
+        return $this->render('@User/Admin/modificarUsuario.html.twig',array('form' => $form->createView(),'usuario' => $user));
     }
 
     /**
@@ -84,44 +151,5 @@ class UserController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('admin_usuarios');
-    }
-
-    /**
-     * @Route("/admin/crearUsuario", name="admin_crearUsuario")
-     */
-    public function crearUsuarioAction(Request $request)
-    {
-        // 1) Build the form
-        $user = new User();
-        $roles = $this->getDoctrine()->getRepository(Role::class)->findAll();
-        $array = array();
-        foreach ($roles as $role) {
-          $array[$role->getRole()]=$role->getRole();
-        }
-        $form = $this->createForm(UserType::class, $user, array('roles' => $array));
-
-        // 2) Handle the submit (will only happen on POST)
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            // 3) Encode the password (you could also do this via Doctrine listener)
-            $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPlainPassword());
-            $user->setPassword($password);
-
-            // 4) Guardar el usuario
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
-
-            // ... do any other work - like sending them an email, etc
-            // maybe set a "flash" success message for the user
-
-            return $this->redirectToRoute('ven_a_lamu');
-        }
-
-        return $this->render(
-            '@User/Default/crearUsuario.html.twig',
-            array('form' => $form->createView())
-        );
     }
 }
