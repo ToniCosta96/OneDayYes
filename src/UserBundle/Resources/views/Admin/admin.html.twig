@@ -1,11 +1,52 @@
 {% extends 'baseAdmin.html.twig' %}
 
 {% block title %}Administrador - Usuarios{% endblock %}
+{% block stylesheets %}
+  <link href="{{asset('css/jQueryDatePicker.css')}}" rel="stylesheet" type="text/css" media="all"/>
+{% endblock %}
 
 {% block contenidoSeccion %}
 <div class="">
   <div id="filtros" class="panel_filtros">
-
+    <form>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Nombre</label>
+          <input type="text" class="form-control form-control-sm" id="inputNombre" placeholder="Nombre">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail">Email</label>
+          <input type="email" class="form-control form-control-sm" id="inputEmail" placeholder="Email">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-1">
+          <label for="datepicker1">Desde </label>
+        </div>
+        <div class="form-group col-md-5">
+          <input type="text" class="form-control form-control-sm" id="datepicker1">
+        </div>
+        <div class="form-group col-md-1 text-center">
+          <label for="datepicker2"> hasta </label>
+        </div>
+        <div class="form-group col-md-5">
+          <input type="text" class="form-control form-control-sm" id="datepicker2">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label for="inputState">Tipo de usuario</label>
+        </div>
+        <div class="form-group col-md-4">
+          <select id="inputState" class="form-control form-control-sm">
+            <option selected>Todos</option>
+            <option>Usuario</option>
+            <option>Admin</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Filtrar</button>
+    </form>
   </div>
   <div class="opciones_tabla">
     <a href="{{asset('/admin/crearUsuario')}}" class="btn-add add-user">Añadir usuario </a>
@@ -105,6 +146,14 @@
 {% endblock %}
 
 {% block javascripts %}
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
 <script type="text/javascript">
     /* MODAL (yes/no) */
     var idSeleccionada;
@@ -141,5 +190,13 @@
         //Acciones si el usuario no confirma
       }
     });
+
+    /* DATE_PICKER*/
+    $( function() {
+      $( "#datepicker1" ).datepicker();
+    } );
+    $( function() {
+      $( "#datepicker2" ).datepicker();
+    } );
 </script>
 {% endblock %}
