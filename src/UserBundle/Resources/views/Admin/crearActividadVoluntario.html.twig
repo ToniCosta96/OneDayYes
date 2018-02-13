@@ -1,8 +1,10 @@
 {% extends 'baseAdminSimple.html.twig' %}
 
 {% block title %}Crear actividad - One day yes{% endblock %}
+{% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
 
 {% block body %}
+<div class="col-xs-12 col-sm-11 col-md-10 col-lg-10 form-contacto">
   <h2>Crear nueva actividad para los voluntarios</h2>
   {{ form_start(form) }}
       {{ form_row(form.titulo) }}
@@ -11,4 +13,5 @@
       {{ form_row(form.guardar) }}
       {{ form_row(form.borrar) }}
   {{ form_end(form) }}
+</div>
 {% endblock %}

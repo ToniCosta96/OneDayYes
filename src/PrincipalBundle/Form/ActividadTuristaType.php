@@ -23,7 +23,10 @@ class ActividadTuristaType extends AbstractType
         ->add('descripcion', TextType::class, array('label' => 'Descripción: '))
         ->add('imagen', TextType::class, array('label' => 'Ruta de imagen: '))
         ->add('precio', NumberType::class, array('label' => 'Precio: '))
-        ->add('guardar', SubmitType::class, array('label' => 'Crear actividad'))
+        ->add('guardar', SubmitType::class, array(
+          'label' => 'Crear actividad',
+          'attr' => ['class' => 'btn btn-default']
+        ))
         ->add('borrar', ResetType::class, array('label' => 'Resetear valores'));
     }
 

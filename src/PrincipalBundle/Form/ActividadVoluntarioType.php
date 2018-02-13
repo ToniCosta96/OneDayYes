@@ -21,7 +21,10 @@ class ActividadVoluntarioType extends AbstractType
         ->add('titulo', TextType::class, array('label' => 'Título: '))
         ->add('descripcion', TextType::class, array('label' => 'Descripción: '))
         ->add('imagen', TextType::class, array('label' => 'Ruta de imagen: '))
-        ->add('guardar', SubmitType::class, array('label' => 'Crear actividad'))
+        ->add('guardar', SubmitType::class, array(
+          'label' => 'Crear actividad',
+          'attr' => ['class' => 'btn btn-default']
+        ))
         ->add('borrar', ResetType::class, array('label' => 'Resetear valores'));
     }
 
