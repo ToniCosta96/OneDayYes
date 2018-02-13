@@ -56,6 +56,21 @@ class UserController extends Controller
             $em->persist($user);
             $em->flush();
 
+            //Enviar email al usuario que se registra
+            $message = (new \Swift_Message('Bienvenido OneDayYes'))
+              ->setFrom('null@gmail.com')
+              ->setTo($user->getEmail())
+              ->setBody(
+                $this->renderView(
+                  // app/Resources/views/Emails/registration.html.twig
+                  '@User/Default/email.html.twig',
+                  array('user' => $user)
+                ),
+                'text/html'
+              );
+
+              $this->get('mailer')->send($message);
+
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
 
