@@ -19,17 +19,25 @@ class AdminController extends Controller
     {
         $repository = $this->getDoctrine()->getRepository(User::class);
         $usuarios = $repository->findAll();
-        return $this->redirectToRoute('admin_usuarios');
+        return $this->redirectToRoute('admin_usuarios', array('page'=>'1'));
     }
 
     /**
-     * @Route("/admin/usuarios", name="admin_usuarios")
+     * @Route("/admin/usuarios/page={page}", defaults={"page"=1}, name="admin_usuarios")
      */
-    public function adminUsuariosAction(Request $request)
+    public function adminUsuariosAction($page)
     {
         $repository = $this->getDoctrine()->getRepository(User::class);
-        $usuarios = $repository->findAll();
-        return $this->render('@User/Admin/admin.html.twig', array('usuarios'=>$usuarios));
+
+        $limit = 3;
+        $usuarios = $repository->getUsuarios($page, $limit);
+        $usuariosResultado = $usuarios['paginator'];
+
+        $maxPages = ceil($usuarios['paginator']->count() / $limit);
+        return $this->render('@User/Admin/admin.html.twig', array(
+        'usuarios'=>$usuariosResultado,
+        'maxPages'=>$maxPages,
+        'thisPage'=>$page));
     }
 
     /**

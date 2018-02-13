@@ -2,6 +2,8 @@
 
 namespace UserBundle\Repository;
 
+use Doctrine\ORM\Tools\Pagination\Paginator;
+
 /**
  * UsuariosRepository
  *
@@ -10,4 +12,26 @@ namespace UserBundle\Repository;
  */
 class UsuariosRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getUsuarios($currentPage = 1, $limit = 3)
+    {
+        // Create our query
+        $query = $this->createQueryBuilder('usuarios')
+        ->orderBy('usuarios.fechaCreacion', 'ASC')
+        ->getQuery();
+
+        $paginator = $this->paginate($query, $currentPage, $limit);
+
+        return array('paginator' => $paginator, 'query' => $query);
+    }
+
+    public function paginate($dql, $page, $limit)
+    {
+        $paginator = new Paginator($dql);
+
+        $paginator->getQuery()
+        ->setFirstResult($limit * ($page - 1)) // Offset
+        ->setMaxResults($limit); // Limit
+
+        return $paginator;
+    }
 }

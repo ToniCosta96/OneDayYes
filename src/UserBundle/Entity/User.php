@@ -64,12 +64,18 @@ class User implements UserInterface
     private $email;
 
     /**
+     * @var \Datetime
+     *
+     * @ORM\Column(name="fecha_creacion", type="date")
+     */
+    private $fechaCreacion;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="roles", type="json_array")
      */
      private $roles = array();
-
 
     /**
      * Get id
@@ -203,6 +209,30 @@ class User implements UserInterface
         $this->roles = $roles;
         // allows for chaining
         return $this;
+    }
+
+    /**
+     * Set fechacreacion
+     *
+     * @param \Datetime $fechaCreacion
+     *
+     * @return User
+     */
+    public function setFechaCreacion($fechaCreacion)
+    {
+        $this->fechaCreacion = $fechaCreacion;
+
+        return $this;
+    }
+
+    /**
+     * Get fechacreacion
+     *
+     * @return \Datetime
+     */
+    public function getFechaCreacion()
+    {
+        return $this->fechaCreacion;
     }
 
     public function eraseCredentials()

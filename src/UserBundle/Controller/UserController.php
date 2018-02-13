@@ -47,8 +47,9 @@ class UserController extends Controller
             $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
 
-            // 3.1) Guardar rol del usuario
+            // 3.1) Guardar rol del usuario y fecha de creación
             $user->setRoles(["ROLE_USER"]);
+            $user->setFechaCreacion(new \DateTime("now"));
 
             // 4) Guardar el usuario
             $em = $this->getDoctrine()->getManager();
@@ -83,6 +84,9 @@ class UserController extends Controller
             // 3) Encode the password (you could also do this via Doctrine listener)
             $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
+
+            // 3.1) Guardar fecha de creación
+            $user->setFechaCreacion(new \DateTime("now"));
 
             // 4) Guardar el usuario
             $em = $this->getDoctrine()->getManager();

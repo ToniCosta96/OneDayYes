@@ -18,8 +18,8 @@
       <th>Usuario</th>
       <th>Nombre</th>
       <th>Email</th>
-      <th>Rol de usuario</th>
       <th>Fecha de creación</th>
+      <th>Rol de usuario</th>
       <th class="sin_estilo separacion"></th>
       <th class="sin_estilo"></th>
     </tr>
@@ -31,8 +31,8 @@
       <td>{{usuario.username}}</td>
       <td>{{usuario.name}}</td>
       <td>{{usuario.email}}</td>
+      <td>{{usuario.fechaCreacion|date("d/m/Y")}}</td>
       <td>{% for role in usuario.roles %}{{role}} {% endfor %}</td>
-      <td>Fecha de creación</td>
       <td class="sin_estilo separacion">
         <a href="{{asset('/admin/modificarUsuario/id='~usuario.id)}}" class="btn btn-default">Editar
           <img class="editIcon" src="{{asset('images/icons/edit.svg')}}" alt="" height=18>
@@ -47,6 +47,29 @@
     {% endfor %}
   </tbody>
   </table>
+  {% if maxPages > 1 %}
+    <ul>
+        {%if thisPage > 1 %}
+            <li >
+                <a href="{{ path('admin_usuarios', {page: thisPage-1 < 1 ? 1 : thisPage-1}) }}">«</a>
+            </li>
+        {% endif %}
+
+        {# Render each page number #}
+        {% for i in 1..maxPages %}
+            <li>
+                <a href="{{ path('admin_usuarios', {page: i}) }}">{{ i }}</a>
+            </li>
+        {% endfor %}
+
+        {# `»` arrow #}
+        {%if thisPage < maxPages %}
+            <li>
+                <a href="{{ path('admin_usuarios', {page: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}">»</a>
+            </li>
+        {% endif %}
+    </ul>
+{% endif %}
 </div>
 {% endblock %}
 
