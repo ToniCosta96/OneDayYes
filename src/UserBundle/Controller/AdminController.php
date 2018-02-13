@@ -29,7 +29,7 @@ class AdminController extends Controller
     {
         $repository = $this->getDoctrine()->getRepository(User::class);
 
-        $limit = 3;
+        $limit = 50; // Límite de elementos por página
         $usuarios = $repository->getUsuarios($page, $limit);
         $usuariosResultado = $usuarios['paginator'];
 

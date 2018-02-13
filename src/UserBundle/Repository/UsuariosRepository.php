@@ -12,7 +12,7 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
  */
 class UsuariosRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getUsuarios($currentPage = 1, $limit = 3)
+    public function getUsuarios($currentPage, $limit)
     {
         // Create our query
         $query = $this->createQueryBuilder('usuarios')
