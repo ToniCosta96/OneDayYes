@@ -2,21 +2,27 @@
 
 {% block title %}Contacto - One day yes{% endblock %}
 {% block stylesheets %}
+<style media="screen">
+  div.contenido>center>div{
+    border-style: solid;
+    border-radius: 10px;
+  }
+</style>
 {% endblock %}
 {% block body %}
 {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
 <div class="contenido">
 <center>
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 form-group" style="border-style:solid;">
-      <img style="margin-bottom:50px; margin-top:10px;" src="/images/logo-oneDayYes_simplificado.png" alt="">
-{{ form_start(form) }}
-    {{ form_row(form.nombre) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.asunto) }}
-    {{ form_row(form.comentario) }}
-    {{ form_row(form.guardar) }}
-    {{ form_row(form.borrar) }}
-{{ form_end(form) }}
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 form-group">
+      <img style="height:66px; margin-bottom:50px; margin-top:10px;" src="/images/logo-oneDayYes_simplificado.png" alt="">
+      {{ form_start(form) }}
+        {{ form_row(form.nombre) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.asunto) }}
+        {{ form_row(form.comentario) }}
+        {{ form_row(form.guardar) }}
+        {{ form_row(form.borrar) }}
+      {{ form_end(form) }}
   </div>
 </center>
 </div>
