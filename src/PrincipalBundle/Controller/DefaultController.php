@@ -47,6 +47,21 @@ class DefaultController extends Controller
           $DB->persist($entity);
           $DB->flush();
 
+          //Enviar email al soporte
+          $message = (new \Swift_Message($entity->getAsunto()))
+            ->setFrom('null@gmail.com')
+            ->setTo('one.day.yes1@gmail.com')
+            ->setBody(
+              $this->renderView(
+                // app/Resources/views/Emails/registration.html.twig
+                '@Principal/Default/emailContacto.html.twig',
+                array('entity' => $entity)
+              ),
+              'text/html'
+            );
+
+            $this->get('mailer')->send($message);
+
           return $this->redirectToRoute('contacto');
         }
         //en el caso de que no haya validacion se mostrara el formulario
