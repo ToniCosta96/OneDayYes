@@ -1,19 +1,42 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Registro - One day yes{% endblock %}
-
+{% block stylesheets %}
+<style media="screen">
+  div.contenido>center>div{
+    border-style: solid;
+    border-radius: 10px;
+  }
+  .form-contacto {
+    background: #eceeee;
+    border: 1px solid #8cc63f;
+    border-radius: 6px;
+    height: 657px;
+    margin: 20px auto 0;
+    width: 700px;
+  }
+</style>
+{% endblock %}
+{% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
 {% block body %}
 <div class="contenido">
-  <h1>Crear cuenta de usuario</h1>
+  <center>
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-12 form-contacto">
+      <img style="margin-bottom:50px; margin-top:10px;" src="/images/logo-oneDayYes_simplificado.png" alt="">
+  <h1>Crear cuenta de usuario</h1><br>
   {{ form_start(form) }}
       {{ form_row(form.username) }}
       {{ form_row(form.name) }}
       {{ form_row(form.plainPassword.first) }}
       {{ form_row(form.plainPassword.second) }}
       {{ form_row(form.email) }}
-      {{ form_row(form.guardar) }}
-      {{ form_row(form.borrar) }}
+      <div class="row col-xl-8 col-lg-12 col-12">
+        {{ form_widget(form.borrar, { 'attr': {'class': 'btn btn-danger btn-resetear'} }) }}
+        {{ form_widget(form.guardar, { 'attr': {'class': 'btn btn-primary btn-guardar"'} }) }}
+      </div>
       {{ form_row(form._token) }}
   {{ form_end(form, {'render_rest': false}) }}
+  </center>
+</div>
 </div>
 {% endblock %}

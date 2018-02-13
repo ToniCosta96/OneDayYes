@@ -11,24 +11,26 @@
     background: #eceeee;
     border: 1px solid #8cc63f;
     border-radius: 6px;
-    height: 557px;
+    height: auto;
     margin: 20px auto 0;
-    width: 498px;
+    width: 505px;
+    margin-bottom: 10px;
   }
 </style>
 {% endblock %}
-{% block body %}
 {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+{% block body %}
 <div class="contenido">
 <center>
-  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 form-contacto">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-12 form-contacto">
       <img style="height:66px; margin-bottom:50px; margin-top:10px;" src="/images/logo-oneDayYes_simplificado.png" alt="">
+      <h1>Contacto</h1><br>
       {{ form_start(form) }}
         {{ form_row(form.nombre) }}
         {{ form_row(form.email) }}
         {{ form_row(form.asunto) }}
         {{ form_row(form.comentario) }}
-        <div class="row col-xl-7 col-lg-12 col-12">
+        <div class="row col-xl-7 col-lg-12 col-12" style="margin-bottom: 10px;">
           {{ form_widget(form.borrar, { 'attr': {'class': 'btn btn-danger btn-resetear'} }) }}
           {{ form_widget(form.guardar, { 'attr': {'class': 'btn btn-primary btn-guardar"'} }) }}
         </div>
