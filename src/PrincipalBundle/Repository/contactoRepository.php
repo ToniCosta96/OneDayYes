@@ -2,6 +2,8 @@
 
 namespace PrincipalBundle\Repository;
 
+use Doctrine\ORM\Tools\Pagination\Paginator;
+
 /**
  * contactoRepository
  *
@@ -10,4 +12,26 @@ namespace PrincipalBundle\Repository;
  */
 class ContactoRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getContactos($currentPage, $limit)
+    {
+        // Create our query
+        $query = $this->createQueryBuilder('contacto')
+        //->orderBy('contacto.fechaCreacion', 'ASC')
+        ->getQuery();
+
+        $paginator = $this->paginate($query, $currentPage, $limit);
+
+        return array('paginator' => $paginator);
+    }
+
+    public function paginate($dql, $page, $limit)
+    {
+        $paginator = new Paginator($dql);
+
+        $paginator->getQuery()
+        ->setFirstResult($limit * ($page - 1)) // Offset
+        ->setMaxResults($limit); // Limit
+
+        return $paginator;
+    }
 }

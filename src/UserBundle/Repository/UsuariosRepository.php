@@ -21,7 +21,7 @@ class UsuariosRepository extends \Doctrine\ORM\EntityRepository
 
         $paginator = $this->paginate($query, $currentPage, $limit);
 
-        return array('paginator' => $paginator, 'query' => $query);
+        return array('paginator' => $paginator);
     }
 
     public function paginate($dql, $page, $limit)

@@ -47,35 +47,37 @@
     {% endfor %}
   </tbody>
   </table>
+
+  {# PAGINACIÓN #}
   {% if maxPages > 1 %}
-    <ul class="pagination">
-        {%if thisPage > 1 %}
-            <li class="page-item">
-                <a class="page-link" href="{{ path('admin_usuarios', {page: thisPage-1 < 1 ? 1 : thisPage-1}) }}">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Previo</span>
-                </a>
-            </li>
-        {% endif %}
+  <ul class="pagination">
+      {% if thisPage > 1 %}
+          <li class="page-item">
+              <a class="page-link" href="{{ path('admin_usuarios', {page: thisPage-1 < 1 ? 1 : thisPage-1}) }}">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previo</span>
+              </a>
+          </li>
+      {% endif %}
 
-        {# Render each page number #}
-        {% for i in 1..maxPages %}
-            <li class="page-item {% if thisPage == i %}active{% endif %}">
-                <a class="page-link" href="{{ path('admin_usuarios', {page: i}) }}">{{ i }}</a>
-            </li>
-        {% endfor %}
+      {# Render each page number #}
+      {% for i in 1..maxPages %}
+          <li class="page-item {% if thisPage == i %}active{% endif %}">
+              <a class="page-link" href="{{ path('admin_usuarios', {page: i}) }}">{{ i }}</a>
+          </li>
+      {% endfor %}
 
-        {# `»` arrow #}
-        {%if thisPage < maxPages %}
-            <li class="page-item">
-                <a class="page-link" href="{{ path('admin_usuarios', {page: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Siguiente</span>
-                </a>
-            </li>
-        {% endif %}
-    </ul>
-{% endif %}
+      {# `»` arrow #}
+      {% if thisPage < maxPages %}
+          <li class="page-item">
+              <a class="page-link" href="{{ path('admin_usuarios', {page: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Siguiente</span>
+              </a>
+          </li>
+      {% endif %}
+  </ul>
+  {% endif %}
 </div>
 {% endblock %}
 

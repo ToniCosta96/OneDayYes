@@ -75,12 +75,21 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/mensajes", name="admin_mensajes")
+     * @Route("/admin/mensajes/page={page}", defaults={"page"=1}, name="admin_mensajes")
      */
-    public function adminMensajesAction(Request $request)
+    public function adminMensajesAction($page)
     {
+
         $repository = $this->getDoctrine()->getRepository(Contacto::class);
-        $mensajes = $repository->findAll();
-        return $this->render('@User/Admin/adminMensajes.html.twig', array('mensajes'=>$mensajes));
+
+        $limit = 50; // Límite de elementos por página
+        $mensajes = $repository->getContactos($page, $limit);
+        $mensajesResultado = $mensajes['paginator'];
+
+        $maxPages = ceil($mensajes['paginator']->count() / $limit);
+        return $this->render('@User/Admin/adminMensajes.html.twig', array(
+        'mensajes'=>$mensajesResultado,
+        'maxPages'=>$maxPages,
+        'thisPage'=>$page));
     }
 }
