@@ -14,13 +14,11 @@ class UsuariosRepository extends \Doctrine\ORM\EntityRepository
 {
     public function getUsuarios($filtro, $currentPage, $limit)
     {
-        /*$query = $this->createQueryBuilder('u')
-        ->orderBy('u.fechaCreacion', 'ASC')
-        ->getQuery();*/
-
+        // Se crea la consulta
         $query = $this->createQueryBuilder('u')
         ->orderBy('u.fechaCreacion', 'ASC');
 
+        // Se crean los parámetros para la cláusula WHERE
         $stringWhere = "";
         $parameters = [];
         if(!is_null($filtro->getNombre())){
@@ -37,29 +35,29 @@ class UsuariosRepository extends \Doctrine\ORM\EntityRepository
         }
         if(!is_null($filtro->getFechaInicial())){
           if(count($parameters)>0){
-            $stringWhere .= " and u.fechaCreacion > :fecha_inicial";
+            $stringWhere .= " and u.fechaCreacion >= :fecha_inicial";
           }else{
-            $stringWhere = "u.fechaCreacion > :fecha_inicial";
+            $stringWhere = "u.fechaCreacion >= :fecha_inicial";
           }
           $parameters['fecha_inicial'] = $filtro->getFechaInicial();
         }
         if(!is_null($filtro->getFechaFinal())){
           if(count($parameters)>0){
-            $stringWhere .= " and u.fechaCreacion < :fecha_final";
+            $stringWhere .= " and u.fechaCreacion <= :fecha_final";
           }else{
-            $stringWhere = "u.fechaCreacion < :fecha_final";
+            $stringWhere = "u.fechaCreacion <= :fecha_final";
           }
           $parameters['fecha_final'] = $filtro->getFechaFinal();
         }
-
+        // Se crea y añade la cláusula WHERE a la consulta
         if(count($parameters)>0){
           $query
           ->where($stringWhere)
           ->setParameters($parameters);
         }
 
+        // Se crea el Paginator
         $paginator = $this->paginate($query->getQuery(), $currentPage, $limit);
-
 
         return array('paginator' => $paginator);
     }
