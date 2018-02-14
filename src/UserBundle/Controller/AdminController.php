@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use UserBundle\Entity\User;
+use UserBundle\Entity\Filtro;
+use UserBundle\Form\FiltroType;
 use PrincipalBundle\Entity\Contacto;
 use PrincipalBundle\Entity\ActividadTurista;
 use PrincipalBundle\Entity\ActividadVoluntario;
@@ -25,16 +27,24 @@ class AdminController extends Controller
     /**
      * @Route("/admin/usuarios/page={page}", defaults={"page"=1}, name="admin_usuarios")
      */
-    public function adminUsuariosAction($page)
+    public function adminUsuariosAction(Request $request, $page)
     {
+        $filtroUsuario = new Filtro();
+        $form= $this->createForm(FiltroType::class, $filtroUsuario);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+          $filtroUsuario = $form->getData();
+        }
+
         $repository = $this->getDoctrine()->getRepository(User::class);
 
         $limit = 50; // Límite de elementos por página
-        $usuarios = $repository->getUsuarios($page, $limit);
+        $usuarios = $repository->getUsuarios($filtroUsuario, $page, $limit);
         $usuariosResultado = $usuarios['paginator'];
 
         $maxPages = ceil($usuarios['paginator']->count() / $limit);
         return $this->render('@User/Admin/admin.html.twig', array(
+        'form' => $form->createView(),
         'usuarios'=>$usuariosResultado,
         'maxPages'=>$maxPages,
         'thisPage'=>$page));

@@ -8,45 +8,38 @@
 {% block contenidoSeccion %}
 <div class="">
   <div id="filtros" class="panel_filtros">
-    <form>
+    {{ form_start(form) }}
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="inputEmail4">Nombre</label>
-          <input type="text" class="form-control form-control-sm" id="inputNombre" placeholder="Nombre">
+          {{ form_label(form.nombre) }}
+          {{ form_widget(form.nombre) }}
         </div>
         <div class="form-group col-md-6">
-          <label for="inputEmail">Email</label>
-          <input type="email" class="form-control form-control-sm" id="inputEmail" placeholder="Email">
+          {{ form_label(form.email) }}
+          {{ form_widget(form.email) }}
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-1">
-          <label for="datepicker1">Desde </label>
+          {{ form_label(form.fechaInicial) }}
         </div>
         <div class="form-group col-md-5">
-          <input type="text" class="form-control form-control-sm" id="datepicker1">
+          {{ form_widget(form.fechaInicial) }}
         </div>
         <div class="form-group col-md-1 text-center">
-          <label for="datepicker2"> hasta </label>
+          {{ form_label(form.fechaFinal) }}
         </div>
         <div class="form-group col-md-5">
-          <input type="text" class="form-control form-control-sm" id="datepicker2">
+          {{ form_widget(form.fechaFinal) }}
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group col-md-2">
-          <label for="inputState">Tipo de usuario</label>
-        </div>
-        <div class="form-group col-md-4">
-          <select id="inputState" class="form-control form-control-sm">
-            <option selected>Todos</option>
-            <option>Usuario</option>
-            <option>Admin</option>
-          </select>
+        <div class="form-group col-md-12 text-md-right">
+          {{ form_widget(form.borrar) }}
+          {{ form_widget(form.guardar) }}
         </div>
       </div>
-      <button type="submit" class="btn btn-primary">Filtrar</button>
-    </form>
+    {{ form_end(form) }}
   </div>
   <div class="opciones_tabla">
     <a href="{{asset('/admin/crearUsuario')}}" class="btn-add add-user">Añadir usuario </a>
@@ -193,10 +186,7 @@
 
     /* DATE_PICKER*/
     $( function() {
-      $( "#datepicker1" ).datepicker();
-    } );
-    $( function() {
-      $( "#datepicker2" ).datepicker();
+      $( ".js-datepicker" ).datepicker();
     } );
 </script>
 {% endblock %}
