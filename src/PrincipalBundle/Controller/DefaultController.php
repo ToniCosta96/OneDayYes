@@ -46,6 +46,12 @@ class DefaultController extends Controller
           $DB = $this->getDoctrine()->getManager();
           $DB->persist($entity);
           $DB->flush();
+          
+          // mensaje flash aparece al enviar los datos desde contacto
+          $this->addFlash(
+            'notice',
+            'Datos enviados correctamente!'
+        );
 
           //Enviar email al soporte
           $message = (new \Swift_Message($entity->getAsunto()))

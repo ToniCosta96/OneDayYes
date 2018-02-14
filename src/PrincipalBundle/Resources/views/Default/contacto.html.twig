@@ -23,6 +23,12 @@
 <div class="contenido">
 <center>
   <div class="col-xs-8 col-sm-8 col-md-8 col-lg-12 form-contacto">
+    <!-- mensaje flash aparece una vez enviado el formulario -->
+    {% for message in app.flashes('notice') %}
+    <div class="flash-notice" style="background-color:#8cc63f; border-radius: 6px; margin-top: 10px;">
+        {{ message }}
+    </div>
+{% endfor %}
       <img style="height:66px; margin-bottom:50px; margin-top:10px;" src="/images/logo-oneDayYes_simplificado.png" alt="">
       <h1>Contacto</h1><br>
       {{ form_start(form) }}

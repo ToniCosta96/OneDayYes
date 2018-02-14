@@ -26,7 +26,7 @@ class ContactoType extends AbstractType
           'placeholder' => 'Email')
         ))
         ->add('asunto', TextType::class, array('attr' => array(
-          'placeholder' => 'asunto')
+          'placeholder' => 'Asunto')
         ))
         ->add('comentario', TextareaType::class, array(
           'attr' => array('cols' => 50,
