@@ -8,6 +8,7 @@ use PrincipalBundle\Entity\Contacto;
 use Symfony\Component\HttpFoundation\Request;
 use PrincipalBundle\Form\ContactoType;
 
+
 class DefaultController extends Controller
 {
     /**
@@ -19,12 +20,15 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/conocenos", name="conocenos")
+     * @Route("{_locale}/conocenos", name="conocenos")
      */
     public function conocenosAction()
     {
+
         return $this->render('@Principal/Default/conocenos.html.twig');
     }
+
+
 
     /**
      * @Route("/contacto", name="contacto")
@@ -46,7 +50,7 @@ class DefaultController extends Controller
           $DB = $this->getDoctrine()->getManager();
           $DB->persist($entity);
           $DB->flush();
-          
+
           // mensaje flash aparece al enviar los datos desde contacto
           $this->addFlash(
             'notice',
