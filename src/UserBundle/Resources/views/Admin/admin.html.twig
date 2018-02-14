@@ -2,7 +2,7 @@
 
 {% block title %}Administrador - Usuarios{% endblock %}
 {% block stylesheets %}
-  <link href="{{asset('css/jQueryDatePicker.css')}}" rel="stylesheet" type="text/css" media="all"/>
+  <link href="{{asset('css/jQueryDatePicker.min.css')}}" rel="stylesheet" type="text/css" media="all"/>
 {% endblock %}
 
 {% block contenidoSeccion %}
@@ -138,15 +138,9 @@
 </div>
 {% endblock %}
 
+{# JAVASCRIPTS #}
 {% block javascripts %}
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-<script
-  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-  crossorigin="anonymous"></script>
+<script src="{{asset('js/jQueryDatePicker.min.js')}}"></script>
 <script type="text/javascript">
     /* MODAL (yes/no) */
     var idSeleccionada;

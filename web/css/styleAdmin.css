@@ -4,6 +4,17 @@
 
 .contenido_seccion{
   margin-left: 50px;
+  width: 70vw;
+}
+@media (max-width: 768px) {
+  .contenido_seccion {
+    padding-right: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 1100px) {
+  .contenido_seccion {
+    padding-right: 80px;
+  }
 }
 
 .wrapper a, .wrapper a:hover, .wrapper a:focus {

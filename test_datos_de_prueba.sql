@@ -1,10 +1,11 @@
 
 ALTER TABLE usuarios AUTO_INCREMENT = 1;
 INSERT INTO `usuarios` (`username`, `name`, `password`, `email`, `roles`, `fecha_creacion`) VALUES
-('user', 'usuario', '$2y$13$wRFdOegtZzjmpXKq4k40q.pRZmcYK353rNZRmVFV8spm0GG3yFqOS', 'user@gmail.com', '[\"ROLE_USER\"]', '2018-01-05'),
-('admin', 'administrador', '$2y$13$JTfq6JaFursmTwU4CD9R0ONvNveETxLy2Zk1N8egu9fRBuBr0fzZi', 'admin@gmail.com', '[\"ROLE_ADMIN\"]', '2018-01-10'),
-('user2', 'usuario 2', '$2y$13$wRFdOegtZzjmpXKq4k40q.pRZmcYK353rNZRmVFV8spm0GG3yFqOS', 'u2@gmail.com', '[\"ROLE_USER\"]', '2018-01-15'),
-('user3', 'usuario 3', '$2y$13$wRFdOegtZzjmpXKq4k40q.pRZmcYK353rNZRmVFV8spm0GG3yFqOS', 'u3@gmail.com', '[\"ROLE_USER\"]', '2018-01-16');
+('a', 'usuario admin', '$2y$13$wRFdOegtZzjmpXKq4k40q.pRZmcYK353rNZRmVFV8spm0GG3yFqOS', 'admin1@gmail.com', '[\"ROLE_ADMIN\"]', '2018-02-04'),
+('user', 'usuario', '$2y$13$wRFdOegtZzjmpXKq4k40q.pRZmcYK353rNZRmVFV8spm0GG3yFqOS', 'user@gmail.com', '[\"ROLE_USER\"]', '2018-02-05'),
+('admin', 'administrador', '$2y$13$JTfq6JaFursmTwU4CD9R0ONvNveETxLy2Zk1N8egu9fRBuBr0fzZi', 'admin_2@gmail.com', '[\"ROLE_ADMIN\"]', '2018-02-10'),
+('user2', 'usuario 2', '$2y$13$wRFdOegtZzjmpXKq4k40q.pRZmcYK353rNZRmVFV8spm0GG3yFqOS', 'u2@gmail.com', '[\"ROLE_USER\"]', '2018-02-15'),
+('user3', 'usuario 3', '$2y$13$wRFdOegtZzjmpXKq4k40q.pRZmcYK353rNZRmVFV8spm0GG3yFqOS', 'u3@gmail.com', '[\"ROLE_USER\"]', '2018-02-16');
 
 ALTER TABLE contacto AUTO_INCREMENT = 1;
 INSERT INTO `contacto` (`nombre`, `email`, `asunto`, `comentario`) VALUES
