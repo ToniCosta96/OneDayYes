@@ -8,9 +8,10 @@ use Symfony\Component\HttpFoundation\Request;
 use UserBundle\Entity\User;
 use UserBundle\Entity\Filtro;
 use UserBundle\Form\FiltroType;
-use PrincipalBundle\Entity\Contacto;
 use PrincipalBundle\Entity\ActividadTurista;
 use PrincipalBundle\Entity\ActividadVoluntario;
+use PrincipalBundle\Entity\Contacto;
+use PrincipalBundle\Entity\Reserva;
 
 class AdminController extends Controller
 {
@@ -37,12 +38,12 @@ class AdminController extends Controller
         }
 
         $repository = $this->getDoctrine()->getRepository(User::class);
-
+        // PAGINACION
         $limit = 50; // Límite de elementos por página
         $usuarios = $repository->getUsuarios($filtroUsuario, $page, $limit);
         $usuariosResultado = $usuarios['paginator'];
-
         $maxPages = ceil($usuarios['paginator']->count() / $limit);
+
         return $this->render('@User/Admin/admin.html.twig', array(
         'form' => $form->createView(),
         'usuarios'=>$usuariosResultado,
@@ -51,13 +52,21 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/reservas", name="admin_reservas")
+     * @Route("/admin/reservas/page={page}", defaults={"page"=1}, name="admin_reservas")
      */
-    public function adminReservasAction(Request $request)
+    public function adminReservasAction(Request $request, $page)
     {
-        $repository = $this->getDoctrine()->getRepository(User::class);
-        $usuarios = $repository->findAll();
-        return $this->render('@User/Admin/admin.html.twig', array('usuarios'=>$usuarios));
+        $repository = $this->getDoctrine()->getRepository(Reserva::class);
+
+        $limit = 50; // Límite de reservas mostradas por página
+        $reservas = $repository->getUsuarios($page, $limit);
+        $reservasResultado = $reservas['paginator'];
+        $maxPages = ceil($reservas['paginator']->count() / $limit);
+
+        return $this->render('@User/Admin/adminReservas.html.twig', array(
+          'reservas'=>$reservasResultado,
+          'maxPages'=>$maxPages,
+          'thisPage'=>$page));
     }
 
     /**
