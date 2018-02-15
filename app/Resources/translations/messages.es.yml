@@ -1,5 +1,27 @@
+
+contactotitulo1: Titulo Español
+
+#CONTACTO
 %nombre%: Nombre
 %asunto%: Asunto
+%correo%: Correo
 %comentario%: Comentario
 %mensaje%: Mensaje que quieres enviarme
-contactotitulo1: Titulo Español
+%enviar%: Enviar
+%resetear_valores%: Resetear valores
+
+#LOGIN
+Nombre usuario: Nombre usuario
+Contraseña: Contraseña
+Iniciar sesión: Iniciar sesión
+
+#RESGISTRO
+Crear cuenta de usuario: Crear nombre de usuario
+%nombre_usuario%: Nombre de usuario
+%nombre_apellidos%: Nombre y apellidos
+%contraseña%: Contraseña
+%repite_contraseña%: Repetir contraseña
+%contraseñas_no_coinciden%: Contraseñas no coinciden
+%correo%: Correo
+%resetear_valores%: Resetear valores
+%registrarse%: Resgitrarse
