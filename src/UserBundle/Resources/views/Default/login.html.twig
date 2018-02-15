@@ -25,17 +25,17 @@
   <form action="{{ path('login') }}" method="post">
 
     <span class="form-control-feedback"><i class="fa fa-user bigicon" style="color: #8cc63f;"></i></span>
-    <input type="text"  id="username" name="_username" value="{{ last_username }}" placeholder="Nombre Usuario" /><br>
+    <input type="text"  id="username" name="_username" value="{{ last_username }}" placeholder="{% trans %}Nombre usuario{% endtrans %}"/><br>
 
     <span class="input-group-addon"><i class="fa fa-lock bigicon" style="color: #8cc63f;"></i></span>
-    <input type="password" style="margin-top:20px;" id="password" name="_password" placeholder="Contraseña" /><br>
+    <input type="password" style="margin-top:20px;" id="password" name="_password" placeholder="{% trans %}Contraseña{% endtrans %}" /><br>
 
     {#
         If you want to control the URL the user
         is redirected to on success (more details below)
         <input type="hidden" name="_target_path" value="/account" />
     #}
-    <button type="submit" style="background: #8cc63f; border:none; margin-top:20px;">Iniciar sesión</button>
+    <button type="submit" style="background: #8cc63f; border:none; margin-top:20px;">{% trans %}Iniciar sesión{% endtrans %}</button>
   </form>
 </center>
 </div>

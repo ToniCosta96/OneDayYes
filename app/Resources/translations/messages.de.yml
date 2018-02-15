@@ -5,6 +5,19 @@ Registrarse: Registrieren
 Iniciar sesión: Einloggen
 Cerrar sesión: Sitzung schließen
 textoFooter: Copyright
+contactotitulo1: Aktivität
 %nombre%: name
 %asunto%: Thema
-contactotitulo1: Aktivität
+%mensaje%: Nachricht, die Sie senden möchten
+%comentario%: Kommentar
+%Enviar%: senden
+%Resetearvalores%: Werte zurücksetzen
+%Nombredeusuario%: Benutzername
+%Nombreyapellidos%: Vor- und Nachname
+%Contraseña%: Passwort
+%Repitelacontraseña%:
+%Lascontraseñasnocoinciden.%:
+%Correoelectrónico%:
+%Registrarse%: Registrieren
+Nombre usuario: Benutzername
+Contraseña: Passwort

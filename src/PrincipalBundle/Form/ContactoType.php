@@ -43,8 +43,8 @@ class ContactoType extends AbstractType
             'rows' => 5,
             'placeholder' => '%mensaje%')
         ))
-        ->add('guardar', SubmitType::class, array('label' => 'Enviar'))
-        ->add('borrar', ResetType::class, array('label' => 'Resetear valores'));
+        ->add('guardar', SubmitType::class, array('label' => '%Enviar%'))
+        ->add('borrar', ResetType::class, array('label' => '%Resetear valores%'));
     }
 
     /**

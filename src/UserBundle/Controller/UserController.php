@@ -14,7 +14,7 @@ use UserBundle\Form\UserType;
 class UserController extends Controller
 {
     /**
-     * @Route("/usuarios/login", name="login")
+     * @Route("/{_locale}/usuarios/login", name="login")
      */
     public function loginAction(Request $request)
     {
@@ -31,7 +31,7 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/usuarios/registro", name="registro")
+     * @Route("/{_locale}/usuarios/registro", name="registro")
      */
     public function registroAction(Request $request)
     {
