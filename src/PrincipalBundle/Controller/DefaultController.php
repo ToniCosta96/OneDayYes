@@ -12,19 +12,27 @@ use PrincipalBundle\Form\ContactoType;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="index")
+     * @Route("/", name="indexBase")
+     */
+    public function indexBaseAction()
+    {
+        //$this->container->get('translator')->setLocale($request->query->get('_locale'));
+        return $this->redirectToRoute('index', array('_locale' => $this->container->get('translator')->getLocale()));
+    }
+    /**
+     * @Route("/{_locale}", name="index")
      */
     public function indexAction()
     {
+        //$this->container->get('translator')->setLocale($request->query->get('_locale'));
         return $this->render('@Principal/Default/index.html.twig');
     }
 
     /**
-     * @Route("/conocenos", name="conocenos")
+     * @Route("/{_locale}/conocenos", name="conocenos")
      */
     public function conocenosAction()
     {
-
         return $this->render('@Principal/Default/conocenos.html.twig');
     }
 

@@ -17,17 +17,19 @@
       <div class="fixed-top navSuperior">
         <div class="login">
           <ul class="">
+            {% set routeSelected = app.request.attributes.get('_route') %}
+            {% set locale = app.request.getLocale() %}
             {% if app.user %}
               <li><a class="" href="{{asset('/usuarios/logout')}}">{% trans %}Cerrar sesión{% endtrans %}</a></li>
               {% if is_granted('ROLE_ADMIN') %}
               <li><a class="" href="{{asset('/admin')}}">{% trans %}Administrador{% endtrans %}</a></li>
               {% endif %}
             {% else %}
-              <li><a class="" href="{{asset('/usuarios/registro')}}">{% trans %}Registrarse{% endtrans %}</a></li>
-              <li><a class="" href="{{asset('/usuarios/login')}}">{% trans %}Iniciar sesión{% endtrans %}</a></li>
-              <li><a class="" href="{{asset('/usuarios/registro')}}">EN</a></li>
-              <li><a class="" href="{{asset('/usuarios/registro')}}">ES</a></li>
-              <li><a class="" href="{{asset('/usuarios/registro')}}">DE</a></li>
+              <li><a class="" href="{{path('registro', { '_locale': locale })}}">{% trans %}Registrarse{% endtrans %}</a></li>
+              <li><a class="" href="{{path('login', { '_locale': locale })}}">{% trans %}Iniciar sesión{% endtrans %}</a></li>
+              <li><a class="" href="{{path(routeSelected, { '_locale': 'en' })}}">EN</a></li>
+              <li><a class="" href="{{path(routeSelected, { '_locale': 'es' })}}">ES</a></li>
+              <li><a class="" href="{{path(routeSelected, { '_locale': 'de' })}}">DE</a></li>
             {% endif %}
           </ul>
         </div>
@@ -40,23 +42,22 @@
             </button>
 
             <!-- Brand -->
-            <a class="navbar-brand" href="{{asset('/')}}"><img class="logo" src="{{asset('images/logo-oneDayYes.png')}}"></a>
+            <a class="navbar-brand" href="{{path('index', { '_locale': locale })}}"><img class="logo" src="{{asset('images/logo-oneDayYes.png')}}"></a>
 
             <!-- Links -->
             <div class="collapse navbar-collapse" id="nav-content">
               <ul class="navbar-nav nav ml-auto">
-                {% set routeSelected = app.request.attributes.get('_route') %}
                 <li class="nav-item {% if routeSelected == 'index' %}active{% endif %}">
-                  <a class="nav-link" href="{{asset('/')}}">One Day Yes</a>
+                  <a class="nav-link" href="{{path('index', { '_locale': locale })}}">One Day Yes</a>
                 </li>
                 <li class="nav-item {% if routeSelected == 'conocenos' %}active{% endif %}">
-                  <a class="nav-link" href="{{asset('/conocenos')}}">Conocenos</a>
+                  <a class="nav-link" href="{{path('conocenos', { '_locale': locale })}}">Conocenos</a>
                 </li>
                 <li class="nav-item {% if routeSelected == 'ven_a_lamu' %}active{% endif %}">
-                  <a class="nav-link" href="{{asset('/viajes/index')}}">{% trans %}Ven a Lamu{% endtrans %}</a>
+                  <a class="nav-link" href="{{path('ven_a_lamu', { '_locale': locale })}}">{% trans %}Ven a Lamu{% endtrans %}</a>
                 </li>
                 <li class="nav-item {% if routeSelected == 'contacto' %}active{% endif %}">
-                  <a class="nav-link" href="{{asset('/contacto')}}">Contacto</a>
+                  <a class="nav-link" href="{{path('contacto', { '_locale': locale })}}">Contacto</a>
                 </li>
               </ul>
             </div>

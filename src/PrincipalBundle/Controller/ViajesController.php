@@ -12,11 +12,11 @@ class ViajesController extends Controller
      */
     public function viajesAction()
     {
-        return $this->redirectToRoute('ven_a_lamu');
+        return $this->redirectToRoute('ven_a_lamu', array('_locale' => $this->container->get('translator')->getLocale()));
     }
 
     /**
-     * @Route("/viajes/index", name="ven_a_lamu")
+     * @Route("/{_locale}/viajes/index", name="ven_a_lamu")
      */
     public function viajesIndexAction()
     {
@@ -24,7 +24,7 @@ class ViajesController extends Controller
     }
 
     /**
-     * @Route("/viajes/reserva", name="reserva")
+     * @Route("/{_locale}/viajes/reserva", name="reserva")
      */
     public function reservaAction()
     {
