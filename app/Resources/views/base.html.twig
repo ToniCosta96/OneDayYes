@@ -24,7 +24,10 @@
               {% endif %}
             {% else %}
               <li><a class="" href="{{asset('/usuarios/registro')}}">Registrarse</a></li>
-              <li><a class="" href="{{asset('/usuarios/login')}}">Iniciar sesión</a></li>
+              <li><a class="" href="{{asset('/usuarios/login')}}">{% trans %}Iniciar sesión{% endtrans %}</a></li>
+              <li><a class="" href="{{asset('/usuarios/registro')}}">EN</a></li>
+              <li><a class="" href="{{asset('/usuarios/registro')}}">ES</a></li>
+              <li><a class="" href="{{asset('/usuarios/registro')}}">DE</a></li>
             {% endif %}
           </ul>
         </div>

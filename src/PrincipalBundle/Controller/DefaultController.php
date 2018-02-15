@@ -20,7 +20,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("{_locale}/conocenos", name="conocenos")
+     * @Route("/conocenos", name="conocenos")
      */
     public function conocenosAction()
     {
@@ -31,7 +31,7 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("/contacto", name="contacto")
+     * @Route("/{_locale}/contacto", name="contacto")
      */
     public function contactoAction(Request $request)
     {
@@ -79,7 +79,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/galeria", name="galeria")
+     * @Route("/{_locale}/galeria", name="galeria")
      */
     public function galeriaAction()
     {
