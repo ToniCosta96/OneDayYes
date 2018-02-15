@@ -2,6 +2,217 @@
 
 {% block title %}Reserva - One day yes{% endblock %}
 
+{% block stylesheets %}
+<link href="{{asset('css/reserva.css')}}" rel="stylesheet" type="text/css" media="all"/>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+{% endblock %}
+
 {% block body %}
-Reserva.
+
+
+<div class="contenido">
+  <div class="wrapper">
+    <a href="#" id="mostrarTurista" class="button active">Turista</a>
+    <a href="#" id="mostrarVoluntario" class="button">Voluntario</a>
+  </div>
+  <p><span style="color:#5b7b2f;font-weight:bold;padding-left:1%;">1.</span> Selecciona las actividades que deseas realizar.</p>
+
+  <div class="row wow fadeIn" data-wow-duration="1.5s" id="turista">
+        <div class="col-md-12 heroSlider-fixed">
+          <div class="overlay">
+        </div>
+           <!-- Slider -->
+          <div class="slider responsive">
+            <div class="safari seleccion">
+              <div class="textoinside">
+                Safari
+              </div>
+  						<img src="/images/activities/safari.jpg" alt="" />
+  					</div>
+  					<div>
+            <div class="buceo seleccion">
+              <div class="textoinside">
+                Buceo
+              </div>
+  						<img src="/images/activities/buceo.jpg" alt="" />
+  					</div>
+            </div>
+  					<div>
+            <div class="escalada seleccion">
+              <div class="textoinside">
+                Escalada
+              </div>
+  						<img src="/images/activities/escalada.jpg" alt="" />
+              </div>
+  					</div>
+  					<div>
+            <div class="cascada seleccion">
+              <div class="textoinside">
+                Visita
+              </div>
+              <div class="textoinside2">
+                Cascada
+              </div>
+  						<img src="/images/activities/cascada.jpg" alt="" />
+            </div>
+  					</div>
+  					<div>
+            <div class="museo seleccion">
+              <div class="textoinside">
+                Visita
+              </div>
+              <div class="textoinside3">
+                Museo
+              </div>
+  						<img src="/images/activities/museo.jpg" alt="" />
+            </div>
+  					</div>
+  					<div>
+            <div class="rafting seleccion">
+              <div class="textoinside">
+                Rafting
+              </div>
+  						<img src="/images/activities/rafting.jpg" alt="" />
+            </div>
+  					</div>
+  					<div>
+            <div class="golf seleccion">
+              <div class="textoinside">
+                Golf
+              </div>
+  						<img src="/images/activities/golf.jpg" alt="" />
+            </div>
+  					</div>
+  					<div>
+            <div class="barca seleccion">
+              <div class="textoinside">
+                Vuelta
+              </div>
+              <div class="textoinside4">
+                Barca
+              </div>
+  						<img src="/images/activities/barca.jpg" alt="" />
+            </div>
+  					</div>
+          </div>
+  				 <!-- control arrows -->
+  				<div class="prev">
+  					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+  				</div>
+  				<div class="next">
+  					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+  				</div>
+          <hr class="shine">
+
+        </div>
+    </div>
+
+    <div class="row wow fadeIn dontshow" data-wow-duration="1.5s" id="voluntario">
+          <div class="col-md-12 heroSlider-fixed">
+            <div class="overlay">
+          </div>
+             <!-- Slider -->
+            <div class="slider responsive1">
+              <div class="basura seleccion">
+                <div class="textoinside">
+                  Recoger
+                </div>
+                <div class="textoinside4">
+                  Basura
+                </div>
+                <img src="/images/voluntario/basura.jpg" alt="" />
+              </div>
+              <div>
+              <div class="campo seleccion">
+                <div class="textoinside">
+                  Sembrar
+                </div>
+                <img src="/images/voluntario/campo.jpg" alt="" />
+              </div>
+              </div>
+              <div>
+              <div class="colegio seleccion">
+                <div class="textoinside">
+                  Dar
+                </div>
+                <div class="textoinside2">
+                  Clases
+                </div>
+                <img src="/images/voluntario/colegio.jpg" alt="" />
+                </div>
+              </div>
+              <div>
+              <div class="ganado seleccion">
+                <div class="textoinside">
+                  Cuidar
+                </div>
+                <div class="textoinside3">
+                  Ganado
+                </div>
+                <img src="/images/voluntario/ganado.jpg" alt="" />
+              </div>
+              </div>
+              <div>
+              <div class="nadar seleccion">
+                <div class="textoinside">
+                  Enseñar
+                </div>
+                <div class="textoinside5">
+                  Nadar
+                </div>
+                <img src="/images/voluntario/nadar.jpg" alt="" />
+              </div>
+              </div>
+              <div>
+              <div class="cocina seleccion">
+                <div class="textoinside">
+                  Cocinar
+                </div>
+                <img src="/images/voluntario/cocina.jpg" alt="" />
+              </div>
+              </div>
+              <div>
+              <div class="guia seleccion">
+                <div class="textoinside">
+                  Guia
+                </div>
+                <img src="/images/voluntario/guia.jpg" alt="" />
+              </div>
+              </div>
+              <div>
+              <div class="construccion seleccion">
+                <div class="textoinside">
+                  Construir
+                </div>
+                <img src="/images/voluntario/construccion.jpg" alt="" />
+              </div>
+              </div>
+            </div>
+             <!-- control arrows -->
+            <div class="prev1">
+              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </div>
+            <div class="next1">
+              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </div>
+            <hr class="shine">
+
+          </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+  <script src="{{asset('js/main.js')}}" charset="utf-8"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 {% endblock %}
