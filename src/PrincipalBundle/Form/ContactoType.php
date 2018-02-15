@@ -38,9 +38,10 @@ class ContactoType extends AbstractType
           )
         ))
         ->add('comentario', TextareaType::class, array(
+          'label' => '%comentario%',
           'attr' => array('cols' => 50,
             'rows' => 5,
-            'placeholder' => 'Mensaje que quieres enviarme')
+            'placeholder' => '%mensaje%')
         ))
         ->add('guardar', SubmitType::class, array('label' => 'Enviar'))
         ->add('borrar', ResetType::class, array('label' => 'Resetear valores'));
