@@ -20,7 +20,11 @@ class ActividadTuristaType extends AbstractType
     {
         $builder
         ->add('titulo', TextType::class, array('label' => 'Título: '))
+        ->add('tituloEN', TextType::class, array('label' => 'Título en inglés: '))
+        ->add('tituloDE', TextType::class, array('label' => 'Título en alemán: '))
         ->add('descripcion', TextType::class, array('label' => 'Descripción: '))
+        ->add('descripcionEN', TextType::class, array('label' => 'Descripción en inglés: '))
+        ->add('descripcionDE', TextType::class, array('label' => 'Descripción en alemán: '))
         ->add('imagen', TextType::class, array('label' => 'Ruta de imagen: '))
         ->add('precio', NumberType::class, array('label' => 'Precio: '))
         ->add('guardar', SubmitType::class, array(

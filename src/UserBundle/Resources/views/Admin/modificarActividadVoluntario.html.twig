@@ -13,7 +13,11 @@
   <p></p>
   {{ form_start(form) }}
     {{ form_row(form.titulo) }}
+    {{ form_row(form.tituloEN) }}
+    {{ form_row(form.tituloDE) }}
     {{ form_row(form.descripcion) }}
+    {{ form_row(form.descripcionEN) }}
+    {{ form_row(form.descripcionDE) }}
     {{ form_row(form.imagen) }}
     {{ form_row(form.guardar, { 'label': 'Guardar' }) }}
     {{ form_row(form.borrar) }}
