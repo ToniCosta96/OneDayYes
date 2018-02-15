@@ -1,8 +1,12 @@
+# NAV
+
 Ven a Lamu: Come to Lamu
 Contacto: Contact
 Conocenos: Know Us
 Iniciar sesión: Login
 Registrarse: Sign in
+#GALERIA
+
 Primera habitacion construida: First room built
 Cocinando una tarde: Cooking an afternoon
 Así son las barcas:
@@ -10,9 +14,28 @@ Habitación de Mohammed: Mohammed's room
 Columpiandose y disfrutando: Swinging and enjoying
 Pasendo por la costa: Walking along the coast
 Exterior de una habitacon: Exterior of a room
+
+#CONOCENOS
+
 contactotitulo1: Titulo Ingles
 
+#CONTACTO
 %nombre%: Name
 %asunto%: Issue
 %comentario%: Comment
 %mensaje%: Message you want to send
+
+#LOGIN
+Nombre usuario: Username
+Contraseña: Password
+Iniciar sesión: Login
+
+#RESGISTRO
+%nombre_usuario%: Username
+%nombre_apellidos%: Name and surname
+%contraseña%: Password
+%repite_contraseña%: Repeat password
+%contraseñas_no_coinciden.%: Passwords do not match
+%correo%: Email
+%resetear_valores%: Reset values
+%registrarse%: Sign in

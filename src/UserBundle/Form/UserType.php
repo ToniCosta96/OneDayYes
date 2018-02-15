@@ -22,15 +22,15 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('username', TextType::class, array('label' => '%Nombredeusuario%'))
-        ->add('name', TextType::class, array('label' => '%Nombreyapellidos%'))
+        ->add('username', TextType::class, array('label' => '%nombre_usuario%'))
+        ->add('name', TextType::class, array('label' => '%nombre_apellidos%'))
         ->add('plainPassword', RepeatedType::class, array(
               'type' => PasswordType::class,
-              'first_options'  => array('label' => '%Contraseña%'),
-              'second_options' => array('label' => '%Repitelacontraseña%'),
-              'invalid_message' => '%Lascontraseñasnocoinciden.%'
+              'first_options'  => array('label' => '%contraseña%'),
+              'second_options' => array('label' => '%repite_contraseña%'),
+              'invalid_message' => '%contraseñas_no_coinciden%'
           ))
-        ->add('email', EmailType::class, array('label' => '%Correoelectrónico% '))
+        ->add('email', EmailType::class, array('label' => '%correo%'))
         ->add('roles', ChoiceType::class, array(
             'choices'  => array(
               'Usuario' => 'ROLE_USER',
@@ -40,8 +40,8 @@ class UserType extends AbstractType
             'multiple'  =>  true,
             'expanded' => false
         ))
-        ->add('borrar', ResetType::class, array('label' => '%Resetearvalores%'))
-        ->add('guardar', SubmitType::class, array('label' => '%Registrarse%'));
+        ->add('borrar', ResetType::class, array('label' => '%resetear_valores%'))
+        ->add('guardar', SubmitType::class, array('label' => '%registrarse%'));
     }
 
     /**
