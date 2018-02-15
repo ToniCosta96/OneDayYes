@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class ViajesController extends Controller
 {
     /**
-     * @Route("/viajes", name="viajes")
+     * @Route("/{_locale}/viajes", name="viajes")
      */
     public function viajesAction()
     {
