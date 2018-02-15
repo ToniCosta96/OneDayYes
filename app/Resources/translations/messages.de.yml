@@ -1,23 +1,98 @@
+# NAV
 Ven a Lamu: Komm nach Lamu
 Actividades: Aktivitäten
 Contacto: Kontakt
 Registrarse: Registrieren
 Iniciar sesión: Einloggen
 Cerrar sesión: Sitzung schließen
+
+# FOOTER
 textoFooter: Copyright
+# CONOCENOS
 contactotitulo1: Aktivität
+
+# CONTACTO
 %nombre%: name
 %asunto%: Thema
 %mensaje%: Nachricht, die Sie senden möchten
 %comentario%: Kommentar
 %Enviar%: senden
-%Resetearvalores%: Werte zurücksetzen
-%Nombredeusuario%: Benutzername
-%Nombreyapellidos%: Vor- und Nachname
-%Contraseña%: Passwort
-%Repitelacontraseña%:
-%Lascontraseñasnocoinciden.%:
-%Correoelectrónico%:
+%resetear_valores%: Werte zurücksetzen
+
+# REGISTRO
+%nombre_usuario%: Benutzername
+%nombre_apellidos%: Vor- und Nachname
+%contraseña%: Passwort
+%repite_contraseña%: Passwort wiederholen
+%contraseñas_no_coinciden.%: Passwörter entsprechen nicht dem Repeat-Passwort
+%correo%: mail
 %Registrarse%: Registrieren
+Crear cuenta de usuario: Erstellen Sie ein Benutzerkonto
+# LOGIN
 Nombre usuario: Benutzername
 Contraseña: Passwort
+
+# GALERIA
+
+Mostrar todo: Zeig alles
+Habitat: Lebensraum
+Vida: Leben
+Habitaciones: Zimmer
+Primera habitacion construida: Erstes gebautes Zimmer
+Cocinando una tarde: Einen Nachmittag kochen
+Así son las barcas: So sind die Boote
+Habitación de Mohammed: Mohammeds Zimmer
+Columpiandose y disfrutando: Schwingen und genießen
+Paseando por la costa: Schlendern Sie entlang der Küste
+Exterior de una habitacion: Äußeres eines Zimmers
+Cocinando para los niños: Kochen für Kinder
+Paisaje precioso: Schöne Landschaft
+Otra habitación más: Ein anderes Zimmer mehr
+Los pequeños reunidos: Die Kleinen versammelten sich
+Vuelta por el mar: Rückkehr am Meer
+Interior bonito: Schönes Interieur
+Así es la escuela: Das ist die Schule
+Escuela: Schule
+Cocina de una habitación: Küche mit einem Schlafzimmer
+Bebiendo en grupo: Trinken in einer GruppeEinraum Küche
+Zona rural: Ländliches Gebiet
+Zona para descansar: Ruhebereich
+Mohammed con su mascota: Mohammed mit seinem Haustier
+Lugar tranquilo y hermoso: Ruhiger und schöner Ort
+Cafetera de la cocina: Kaffeemaschine
+Inicio de una casa: Start eines Hauses
+Cabañas relucientes: Glänzende Kabinen
+Comedor de una casa: Esszimmer eines Hauses
+Comiendo en grupo: Essen in der Gruppe
+Vista a las cabañas: Blick auf die Hütten
+Zona de descanso: Ruhebereich
+Pequeña preciosa: Schönes kleines Mädchen
+Jardín hermoso: Schöner Garten
+Otra zona para descansar: Ein weiterer Bereich zum Ausruhen
+Cocinando en las cabañas: Kochen in den Kabinen
+Vista al jardín: Gartenblick
+Comedor desde arriba: Esszimmer von oben
+Trabajando en la felicidad: An Glück arbeiten
+Así es el amanecer: Das ist die Morgendämmerung
+Don Omar en su cabaña: Don Omar in seiner Kabine
+El puerto: Der Hafen
+Vistas al mercado: Marktansichten
+Jugando y aprendiendo: Spielen und lernen
+Vista desde el jardín: Aussicht vom Garten
+Charlando en las cabañas: Chatten in den Kabinen
+Todas las casas: Alle Häuser
+Jugando en grupo: In einer Gruppe spielen
+Vista a los hogares: Blick auf Häuser
+Jugando con sus figuras: Mit ihren Figuren spielen
+Preciosa playa: Schöner Strand
+Niños cantando en coro: Kinder singen im Chor
+Desde el jardín al mar: Vom Garten bis zum Meer
+Aprendiendo con juegos: Mit Spielen lernen
+Paradero del puerto: Aufenthaltsort des Hafens
+Begoña divirtiendose: Begoña hat Spaß
+Naturaleza hermosa:  Schöne Natur
+Jugando a futbol: Fußball spielen
+Comedor: Esszimmer
+Lecciones de geografía: Geographieunterricht
+Explorando la naturaleza: Natur entdecken
+Aprendiendo en la escuela: Lernen in der Schule
