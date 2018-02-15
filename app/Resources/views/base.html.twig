@@ -51,13 +51,13 @@
                   <a class="nav-link" href="{{path('index', { '_locale': locale })}}">One Day Yes</a>
                 </li>
                 <li class="nav-item {% if routeSelected == 'conocenos' %}active{% endif %}">
-                  <a class="nav-link" href="{{path('conocenos', { '_locale': locale })}}">Conocenos</a>
+                  <a class="nav-link" href="{{path('conocenos', { '_locale': locale })}}">{% trans %}Conocenos{% endtrans %}</a>
                 </li>
                 <li class="nav-item {% if routeSelected == 'ven_a_lamu' %}active{% endif %}">
                   <a class="nav-link" href="{{path('ven_a_lamu', { '_locale': locale })}}">{% trans %}Ven a Lamu{% endtrans %}</a>
                 </li>
                 <li class="nav-item {% if routeSelected == 'contacto' %}active{% endif %}">
-                  <a class="nav-link" href="{{path('contacto', { '_locale': locale })}}">Contacto</a>
+                  <a class="nav-link" href="{{path('contacto', { '_locale': locale })}}">{% trans %}Contacto{% endtrans %}</a>
                 </li>
               </ul>
             </div>
