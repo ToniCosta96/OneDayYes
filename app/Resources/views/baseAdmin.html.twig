@@ -20,6 +20,7 @@
       <div class="fixed-top navSuperior">
         <div class="login">
           <ul class="">
+            {% set locale = app.request.getLocale() %}
             {% if app.user %}
               <li><a class="" href="{{asset('/usuarios/logout')}}">Cerrar sesión</a></li>
               {% if is_granted('ROLE_ADMIN') %}
@@ -40,23 +41,23 @@
             </button>
 
             <!-- Brand -->
-            <a class="navbar-brand" href="{{asset('/')}}"><img class="logo" src="{{asset('images/logo-oneDayYes.png')}}"></a>
+            <a class="navbar-brand" href="{{path('index', { '_locale': locale })}}"><img class="logo" src="{{asset('images/logo-oneDayYes.png')}}"></a>
 
             <!-- Links -->
             <div class="collapse navbar-collapse" id="nav-content">
               <ul class="navbar-nav nav ml-auto">
 
                 <li class="nav-item {% if routeSelected == 'index' %}active{% endif %}">
-                  <a class="nav-link" href="{{asset('/')}}">One Day Yes</a>
+                  <a class="nav-link" href="{{path('index', { '_locale': locale })}}">One Day Yes</a>
                 </li>
                 <li class="nav-item {% if routeSelected == 'conocenos' %}active{% endif %}">
-                  <a class="nav-link" href="{{asset('/conocenos')}}">Conocenos</a>
+                  <a class="nav-link" href="{{path('conocenos', { '_locale': locale })}}">Conocenos</a>
                 </li>
                 <li class="nav-item {% if routeSelected == 'ven_a_lamu' %}active{% endif %}">
-                  <a class="nav-link" href="{{asset('/viajes/index')}}">Ven a Lamu</a>
+                  <a class="nav-link" href="{{path('ven_a_lamu', { '_locale': locale })}}">Ven a Lamu</a>
                 </li>
                 <li class="nav-item {% if routeSelected == 'contacto' %}active{% endif %}">
-                  <a class="nav-link" href="{{asset('/contacto')}}">Contacto</a>
+                  <a class="nav-link" href="{{path('contacto', { '_locale': locale })}}">Contacto</a>
                 </li>
               </ul>
             </div>
