@@ -4,10 +4,10 @@
 /*Turista*/
 $(document).ready(function(){
    $('#mostrarTurista').on('click',function(){
+     $('#turista').show();
      $("#mostrarVoluntario").removeClass("active");
      $("#mostrarTurista").addClass("active");
      $('#voluntario').hide();
-    $('#turista').show();
    });
 });
 
@@ -130,8 +130,8 @@ $(document).ready(function(){
 /*Slider Reservas*/
 $('.responsive').slick({
   dots: true,
-	prevArrow: $('.prev'),
-	nextArrow: $('.next'),
+	prevArrow: false,
+	nextArrow: false,
   infinite: false,
   speed: 300,
   slidesToShow: 4,
@@ -164,8 +164,8 @@ $('.responsive').slick({
 /*Slider Reservas*/
 $('.responsive1').slick({
   dots: true,
-	prevArrow: $('.prev1'),
-	nextArrow: $('.next1'),
+	prevArrow: false,
+	nextArrow: false,
   infinite: false,
   autoplay: true,
   autoplaySpeed: 100,

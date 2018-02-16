@@ -4,14 +4,27 @@
 
 {% block stylesheets %}
 <link href="{{asset('css/reserva.css')}}" rel="stylesheet" type="text/css" media="all"/>
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-{% endblock %}
+<link href="{{asset('css/jQueryDatePicker.min.css')}}" rel="stylesheet" type="text/css" media="all"/>
 
+<style media="screen">
+  .form-contacto {
+    float: left;
+    background: #eceeee;
+    border: 1px solid #8cc63f;
+    border-radius: 6px;
+    height: auto;
+    width: 500px;
+    margin-left: 5%;
+    margin-bottom: 10px;
+  }
+</style>
+{% endblock %}
+{% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
 {% block body %}
 
 
 <div class="contenido">
-  <div class="wrapper">
+  <div class="">
     <a href="#" id="mostrarTurista" class="button active">Turista</a>
     <a href="#" id="mostrarVoluntario" class="button">Voluntario</a>
   </div>
@@ -95,13 +108,6 @@
             </div>
   					</div>
           </div>
-  				 <!-- control arrows -->
-  				<div class="prev">
-  					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-  				</div>
-  				<div class="next">
-  					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-  				</div>
           <hr class="shine">
 
         </div>
@@ -188,17 +194,11 @@
               </div>
               </div>
             </div>
-             <!-- control arrows -->
-            <div class="prev1">
-              <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            </div>
-            <div class="next1">
-              <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            </div>
             <hr class="shine">
 
           </div>
       </div>
+      <div class="col-xs-12 col-sm-12 col-md-12  col-lg-12 form-contacto" style="margin-left:30%;">
       {{ form_start(form) }}
         {{ form_row(form.fechaReserva) }}
         {{ form_row(form.numeroNoches) }}
@@ -209,27 +209,44 @@
         {{ form_row(form.horaLlegada) }}
         {{ form_row(form.barca) }}
         {{ form_row(form.visitaEscuela) }}
-        {{ form_row(form.actividades) }}
         <div style="margin-bottom: 10px;">
           {{ form_widget(form.borrar, { 'attr': {'class': 'btn btn-danger btn-resetear'} }) }}
           {{ form_widget(form.guardar, { 'attr': {'class': 'btn btn-primary btn-guardar"'} }) }}
         </div>
       {{ form_end(form) }}
+      </div>
   </div>
     </div>
-
-
-
-
-
-
-
-
-
 
 {% endblock %}
 
 {% block javascripts %}
-  <script src="{{asset('js/main.js')}}" charset="utf-8"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="{{asset('js/main.js')}}" charset="utf-8"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="{{asset('js/jQueryDatePicker.min.js')}}"></script>
+
+  <script type="text/javascript">
+  /* DATE_PICKER (en español) */
+  $.datepicker.regional['es'] = {
+  closeText: 'Cerrar',
+  prevText: '< Ant',
+  nextText: 'Sig >',
+  currentText: 'Hoy',
+  monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+  monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+  dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+  dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+  dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+  weekHeader: 'Sm',
+  dateFormat: 'dd/mm/yy',
+  firstDay: 1,
+  isRTL: false,
+  showMonthAfterYear: false,
+  yearSuffix: ''
+  };
+  $.datepicker.setDefaults($.datepicker.regional['es']);
+  $( function() {
+    $( ".js-datepicker" ).datepicker({minDate:0});
+  } );
+  </script>
 {% endblock %}
