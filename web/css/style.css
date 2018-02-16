@@ -20,6 +20,45 @@ body {
   padding-top: 22px;
 }
 
+.slidertext {
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.cuadro {
+ background:rgba(0,0,0,0.3);
+ border-radius: 20px;
+ padding: 10px;
+}
+
+
+
+
+@media (max-width: 420px) {
+  .slidertitle {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .slidertext {
+    font-size: 1em;
+  }
+}
+
+
+@media (max-width: 420px) {
+  .carousel {
+    height: 100%;
+  }
+}
+
+
+.slidertitle {
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+
 .login ul {
   list-style-type: none;
 }
