@@ -29,11 +29,11 @@ DescripcionEscalada: Klettern, im Bergsteigen, ist eine Aktivität, bei der man 
 
 
 # CONTACTO
-%nombre%: name
+%nombre%: Name
 %asunto%: Thema
 %mensaje%: Nachricht, die Sie senden möchten
 %comentario%: Kommentar
-%enviar%: senden
+%enviar%: Senden
 %resetear_valores%: Werte zurücksetzen
 
 # REGISTRO
@@ -42,7 +42,7 @@ DescripcionEscalada: Klettern, im Bergsteigen, ist eine Aktivität, bei der man 
 %contraseña%: Passwort
 %repite_contraseña%: Passwort wiederholen
 %contraseñas_no_coinciden.%: Passwörter entsprechen nicht dem Repeat-Passwort
-%correo%: mail
+%correo%: Mail
 %Registrarse%: Registrieren
 Crear cuenta de usuario: Erstellen Sie ein Benutzerkonto
 # LOGIN
