@@ -8,7 +8,7 @@ html {
           box-sizing: inherit;
 }
 
-img {
+div.row img {
   width: 100%;
   height: auto;
   padding: 5px;
@@ -153,11 +153,7 @@ hr {
   }
 }
 
-
-
 .contenido {
-  min-height: 66vh;
-  margin-top: 25%;
   margin-left: 7%;
   margin-right: 7%;
 }
