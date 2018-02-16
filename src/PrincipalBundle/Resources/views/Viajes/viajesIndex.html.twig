@@ -7,67 +7,62 @@
 {% endblock %}
 
 {% block body %}
-{% block javascripts %}
-    <script src="{{ asset('js/video.js') }}" type="text/javascript"></script>
-{% endblock %}
+
 {% set locale = app.request.getLocale() %}
 <div class="contenidoJumbotron">
   <div id="videosList" class="row">
-           <div class="video col-md-6">
-                  <div class="videoListCopy">
-                      <a href="videodetail.html" class="buttonMore">
-                              <div class="breaker"><div class="line"></div></div>
-                              <div class="buttonContent">
-                                  <div class="linkArrowContainer">
-                                      <div class="iconArrowRight"></div>
-                                      <div class="iconArrowRightTwo"></div>
-                                  </div>
-
-                              </div>
-                          </a>
-                  </div>
-                  <a href="{{path('reserva', { '_locale': locale })}}">
-                    <div class="videoSlate">
-                        <video class="thevideo" loop>
-                          <source src="{{ asset('video/Voluntario.mp4') }}" type="video/ogg">
-                        Your browser does not support the video tag.
-
-                        </video>
-                        <div class="overlay-desc">
-                          <h1>{% trans %}Voluntario{% endtrans %}</h1>
-                        </div>
-                    </div>
-                  </a>
+     <div class="video col-md-6">
+          <div class="videoListCopy">
+            <a href="videodetail.html" class="buttonMore">
+              <div class="breaker"><div class="line"></div></div>
+              <div class="buttonContent">
+                <div class="linkArrowContainer">
+                  <div class="iconArrowRight"></div>
+                  <div class="iconArrowRightTwo"></div>
+                </div>
               </div>
+            </a>
+          </div>
+          <a href="{{path('reserva', { '_locale': locale })}}">
+            <div class="videoSlate">
+                <video class="thevideo" loop>
+                  <source src="{{ asset('video/Voluntario.mp4') }}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <div class="overlay-desc">
+                  <h1>{% trans %}Voluntario{% endtrans %}</h1>
+                </div>
+            </div>
+          </a>
+        </div>
 
-
-                <div class="video col-md-6">
-                  <div class="videoListCopy">
-                      <a href="videodetail.html" class="buttonMore">
-                              <div class="breaker"><div class="line"></div></div>
-                              <div class="buttonContent">
-                                  <div class="linkArrowContainer">
-                                      <div class="iconArrowRight"></div>
-                                      <div class="iconArrowRightTwo"></div>
-                                  </div>
-
-                              </div>
-                          </a>
-                  </div>
-                  <a href="{{path('reserva', { '_locale': locale })}}">
-                    <div class="videoSlate">
-                        <video class="thevideo" loop>
-                          <source src="{{ asset('video/Turista.mp4') }}" type="video/ogg">
-                        Your browser does not support the video tag.
-                        </video>
-                        <div class="overlay-desc">
-                          <h1>{% trans %}Turista{% endtrans %}</h1>
-                        </div>
-                    </div>
-                  </a>
+        <div class="video col-md-6">
+          <div class="videoListCopy">
+            <a href="videodetail.html" class="buttonMore">
+              <div class="breaker"><div class="line"></div></div>
+              <div class="buttonContent">
+                <div class="linkArrowContainer">
+                  <div class="iconArrowRight"></div>
+                  <div class="iconArrowRightTwo"></div>
+                </div>
               </div>
-
-
+            </a>
+          </div>
+          <a href="{{path('reserva', { '_locale': locale })}}">
+            <div class="videoSlate">
+                <video class="thevideo" loop>
+                  <source src="{{ asset('video/Turista.mp4') }}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <div class="overlay-desc">
+                  <h1>{% trans %}Turista{% endtrans %}</h1>
+                </div>
+            </div>
+          </a>
       </div>
+  </div>
 </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/video.js') }}" type="text/javascript"></script>
 {% endblock %}
