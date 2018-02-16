@@ -28,9 +28,10 @@
             {% else %}
               <li><a class="" href="{{path('registro', { '_locale': locale })}}">{% trans %}Registrarse{% endtrans %}</a></li>
               <li><a class="" href="{{path('login', { '_locale': locale })}}">{% trans %}Iniciar sesión{% endtrans %}</a></li>
+              <li><a class="" style="color:#5b7b2f;cursor:default;" href="#">|</a></li>
               <li><a class="" href="{{path(routeSelected, { '_locale': 'en' })}}">EN</a></li>
-              <li><a class="" href="{{path(routeSelected, { '_locale': 'es' })}}">ES</a></li>
               <li><a class="" href="{{path(routeSelected, { '_locale': 'de' })}}">DE</a></li>
+              <li><a class="" href="{{path(routeSelected, { '_locale': 'es' })}}">ES</a></li>
             {% endif %}
           </ul>
         </div>
