@@ -115,6 +115,29 @@ DescripcionEscalada: Climbing, in mountaineering, is an activity that involves m
 Voluntario: Volunteer
 Turista: Tourist
 
+#Reserva
+Turista: Tourist
+Voluntario: Voluntary
+Buceo: Diving
+Escalada: Climbing
+Visita: Visit
+Cascada: Waterfall
+Museo: Museum
+Vuelta: Trip
+Barca: By boat
+Recoger: Collect
+Basura: Trash
+Sembrar: Plant
+Dar: Give
+Clases: Lessons
+Cuidar: Look after
+Ganado: Won
+Enseñar: Teach
+Nadar: Swim
+Cocinar: Cook
+Guia: Guide
+Construir: Build
+
 #CONTACTO
 %nombre%: Name
 %asunto%: Issue
