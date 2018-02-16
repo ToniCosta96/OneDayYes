@@ -61,9 +61,18 @@ class DefaultController extends Controller
 
           // mensaje flash aparece al enviar los datos desde contacto
           $this->addFlash(
+            'notice_en',
+            'Data sent correctly!'
+          );
+          $this->addFlash(
             'notice',
             'Datos enviados correctamente!'
-        );
+          );
+
+          $this->addFlash(
+            'notice_de',
+            'Daten korrekt gesendet!'
+          );
 
           //Enviar email al soporte
           $message = (new \Swift_Message($entity->getAsunto()))

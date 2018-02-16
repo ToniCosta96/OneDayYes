@@ -9,14 +9,31 @@ Cerrar sesión: Sitzung schließen
 # FOOTER
 textoFooter: Copyright
 # CONOCENOS
-contactotitulo1: Aktivität
+Golf: Golf
+Buceo: Tauchen
+Safari: Safari
+Viaje en barca: Bootsfahrt
+Rafting: Rafting
+Visita al museo: Besuch im Museum
+Visita a la cascada: Besuch des Wasserfalls
+Escalada: Klettern
+Reservar Actividad: Aktivität reservieren
+DescripcionSafari: Ausflug zu sehen oder zu fotografieren wilde Tiere, in Afrika oder in anderen Territorien gemacht. Dies ist eine Definition des Wortes Safari. Nun, darum geht es. In diesem Fall natürlich im Bereich anderer Gebiete. Es ist notwendig zu sagen, dass diese Tiere frei sind und dass Besucher ihre eigenen Fahrzeuge nicht verlassen können.
+DescripcionGolf: Golf ist ein Präzisionssport, dessen Ziel es ist, einen Ball in die Löcher zu bringen, die im Feld mit der geringsten Anzahl von Schlägen verteilt sind, wobei eine Art von Schlag zwischen einem Satz von Schuhen verwendet wird, die unterschiedlich sind, da der Kopf von der Schläger hat verschiedene Grade, genauso wie die Stangen unterschiedliche Längen haben. Je niedriger die Anzahl der Grade ist, desto größer ist die Länge der Stange und daher der größere Abstand. Es können maximal 14 Stöcke getragen werden. Der Golfspieler wird Golfer genannt.
+DescripcionBuceo: Tauchen ist eine Unterwasseraktivität, die für Freizeit-, Ermittlungs- oder Sportzwecke genutzt werden kann. Es besteht darin, das Wasser zu betreten und in den ganzen Körper einzutauchen, so dass es im Allgemeinen mit Hilfe einer Art von Ausrüstung verwendet werden kann, die es dem Kind ermöglicht, zum Atmen an die Oberfläche zu kommen
+DescripcionBarca: Es ist eine Aktivität, die darin besteht, die Insel Lamu von einem Boot aus zu erkunden, begleitet von einem Reiseleiter und weiteren Entdeckern. Sie können diese Art von Aktivität auch anfordern, um vom Mount Kenya (beim Klettern) auf die Insel selbst zu gehen. Vergessen Sie nicht, eine gute Kamera mitzubringen, um die bestmöglichen Momente festzuhalten.
+DescripcionRafting: Rafting ist eine Sport- und Freizeitaktivität, die darin besteht, das Flussbett in Richtung der Strömung (flussabwärts) zu durchqueren, normalerweise auf einer Art Boot oder Floß. Normalerweise haben die Flüsse, die man befahren lässt, eine gewisse Turbulenz, man nennt sie auch Wildwasserflüsse, weil diese Farbe charakteristisch für den Schaum ist, der Turbulenzen in den Gewässern erzeugt. Die am häufigsten verwendeten Boote sind das Floß, das Kanu oder das Kajak, die steif sein können.
+DescripcionMuseo: Die Museen von Lamu befinden sich an der Nordküste, gehören zum UNESCO Weltkulturerbe und sind einer der schönsten und ruhigsten Orte auf dem afrikanischen Kontinent. Die Gebäude, die besichtigt werden können, sind das Lamu-Museum, das Fort von Lamu, die Deutsche Post, das Swahili-Haus und die Ruinen von Takwa. Die Nationalen Museen Kenias tragen dazu bei, dieses reiche kulturelle Erbe in Zusammenarbeit mit einigen Partnern des jährlichen Kulturfestivals von Lamu zu bewahren und zu fördern.
+DescripcionCascada: Der Wasserfall ist ein 74 m hoher Wasserfall aus Kenia am Ewaso Ng'iro River, der von den Aberdare Mountains abfließt. Es liegt in der Nähe der Gemeinde Nyahururu, in der Provinz Laikipia, auf 2360 Meter über dem Meeresspiegel. 1883 erreichte der schottische Naturforscher Joseph Thomson als erster Europäer den Wasserfall, weshalb er ihn als seinen Vater bezeichnete. Er war auch der erste Europäer, der in den 1880er Jahren von Mombasa zum Viktoriasee kam. Der Nebel ernährt sich vom dichten, nahen Wald. Besucher können die Fälle von oben sehen, aber es gibt auch einen Weg zum Boden einer Schlucht. Vor den Wasserfällen befinden sich einige der größten Nilpferde in Kenia.
+DescripcionEscalada: Klettern, im Bergsteigen, ist eine Aktivität, bei der man an steil abfallenden Wänden aufsteigt und dabei seine eigene physische und mentale Stärke einsetzt. Klettern gilt als leichter, schwieriger oder unmöglicher Aufstieg (je nach körperlicher Verfassung der Person) mit den unteren Extremitäten (Füße und Beine, in manchen Fällen kann man auch das Knie benutzen, wenn eine Wand vorhanden ist die Seite) und die oberen Extremitäten (Arme und Hände). Beim Klettern gibt es Höhen, die eine erhebliche Gefahr darstellen und mit dem Ziel, Sicherheit zu haben, werden Schutzausrüstungen verwendet.
+
 
 # CONTACTO
-%nombre%: name
+%nombre%: Name
 %asunto%: Thema
 %mensaje%: Nachricht, die Sie senden möchten
 %comentario%: Kommentar
-%enviar%: senden
+%enviar%: Senden
 %resetear_valores%: Werte zurücksetzen
 
 # REGISTRO
@@ -25,7 +42,7 @@ contactotitulo1: Aktivität
 %contraseña%: Passwort
 %repite_contraseña%: Passwort wiederholen
 %contraseñas_no_coinciden.%: Passwörter entsprechen nicht dem Repeat-Passwort
-%correo%: mail
+%correo%: Mail
 %Registrarse%: Registrieren
 Crear cuenta de usuario: Erstellen Sie ein Benutzerkonto
 # LOGIN

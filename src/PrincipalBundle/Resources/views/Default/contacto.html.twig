@@ -18,11 +18,34 @@
 {% endblock %}
 {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
 {% block body %}
+{% set locale = app.request.getLocale() %}
 <div class="contenido">
   <center>
   <div class="col-xs-12 col-sm-12 col-md-6  col-lg-6 form-contacto">
 
     <!-- mensaje flash aparece una vez enviado el formulario -->
+    {% if locale == "es" %}
+    {% for message in app.flashes('notice') %}
+    <div class="flash-notice" style="background-color:#8cc63f; border-radius: 6px; margin-top: 10px;">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% elseif locale == "de" %}
+    {% for message in app.flashes('notice_de') %}
+    <div class="flash-notice" style="background-color:#8cc63f; border-radius: 6px; margin-top: 10px;">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% else %}
+    {% for message in app.flashes('notice_en') %}
+    <div class="flash-notice" style="background-color:#8cc63f; border-radius: 6px; margin-top: 10px;">
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    {% endif %}
+
+
     {% for message in app.flashes('notice') %}
     <div class="flash-notice" style="background-color:#8cc63f; border-radius: 6px; margin-top: 10px;">
         {{ message }}

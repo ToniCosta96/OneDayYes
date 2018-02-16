@@ -8,7 +8,7 @@ html {
           box-sizing: inherit;
 }
 
-img {
+div.row img {
   width: 100%;
   height: auto;
   padding: 5px;
@@ -153,11 +153,7 @@ hr {
   }
 }
 
-
-
 .contenido {
-  min-height: 66vh;
-  margin-top: 25%;
   margin-left: 7%;
   margin-right: 7%;
 }
@@ -192,6 +188,12 @@ hr {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+
+.seleccionViaje{
+  margin: auto;
+  width: 60%;
+  text-align: center;
 }
 
 .button {
@@ -236,7 +238,7 @@ hr {
   transition: all 0.5s ease-in-out;
 }
 
-.wrapper .active {
+.seleccionViaje .active {
   background-color: #8cc63f;
   color: #fff;
   border-bottom: 4px solid #5b7b2f;
