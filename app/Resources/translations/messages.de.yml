@@ -1,3 +1,5 @@
+#BASE
+Derechos: Copyright 2018, alle Rechte vorbehalten ONE DAY YES!
 # NAV
 Ven a Lamu: Komm nach Lamu
 Actividades: Aktivitäten
@@ -5,6 +7,21 @@ Contacto: Kontakt
 Registrarse: Registrieren
 Iniciar sesión: Einloggen
 Cerrar sesión: Sitzung schließen
+
+#INDEX
+Socio: Ein Partner werden
+Colabora: ZUSAMMENARBEITEN, WENN DU KANNST<BR>UND WIE KANNST DU
+Explora: Erkunden
+Naturaleza: REISE UNSERE<BR>IMMENSE NATUR
+Ayudanos: Hilf uns
+Viaja: REISE MIT UNS<BR>UND KENNT UNSERE KULTUR
+Registrate ahora: Melde dich jetzt an
+Visita la galería: Besuchen Sie die Galerie
+Viaja ahora: Reise jetzt
+DescripcionIndex1: ONE DAY YES</span> geboren mit dem Ziel zu garantieren <span style="color:#608035;font-weight:bold;">Bildung und Ernährung</span> der Kinder, die die Twashukuru-Schule bilden, so dass sie konsolidiert werden können, autark werden und lokale Beschäftigung in der <span style="color:#608035;font-weight:bold;">Lamu-Gemeinschaft.</span> Ein lohnendes Projekt. Ein Projekt, das Sie entdecken, wenn Sie es am wenigsten erwarten. Ein Projekt, das <span style="color:#608035;font-weight:bold;">Leben verändern.</span> Ein Projekt, das uns macht <span style="color:#608035;font-weight:bold;">bessere Leute.</span> Ein Projekt für diejenigen, die auf die direkte Wirkung ihres Beitrags wetten. Ein einfaches, vertrautes und lokales Projekt. Ein Projekt mit einem <span style="color:#608035;font-weight:bold;">ganz besondere Philosophie.</span><p>
+DescripcionIndex2: <p>Diese Schule ist mehr als eine Schule. Es ist ein <span style="color:#608035;font-weight:bold;">Lebensprojekt</span> für die Kinder und für die Gemeinschaft von Lamu. Es ist ein authentisches Projekt, das unter dem Schutz der Wiederverwertung entsteht. Die Schule ist gebaut mit <span style="color:#608035;font-weight:bold;">Plastik- und Glasflaschen</span> die aus dem Müll von Lamu gesammelt werden. Es ist eine Schule mit einer nachhaltigen Philosophie, die auf Recycling basiert und bei der Musik zusätzlich eine besondere Rolle spielt.</p>
+DescripcionIndex3: <p>Außerhalb von Lamu konzentriert sich unsere Arbeit auf <span style="color:#608035;font-weight:bold;">sensibilisieren die europäische Bevölkerung.</span> Machen Sie die Swahili-Kultur bekannt und machen Sie das andere Afrika bekannt. Afrika ist froh, aufregend und positiv trotz der Armut, in der sie leben. Afrika, das durchdringt, Afrika stark, groß und schön. <span style="color:#608035;font-weight:bold;">Das Afrika von 37 Kindern in Lamu, die im Leben lächeln.</span> Dazu organisieren wir Aktivitäten aller Art, von Konzerten, Fotoausstellungen, Vorträgen, Konferenzen, Auktionen ... Wo wir dieses Projekt präsentieren und ausprobieren <span style="color:#608035;font-weight:bold;">Gewinnung von Partnern und Finanzierung.</span></p>
+DescripcionIndex4: <p>Aber der wichtigste Teil unserer Sensibilisierungsarbeit ist die Arbeit mit Kindern in Europa. Dazu organisieren wir Workshops mit Kindern in Schulen, um bereits in jungen Jahren für Aufmerksamkeit zu sorgen und die Realität der Kinder in Afrika zu kennen <span style="color:#608035;font-weight:bold;">sie spielen, sie lachen und sie sind glücklich,</span> dass sie eine andere Kultur, andere Sitten, andere Religionen haben ... Und so unterschiedlich sie auch scheinen mögen, am Ende des Weges sind sie Kinder wie diese. <span style="color:#608035;font-weight:bold;">Wir sind alle gleich.</span>  Wir möchten, dass Sie sich ihnen nahe fühlen und nicht unwissend darüber sind, was im Rest der Welt passiert. Ja! Immer mit einem Lächeln im Mund. Aus einer positiven Perspektive, zusammen zu wachsen und <span style="color:#608035;font-weight:bold;">eine bessere Welt zusammen bauen.</span></p>
 
 # FOOTER
 textoFooter: Copyright
@@ -48,6 +65,10 @@ Crear cuenta de usuario: Erstellen Sie ein Benutzerkonto
 # LOGIN
 Nombre usuario: Benutzername
 Contraseña: Passwort
+
+#INDEXVIDEOS
+Voluntario: Freiwilliger
+Turista: Tourist
 
 # GALERIA
 
