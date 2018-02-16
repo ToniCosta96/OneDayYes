@@ -1,0 +1,19 @@
+{% extends "baseAdmin.html.twig" %}
+
+{% block title %}Modificar actividad - One day yes{% endblock %}
+{% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+
+{% block contenidoSeccion %}
+<div class="col-xs-12 col-sm-11 col-md-10 col-lg-10 form-contacto">
+  <h2>Descuento</h2>
+  <p></p>
+  {{ form_start(form) }}
+    {{ form_row(form.descripcion) }}
+    {{ form_row(form.descuento) }}
+    {{ form_row(form.fechaInicial) }}
+    {{ form_row(form.fechaFinal) }}
+    {{ form_row(form.guardar) }}
+    {{ form_row(form.borrar) }}
+  {{ form_end(form) }}
+</div>
+{% endblock %}

@@ -11,7 +11,9 @@ use UserBundle\Form\FiltroType;
 use PrincipalBundle\Entity\ActividadTurista;
 use PrincipalBundle\Entity\ActividadVoluntario;
 use PrincipalBundle\Entity\Contacto;
+use PrincipalBundle\Entity\Descuento;
 use PrincipalBundle\Entity\Reserva;
+use PrincipalBundle\Form\DescuentoType;
 
 class AdminController extends Controller
 {
@@ -88,9 +90,33 @@ class AdminController extends Controller
      */
     public function adminDescuentosAction(Request $request)
     {
-        $repository = $this->getDoctrine()->getRepository(User::class);
-        $usuarios = $repository->findAll();
-        return $this->render('@User/Admin/admin.html.twig', array('usuarios'=>$usuarios));
+        $id = 1;
+        $em = $this->getDoctrine()->getManager();
+        $descuento = $em->getRepository(Descuento::class)->find($id);
+
+        if (!$descuento) {
+            throw $this->createNotFoundException(
+                'Ningun descuento coincide con la id '.$id
+            );
+        }
+
+        $form = $this->createForm(DescuentoType::class, $descuento);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+          // $form->getData() holds the submitted values
+          // but, the original `$descuento` variable has also been updated
+          $descuento = $form->getData();
+
+          $em = $this->getDoctrine()->getManager();
+          $em->persist($descuento);
+          $em->flush();
+
+          return $this->redirectToRoute('admin_descuentos');
+        }
+        return $this->render('@User/Admin/adminDescuento.html.twig',
+            array('form' => $form->createView(), 'actividad'=>$descuento));
     }
 
     /**
