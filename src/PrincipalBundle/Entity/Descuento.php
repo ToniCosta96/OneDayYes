@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Descuento
  *
- * @ORM\Table(name="descuento")
+ * @ORM\Table(name="descuentos")
  * @ORM\Entity(repositoryClass="PrincipalBundle\Repository\DescuentoRepository")
  */
 class Descuento
@@ -45,7 +45,7 @@ class Descuento
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fecha_final", type="date")
+     * @ORM\Column(name="fecha_final", type="date", nullable=true)
      */
     private $fechaFinal;
 

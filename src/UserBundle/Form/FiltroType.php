@@ -43,7 +43,7 @@ class FiltroType extends AbstractType
           'required' => false,
           'widget' => 'single_text',
           'html5' => false,
-          'format' => 'MM/dd/yyyy',
+          'format' => 'dd/MM/yyyy',
           'label' => 'Desde',
           'label_attr' => array('class' => ''),
           'attr' => array(
@@ -53,7 +53,7 @@ class FiltroType extends AbstractType
           'required' => false,
           'widget' => 'single_text',
           'html5' => false,
-          'format' => 'MM/dd/yyyy',
+          'format' => 'dd/MM/yyyy',
           'label' => 'hasta',
           'label_attr' => array('class' => ''),
           'attr' => array(

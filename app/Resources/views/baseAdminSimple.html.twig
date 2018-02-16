@@ -12,8 +12,9 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-      {# Variable con la ruta actual de la página #}
+      {# Variable con la ruta actual de la página y locale #}
       {% set routeSelected = app.request.attributes.get('_route') %}
+      {% set locale = app.request.getLocale() %}
 
       {% block nav %}
       <!--NAV-->
