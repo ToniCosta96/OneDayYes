@@ -35,13 +35,39 @@ function w3RemoveClass(element, name) {
 }
 
 
-// Add active class to the current button (highlight it)
-var btnContainer = document.getElementById("myBtnContainer");
-var btns = btnContainer.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function(){
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
-}
+
+$(document).ready(function(){
+   $('.todo').on('click',function(){
+      $(".habitat1").removeClass("activo1");
+      $(".vida1").removeClass("activo1");
+      $(".habitaciones1").removeClass("activo1");
+      $(".todo").addClass("activo1");
+   });
+});
+
+$(document).ready(function(){
+   $('.habitat1').on('click',function(){
+      $(".todo").removeClass("activo1");
+      $(".vida1").removeClass("activo1");
+      $(".habitaciones1").removeClass("activo1");
+      $(".habitat1").addClass("activo1");
+   });
+});
+
+$(document).ready(function(){
+   $('.vida1').on('click',function(){
+      $(".habitat1").removeClass("activo1");
+      $(".todo").removeClass("activo1");
+      $(".habitaciones1").removeClass("activo1");
+      $(".vida1").addClass("activo1");
+   });
+});
+
+$(document).ready(function(){
+   $('.habitaciones1').on('click',function(){
+      $(".habitat1").removeClass("activo1");
+      $(".vida1").removeClass("activo1");
+      $(".todo").removeClass("activo1");
+      $(".habitaciones1").addClass("activo1");
+   });
+});

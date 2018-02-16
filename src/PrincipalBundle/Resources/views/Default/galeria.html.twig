@@ -7,6 +7,8 @@
 
 {% block body %}
 
+
+
 <!-- Header -->
 
 
@@ -14,10 +16,10 @@
 <div class="main">
 
 <div id="myBtnContainer">
-  <button class="btn active" onclick="filterSelection('all')"> {% trans %}Mostrar todo{% endtrans %}</button>
-  <button class="btn" onclick="filterSelection('habitat')"> {% trans %}Habitat{% endtrans %}</button>
-  <button class="btn" onclick="filterSelection('vida')"> {% trans %}Vida{% endtrans %}</button>
-  <button class="btn" onclick="filterSelection('habitaciones')"> {% trans %}Habitaciones{% endtrans %}</button>
+  <button class="btn activo1 todo" onclick="filterSelection('all')"> {% trans %}Mostrar todo{% endtrans %}</button>
+  <button class="btn habitat1" onclick="filterSelection('habitat')"> {% trans %}Habitat{% endtrans %}</button>
+  <button class="btn vida1" onclick="filterSelection('vida')"> {% trans %}Vida{% endtrans %}</button>
+  <button class="btn habitaciones1" onclick="filterSelection('habitaciones')"> {% trans %}Habitaciones{% endtrans %}</button>
 </div>
 
 <!-- Portfolio Gallery Grid -->
@@ -632,7 +634,6 @@
 </div>
 
 {% endblock %}
-
 
 {% block javascripts %}
   <script src="{{asset('js/gallery.js')}}" charset="utf-8"></script>
