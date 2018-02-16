@@ -199,6 +199,23 @@
 
           </div>
       </div>
+      {{ form_start(form) }}
+        {{ form_row(form.fechaReserva) }}
+        {{ form_row(form.numeroNoches) }}
+        {{ form_row(form.numeroHabitaciones) }}
+        {{ form_row(form.comida) }}
+        {{ form_row(form.cena) }}
+        {{ form_row(form.numeroVuelo) }}
+        {{ form_row(form.horaLlegada) }}
+        {{ form_row(form.barca) }}
+        {{ form_row(form.visitaEscuela) }}
+        {{ form_row(form.actividades) }}
+        <div style="margin-bottom: 10px;">
+          {{ form_widget(form.borrar, { 'attr': {'class': 'btn btn-danger btn-resetear'} }) }}
+          {{ form_widget(form.guardar, { 'attr': {'class': 'btn btn-primary btn-guardar"'} }) }}
+        </div>
+      {{ form_end(form) }}
+  </div>
     </div>
 
 
