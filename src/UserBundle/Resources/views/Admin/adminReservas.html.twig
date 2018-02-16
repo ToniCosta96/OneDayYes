@@ -1,0 +1,202 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Administrador - Usuarios{% endblock %}
+{% block stylesheets %}
+  <link href="{{asset('css/jQueryDatePicker.min.css')}}" rel="stylesheet" type="text/css" media="all"/>
+{% endblock %}
+
+{% block contenidoSeccion %}
+<div class="">
+  {#<div id="filtros" class="panel_filtros">
+    {{ form_start(form) }}
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          {{ form_label(form.nombre) }}
+          {{ form_widget(form.nombre) }}
+        </div>
+        <div class="form-group col-md-6">
+          {{ form_label(form.email) }}
+          {{ form_widget(form.email) }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-1">
+          {{ form_label(form.fechaInicial) }}
+        </div>
+        <div class="form-group col-md-5">
+          {{ form_widget(form.fechaInicial) }}
+        </div>
+        <div class="form-group col-md-1 text-center">
+          {{ form_label(form.fechaFinal) }}
+        </div>
+        <div class="form-group col-md-5">
+          {{ form_widget(form.fechaFinal) }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12 text-md-right">
+          {{ form_widget(form.borrar) }}
+          {{ form_widget(form.guardar) }}
+        </div>
+      </div>
+    {{ form_end(form) }}
+  </div>#}
+  <div class="opciones_tabla">
+  </div>
+  <!--TABLA DE USUARIOS-->
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Tipo</th>
+      <th>Fecha de reserva</th>
+      <th>Número de noches</th>
+      <th>Tipo de habitación</th>
+      <th>Número de habitaciones</th>
+      <th>Comida</th>
+      <th>Cena</th>
+      <th>Número de vuelo</th>
+      <th>Hora de llegada</th>
+      <th>Barca</th>
+      <th>Visita escuela</th>
+      <th>Actividades</th>
+      <th>Descuento</th>
+      <th>Id</th>
+      <th class="sin_estilo separacion"></th>
+      <th class="sin_estilo"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for reserva in reservas %}
+    <tr>
+      <th class="idUsuario" scope="row">{{reserva.id}}</th>
+      <td>{{reserva.tipo}}</td>
+      <td>{{reserva.fechaReserva|date("d/m/Y")}}</td>
+      <td>{{reserva.numeroNoches}}</td>
+      <td>{{reserva.tipoHabitaciones}}</td>
+      <td>{{reserva.numeroHabitaciones}}</td>
+      <td>{{reserva.comida}}</td>
+      <td>{{reserva.cena}}</td>
+      <td>{{reserva.numeroVuelo}}</td>
+      <td>{{reserva.horaLlegada|date('H:i:s')}}</td>
+      <td>{{reserva.barca}}</td>
+      <td>{{reserva.visitaEscuela}}</td>
+      <td>{{reserva.actividades}}</td>
+      <td>{{reserva.descuento}}</td>
+      <td class="sin_estilo separacion">
+        <a href="{{asset('/admin/modificarUsuario/id='~usuario.id)}}" class="btn btn-default">Editar
+          <img class="editIcon" src="{{asset('images/icons/edit.svg')}}" alt="" height=18>
+        </a>
+      </td>
+      <td class="sin_estilo">
+        <a class="btn btn-default" id="btn-eliminar-{{usuario.id}}">Eliminar
+          <img class="eliminateIcon" src="{{asset('images/icons/eliminar.svg')}}" height=15 alt="">
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  </table>
+
+  {# PAGINACIÓN #}
+  {% if maxPages > 1 %}
+  <ul class="pagination">
+      {% if thisPage > 1 %}
+          <li class="page-item">
+              <a class="page-link" href="{{ path('admin_usuarios', {page: thisPage-1 < 1 ? 1 : thisPage-1}) }}">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previo</span>
+              </a>
+          </li>
+      {% endif %}
+
+      {# Render each page number #}
+      {% for i in 1..maxPages %}
+          <li class="page-item {% if thisPage == i %}active{% endif %}">
+              <a class="page-link" href="{{ path('admin_usuarios', {page: i}) }}">{{ i }}</a>
+          </li>
+      {% endfor %}
+
+      {# `»` arrow #}
+      {% if thisPage < maxPages %}
+          <li class="page-item">
+              <a class="page-link" href="{{ path('admin_usuarios', {page: thisPage+1 <= maxPages ? thisPage+1 : thisPage}) }}">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Siguiente</span>
+              </a>
+          </li>
+      {% endif %}
+  </ul>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block contenidoExtra %}
+<!-- MODAL (yes/no) -->
+<div class="modal fade" id="modal-eliminacion">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Eliminar usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="texto-dialogo">El usuario se eliminará.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="modal-btn-si">Eliminar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modal-btn-no">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{# JAVASCRIPTS #}
+{% block javascripts %}
+<script src="{{asset('js/jQueryDatePicker.min.js')}}"></script>
+<script type="text/javascript">
+    /* MODAL (yes/no) */
+    var idSeleccionada;
+    var modalConfirm = function(callback){
+      let filas = $("tbody").children();
+      for(let i=0;i<filas.length;i++){
+        let idUsuario = filas.eq(i).children().eq(0).html();
+        let nombre = filas.eq(i).children().eq(1).html();
+
+        $("#btn-eliminar-"+idUsuario).on("click", function mostrarDialogo($idUsuario, $nombre){
+          $("#texto-dialogo").html("El usuario <strong>"+nombre+"</strong> se eliminará.");
+          $("#modal-eliminacion").modal('show');
+          idSeleccionada = idUsuario;
+        });
+      }
+
+      $("#modal-btn-si").on("click", function aceptarEliminacion(){
+        callback(true);
+        $("#modal-eliminacion").modal('hide');
+      });
+
+      $("#modal-btn-no").on("click", function(){
+        callback(false);
+        $("#modal-eliminacion").modal('hide');
+      });
+
+    };
+
+    modalConfirm(function(confirm){
+      if(confirm){
+        //Acciones si el usuario confirma
+        window.location.href = "/usuarios/eliminarUsuario/id="+idSeleccionada;
+      }else{
+        //Acciones si el usuario no confirma
+      }
+    });
+
+    /* DATE_PICKER*/
+    $( function() {
+      $( ".js-datepicker" ).datepicker();
+    } );
+</script>
+{% endblock %}
