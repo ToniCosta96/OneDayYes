@@ -278,28 +278,4 @@ class User implements UserInterface
         return $this->codigoValidacion;
     }
 
-
-    /**
-     * Set verificado
-     *
-     * @param boolean $verificado
-     *
-     * @return User
-     */
-    public function setVerificado($verificado)
-    {
-        $this->verificado = $verificado;
-
-        return $this;
-    }
-
-    /**
-     * Get verificado
-     *
-     * @return boolean
-     */
-    public function getVerificado()
-    {
-        return $this->verificado;
-    }
 }

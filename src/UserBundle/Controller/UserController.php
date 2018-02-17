@@ -172,4 +172,18 @@ class UserController extends Controller
 
         return $this->redirectToRoute('admin_usuarios');
     }
+    /**
+     * @Route("/usuarios/verificar/{id}/{hash}", name="verificar")
+     */
+    public function verificarUsuarioAction($id, $hash)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $usuario = $em->getRepository(User::class)->find($id);
+        if ($usuario->getCodigoValidacion()==$hash){
+          $usuario->setVerificado("1");
+          $em->persist($usuario);
+          $em->flush();
+        }
+        return $this->render('@User/Default/verificar.html.twig');
+    }
 }
