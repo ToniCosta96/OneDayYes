@@ -43,20 +43,26 @@ class UserController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
+            // Se guarda el encoder en una variable
+            $encoder = $this->get('security.password_encoder');
+
             // 3) Encode the password (you could also do this via Doctrine listener)
-            $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPlainPassword());
+            $password = $this->$encoder->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
 
-            // 3.1) Guardar rol del usuario y fecha de creación
+            // 3.1) Guardar rol del usuario, fecha de creación y el código de validación
             $user->setRoles(["ROLE_USER"]);
             $user->setFechaCreacion(new \DateTime("now"));
-            $encoded = $encoder->encodePassword($user, $user->getId()+random_int(1000, 10000));
-            $user->setCodigoValidacion($encoded);
+            $codigoValidacion = $encoder->encodePassword($user, $user->getId()+random_int(1000, 10000));
+            $user->setCodigoValidacion($codigoValidacion);
 
             // 4) Guardar el usuario
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+
+            // ... do any other work - like sending them an email, etc
+            // maybe set a "flash" success message for the user
 
             //Enviar email al usuario que se registra
             $message = (new \Swift_Message('Bienvenido OneDayYes'))
@@ -72,9 +78,6 @@ class UserController extends Controller
               );
 
               $this->get('mailer')->send($message);
-
-            // ... do any other work - like sending them an email, etc
-            // maybe set a "flash" success message for the user
 
             return $this->redirectToRoute('index');
         }
