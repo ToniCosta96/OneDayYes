@@ -43,18 +43,14 @@ class UserController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // Se guarda el encoder en una variable
-            $encoder = $this->get('security.password_encoder');
-
             // 3) Encode the password (you could also do this via Doctrine listener)
-            $password = $this->$encoder->encodePassword($user, $user->getPlainPassword());
+            $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
 
             // 3.1) Guardar rol del usuario, fecha de creación y el código de validación
             $user->setRoles(["ROLE_USER"]);
             $user->setFechaCreacion(new \DateTime("now"));
-            $codigoValidacion = $encoder->encodePassword($user, $user->getId()+random_int(1000, 10000));
-            $user->setCodigoValidacion($codigoValidacion);
+            $user->setCodigoValidacion(strlen($user->getUsername()).random_int(100, 9999));
 
             // 4) Guardar el usuario
             $em = $this->getDoctrine()->getManager();
