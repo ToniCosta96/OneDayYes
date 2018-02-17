@@ -77,6 +77,13 @@ class User implements UserInterface
      */
      private $roles = array();
 
+     /**
+      * @var string
+      *
+      * @ORM\Column(name="codigo_validacion", type="string", length=64, nullable=true)
+      */
+     private $codigoValidacion;
+
     /**
      * Get id
      *
@@ -192,25 +199,6 @@ class User implements UserInterface
         $this->plainPassword = $password;
     }
 
-    public function getSalt()
-    {
-        // The bcrypt algorithm doesn't require a separate salt.
-        // You *may* need a real salt if you choose a different encoder.
-        return null;
-    }
-
-    public function getRoles()
-    {
-      return $this->roles;
-    }
-
-    public function setRoles(array $roles)
-    {
-        $this->roles = $roles;
-        // allows for chaining
-        return $this;
-    }
-
     /**
      * Set fechacreacion
      *
@@ -235,9 +223,52 @@ class User implements UserInterface
         return $this->fechaCreacion;
     }
 
+    public function getSalt()
+    {
+        // The bcrypt algorithm doesn't require a separate salt.
+        // You *may* need a real salt if you choose a different encoder.
+        return null;
+    }
+
+    public function getRoles()
+    {
+      return $this->roles;
+    }
+
+    public function setRoles(array $roles)
+    {
+        $this->roles = $roles;
+        // allows for chaining
+        return $this;
+    }
+
     public function eraseCredentials()
     {
 
+    }
+
+    /**
+     * Set codigoValidacion
+     *
+     * @param string $codigoValidacion
+     *
+     * @return User
+     */
+    public function setCodigoValidacion($codigoValidacion)
+    {
+        $this->codigoValidacion = $codigoValidacion;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoValidacion
+     *
+     * @return string
+     */
+    public function getCodigoValidacion()
+    {
+        return $this->codigoValidacion;
     }
 
 }

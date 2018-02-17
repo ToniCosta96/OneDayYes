@@ -50,6 +50,8 @@ class UserController extends Controller
             // 3.1) Guardar rol del usuario y fecha de creación
             $user->setRoles(["ROLE_USER"]);
             $user->setFechaCreacion(new \DateTime("now"));
+            $encoded = $encoder->encodePassword($user, $user->getId()+random_int(1000, 10000));
+            $user->setCodigoValidacion($encoded);
 
             // 4) Guardar el usuario
             $em = $this->getDoctrine()->getManager();

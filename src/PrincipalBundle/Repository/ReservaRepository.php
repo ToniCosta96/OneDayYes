@@ -12,7 +12,7 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
  */
 class ReservaRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getUsuarios($currentPage, $limit)
+    public function getReservas($currentPage, $limit)
     {
         // Se crea la consulta
         $query = $this->createQueryBuilder('r');

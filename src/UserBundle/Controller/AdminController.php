@@ -61,7 +61,7 @@ class AdminController extends Controller
         $repository = $this->getDoctrine()->getRepository(Reserva::class);
 
         $limit = 50; // Límite de reservas mostradas por página
-        $reservas = $repository->getUsuarios($page, $limit);
+        $reservas = $repository->getReservas($page, $limit);
         $reservasResultado = $reservas['paginator'];
         $maxPages = ceil($reservas['paginator']->count() / $limit);
 
