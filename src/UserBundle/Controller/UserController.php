@@ -178,7 +178,8 @@ class UserController extends Controller
     public function verificarUsuarioAction($codigo)
     {
         $em = $this->getDoctrine()->getManager();
-        $usuario = $em->getRepository(User::class)->findOneByCodigoValidacion($codigo);
+        //$usuario = $em->getRepository(User::class)->findOneByCodigoValidacion($codigo);
+        $usuario = $this->get('security.token_storage')->getToken()->getUser();
         if ($usuario->getCodigoValidacion()==$codigo){
           $usuario->setCodigoValidacion(NULL);
           $em->persist($usuario);
