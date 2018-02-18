@@ -8,6 +8,7 @@ $(document).ready(function(){
      $("#mostrarVoluntario").removeClass("active");
      $("#mostrarTurista").addClass("active");
      $('#voluntario').hide();
+     $("#principalbundle_reserva_tipo").val("turista");
    });
 });
 
@@ -19,6 +20,7 @@ $(document).ready(function(){
       $("#mostrarVoluntario").addClass("active");
       $('#turista').hide();
       $('#voluntario').show();
+      $("#principalbundle_reserva_tipo").val("voluntario");
    });
 
 });
