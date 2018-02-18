@@ -15,6 +15,7 @@ security:
 
     access_control:
         - {path: ^/usuarios/login, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        - {path: ^/usuarios/verificar, roles: ROLE_USER}
         - {path: ^/usuarios/eliminarUsuario, roles: ROLE_ADMIN}
         - {path: ^/admin, roles: ROLE_ADMIN}
 

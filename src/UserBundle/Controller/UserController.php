@@ -173,17 +173,21 @@ class UserController extends Controller
         return $this->redirectToRoute('admin_usuarios');
     }
     /**
-     * @Route("/usuarios/verificar/{id}/{hash}", name="verificar")
+     * @Route("/usuarios/verificar/{codigo}", name="verificar_correo")
      */
-    public function verificarUsuarioAction($id, $hash)
+    public function verificarUsuarioAction($codigo)
     {
         $em = $this->getDoctrine()->getManager();
-        $usuario = $em->getRepository(User::class)->find($id);
-        if ($usuario->getCodigoValidacion()==$hash){
-          $usuario->setCodigoValidacion("");
+        $usuario = $em->getRepository(User::class)->findOneByCodigoValidacion($codigo);
+        if ($usuario->getCodigoValidacion()==$codigo){
+          $usuario->setCodigoValidacion(NULL);
           $em->persist($usuario);
           $em->flush();
+        }else{
+          throw $this->createNotFoundException(
+            'Ha habido algún error al validar el correo.'
+          );
         }
-        return $this->render('@User/Default/verificar.html.twig');
+        return $this->render('@User/Default/verificar.html.twig', array('usuario' => $usuario));
     }
 }
