@@ -99,9 +99,9 @@ class Reserva
     private $visitaEscuela;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="actividades", type="integer", nullable=true)
+     * @ORM\Column(name="actividades", type="string", nullable=true)
      */
     private $actividades;
 
@@ -390,7 +390,7 @@ class Reserva
     /**
      * Set actividades
      *
-     * @param integer $actividades
+     * @param string $actividades
      *
      * @return Reserva
      */
@@ -404,7 +404,7 @@ class Reserva
     /**
      * Get actividades
      *
-     * @return int
+     * @return string
      */
     public function getActividades()
     {

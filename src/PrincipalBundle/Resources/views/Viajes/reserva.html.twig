@@ -42,23 +42,18 @@
               </div>
   						<img src="/images/activities/safari.jpg" alt="" />
   					</div>
-  					<div>
             <div class="buceo seleccion">
               <div class="textoinside">
                 {% trans %}Buceo{% endtrans %}
               </div>
   						<img src="/images/activities/buceo.jpg" alt="" />
-  					</div>
             </div>
-  					<div>
             <div class="escalada seleccion">
               <div class="textoinside">
                 {% trans %}Escalada{% endtrans %}
               </div>
   						<img src="/images/activities/escalada.jpg" alt="" />
-              </div>
-  					</div>
-  					<div>
+            </div>
             <div class="cascada seleccion">
               <div class="textoinside">
                 {% trans %}Visita{% endtrans %}
@@ -68,8 +63,6 @@
               </div>
   						<img src="/images/activities/cascada.jpg" alt="" />
             </div>
-  					</div>
-  					<div>
             <div class="museo seleccion">
               <div class="textoinside">
                 {% trans %}Visita{% endtrans %}
@@ -79,24 +72,18 @@
               </div>
   						<img src="/images/activities/museo.jpg" alt="" />
             </div>
-  					</div>
-  					<div>
             <div class="rafting seleccion">
               <div class="textoinside">
                 Rafting
               </div>
   						<img src="/images/activities/rafting.jpg" alt="" />
             </div>
-  					</div>
-  					<div>
             <div class="golf seleccion">
               <div class="textoinside">
                 Golf
               </div>
   						<img src="/images/activities/golf.jpg" alt="" />
             </div>
-  					</div>
-  					<div>
             <div class="barca seleccion">
               <div class="textoinside">
                 {% trans %}Vuelta{% endtrans %}
@@ -106,7 +93,6 @@
               </div>
   						<img src="/images/activities/barca.jpg" alt="" />
             </div>
-  					</div>
           </div>
           <hr class="shine">
 
@@ -128,15 +114,12 @@
                 </div>
                 <img src="/images/voluntario/basura.jpg" alt="" />
               </div>
-              <div>
               <div class="campo seleccion">
                 <div class="textoinside">
                   {% trans %}Sembrar{% endtrans %}
                 </div>
                 <img src="/images/voluntario/campo.jpg" alt="" />
               </div>
-              </div>
-              <div>
               <div class="colegio seleccion">
                 <div class="textoinside">
                   {% trans %}Dar{% endtrans %}
@@ -146,8 +129,6 @@
                 </div>
                 <img src="/images/voluntario/colegio.jpg" alt="" />
                 </div>
-              </div>
-              <div>
               <div class="ganado seleccion">
                 <div class="textoinside">
                   {% trans %}Cuidar{% endtrans %}
@@ -157,8 +138,6 @@
                 </div>
                 <img src="/images/voluntario/ganado.jpg" alt="" />
               </div>
-              </div>
-              <div>
               <div class="nadar seleccion">
                 <div class="textoinside">
                   {% trans %}Enseñar{% endtrans %}
@@ -168,30 +147,23 @@
                 </div>
                 <img src="/images/voluntario/nadar.jpg" alt="" />
               </div>
-              </div>
-              <div>
               <div class="cocina seleccion">
                 <div class="textoinside">
                   {% trans %}Cocinar{% endtrans %}
                 </div>
                 <img src="/images/voluntario/cocina.jpg" alt="" />
               </div>
-              </div>
-              <div>
               <div class="guia seleccion">
                 <div class="textoinside">
                   {% trans %}Guia{% endtrans %}
                 </div>
                 <img src="/images/voluntario/guia.jpg" alt="" />
               </div>
-              </div>
-              <div>
               <div class="construccion seleccion">
                 <div class="textoinside">
                   {% trans %}Construir{% endtrans %}
                 </div>
                 <img src="/images/voluntario/construccion.jpg" alt="" />
-              </div>
               </div>
             </div>
             <hr class="shine">
@@ -210,6 +182,7 @@
         {{ form_row(form.horaLlegada) }}
         {{ form_row(form.barca) }}
         {{ form_row(form.visitaEscuela) }}
+        {{ form_row(form.actividades) }}
         <div style="margin-bottom: 10px;">
           {{ form_widget(form.borrar, { 'attr': {'class': 'btn btn-danger btn-resetear'} }) }}
           {{ form_widget(form.guardar, { 'attr': {'class': 'btn btn-primary btn-guardar"'} }) }}

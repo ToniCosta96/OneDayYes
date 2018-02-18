@@ -44,6 +44,9 @@ class ReservaType extends AbstractType
         ->add('horaLlegada',TimeType::class)
         ->add('barca',CheckboxType::class, array('required' => false))
         ->add('visitaEscuela',CheckboxType::class, array('required' => false))
+        ->add('actividades', HiddenType::class, array(
+            'data' => ''
+        ))
         ->add('guardar', SubmitType::class, array('label' => '%enviar%'))
         ->add('borrar', ResetType::class, array('label' => '%resetear_valores%'));
 

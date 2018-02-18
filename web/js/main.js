@@ -30,101 +30,130 @@ $(document).ready(function(){
 $(document).ready(function(){
    $('.safari').on('click',function(){
       $(".safari").toggleClass("seleccionado");
+      rellenarActividades();
    });
 });
 
 $(document).ready(function(){
    $('.buceo').on('click',function(){
       $(".buceo").toggleClass("seleccionado");
+      rellenarActividades();
    });
 });
 
 $(document).ready(function(){
    $('.escalada').on('click',function(){
       $(".escalada").toggleClass("seleccionado");
+      rellenarActividades();
    });
 });
 
 $(document).ready(function(){
    $('.cascada').on('click',function(){
       $(".cascada").toggleClass("seleccionado");
+      rellenarActividades();
    });
 });
 
 $(document).ready(function(){
    $('.museo').on('click',function(){
       $(".museo").toggleClass("seleccionado");
+      rellenarActividades();
    });
 });
 
 $(document).ready(function(){
    $('.rafting').on('click',function(){
       $(".rafting").toggleClass("seleccionado");
+      rellenarActividades();
    });
 });
 
 $(document).ready(function(){
    $('.golf').on('click',function(){
       $(".golf").toggleClass("seleccionado");
+      rellenarActividades();
    });
 });
 
 $(document).ready(function(){
    $('.barca').on('click',function(){
       $(".barca").toggleClass("seleccionado");
+      rellenarActividades();
    });
 });
 
 $(document).ready(function(){
    $('.basura').on('click',function(){
       $(".basura").toggleClass("seleccionado");
+      rellenarActividades();
    });
 });
 
 $(document).ready(function(){
    $('.campo').on('click',function(){
       $(".campo").toggleClass("seleccionado");
+      rellenarActividades();
    });
 });
 
 $(document).ready(function(){
    $('.colegio').on('click',function(){
       $(".colegio").toggleClass("seleccionado");
+      rellenarActividades();
    });
 });
 
 $(document).ready(function(){
    $('.ganado').on('click',function(){
       $(".ganado").toggleClass("seleccionado");
+      rellenarActividades();
    });
 });
 
 $(document).ready(function(){
    $('.nadar').on('click',function(){
       $(".nadar").toggleClass("seleccionado");
+      rellenarActividades();
    });
 });
 
 $(document).ready(function(){
    $('.cocina').on('click',function(){
       $(".cocina").toggleClass("seleccionado");
+      rellenarActividades();
    });
 });
 
 $(document).ready(function(){
    $('.guia').on('click',function(){
       $(".guia").toggleClass("seleccionado");
+      rellenarActividades();
    });
 });
 
 $(document).ready(function(){
    $('.construccion').on('click',function(){
       $(".construccion").toggleClass("seleccionado");
+      rellenarActividades();
    });
 });
 
-
-
+/*Rellenar actividades en un input invisible del formulario*/
+function rellenarActividades(){
+  var actividades = "";
+  var filas = $(".slick-track").children();
+  for(let i=0;i<filas.length;i++){
+    if(filas.eq(i).hasClass("seleccionado")){
+      for(let j=0;j<filas.eq(i).children().length;j++){
+        if(filas.eq(i).children().eq(j).prop("tagName")=="DIV"){
+          actividades += filas.eq(i).children().eq(j).html().replace(/\s/g, '')+", ";
+        }
+      }
+    }
+  }
+  $("#principalbundle_reserva_actividades").val(actividades);
+};
 
 
 
