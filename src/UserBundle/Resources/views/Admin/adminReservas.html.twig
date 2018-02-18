@@ -1,6 +1,6 @@
 {% extends 'baseAdmin.html.twig' %}
 
-{% block title %}Administrador - Usuarios{% endblock %}
+{% block title %}Administrador - Reservas{% endblock %}
 {% block stylesheets %}
   <link href="{{asset('css/jQueryDatePicker.min.css')}}" rel="stylesheet" type="text/css" media="all"/>
 {% endblock %}
@@ -61,7 +61,6 @@
       <th>Visita escuela</th>
       <th>Actividades</th>
       <th>Descuento</th>
-      <th>Id</th>
       <th class="sin_estilo separacion"></th>
       <th class="sin_estilo"></th>
     </tr>
@@ -73,23 +72,18 @@
       <td>{{reserva.tipo}}</td>
       <td>{{reserva.fechaReserva|date("d/m/Y")}}</td>
       <td>{{reserva.numeroNoches}}</td>
-      <td>{{reserva.tipoHabitaciones}}</td>
+      <td>{{reserva.tipoHabitacion}}</td>
       <td>{{reserva.numeroHabitaciones}}</td>
       <td>{{reserva.comida}}</td>
       <td>{{reserva.cena}}</td>
       <td>{{reserva.numeroVuelo}}</td>
-      <td>{{reserva.horaLlegada|date('H:i:s')}}</td>
+      <td>{{reserva.horaLlegada|date('H:i')}}</td>
       <td>{{reserva.barca}}</td>
       <td>{{reserva.visitaEscuela}}</td>
       <td>{{reserva.actividades}}</td>
       <td>{{reserva.descuento}}</td>
       <td class="sin_estilo separacion">
-        <a href="{{asset('/admin/modificarUsuario/id='~usuario.id)}}" class="btn btn-default">Editar
-          <img class="editIcon" src="{{asset('images/icons/edit.svg')}}" alt="" height=18>
-        </a>
-      </td>
-      <td class="sin_estilo">
-        <a class="btn btn-default" id="btn-eliminar-{{usuario.id}}">Eliminar
+        <a class="btn btn-default" id="btn-eliminar-{{reserva.id}}">Eliminar
           <img class="eliminateIcon" src="{{asset('images/icons/eliminar.svg')}}" height=15 alt="">
         </a>
       </td>
@@ -137,13 +131,13 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Eliminar usuario</h5>
+        <h5 class="modal-title">Eliminar reserva</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p id="texto-dialogo">El usuario se eliminará.</p>
+        <p id="texto-dialogo">La reserva se eliminará.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id="modal-btn-si">Eliminar</button>
@@ -163,13 +157,12 @@
     var modalConfirm = function(callback){
       let filas = $("tbody").children();
       for(let i=0;i<filas.length;i++){
-        let idUsuario = filas.eq(i).children().eq(0).html();
-        let nombre = filas.eq(i).children().eq(1).html();
+        let idReserva = filas.eq(i).children().eq(0).html();
 
-        $("#btn-eliminar-"+idUsuario).on("click", function mostrarDialogo($idUsuario, $nombre){
-          $("#texto-dialogo").html("El usuario <strong>"+nombre+"</strong> se eliminará.");
+        $("#btn-eliminar-"+idReserva).on("click", function mostrarDialogo($idReserva){
+          $("#texto-dialogo").html("La reserva <strong>"+idReserva+"</strong> se eliminará.");
           $("#modal-eliminacion").modal('show');
-          idSeleccionada = idUsuario;
+          idSeleccionada = idReserva;
         });
       }
 
@@ -188,7 +181,7 @@
     modalConfirm(function(confirm){
       if(confirm){
         //Acciones si el usuario confirma
-        window.location.href = "/usuarios/eliminarUsuario/id="+idSeleccionada;
+        window.location.href = "/admin/eliminarReserva/id="+idSeleccionada;
       }else{
         //Acciones si el usuario no confirma
       }

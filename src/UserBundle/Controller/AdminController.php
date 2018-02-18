@@ -137,4 +137,22 @@ class AdminController extends Controller
         'maxPages'=>$maxPages,
         'thisPage'=>$page));
     }
+
+    /**
+     * @Route("/admin/eliminarReserva/id={id}", name="eliminar_reserva")
+     */
+    public function eliminarActividadVoluntarioAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $reserva = $em->getRepository(Reserva::class)->find($id);
+        if (!$reserva) {
+            throw $this->createNotFoundException(
+                'Ninguna reserva coincide con la id '.$id
+            );
+        }
+        $em->remove($reserva);
+        $em->flush();
+
+        return $this->redirectToRoute('admin_reservas');
+    }
 }
