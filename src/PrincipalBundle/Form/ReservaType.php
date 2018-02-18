@@ -5,6 +5,7 @@ namespace PrincipalBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -22,6 +23,9 @@ class ReservaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+        ->add('tipo', HiddenType::class, array(
+            'data' => 'turista'
+        ))
         ->add('fechaReserva', DateType::class, array(
         'widget' => 'single_text',
         'html5' => false,
@@ -30,13 +34,16 @@ class ReservaType extends AbstractType
           'class' => 'js-datepicker'))
           )
         ->add('numeroNoches')
+        ->add('tipoHabitacion', HiddenType::class, array(
+            'data' => 'predeterminada'
+        ))
         ->add('numeroHabitaciones')
-        ->add('comida',CheckboxType::class)
-        ->add('cena',CheckboxType::class)
+        ->add('comida',CheckboxType::class, array('required' => false))
+        ->add('cena',CheckboxType::class, array('required' => false))
         ->add('numeroVuelo', TextType::class)
         ->add('horaLlegada',TimeType::class)
-        ->add('barca',CheckboxType::class)
-        ->add('visitaEscuela',CheckboxType::class)
+        ->add('barca',CheckboxType::class, array('required' => false))
+        ->add('visitaEscuela',CheckboxType::class, array('required' => false))
         ->add('guardar', SubmitType::class, array('label' => '%enviar%'))
         ->add('borrar', ResetType::class, array('label' => '%resetear_valores%'));
 

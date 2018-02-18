@@ -37,17 +37,17 @@ class ViajesController extends Controller
         if ($form -> isSubmitted()&& $form -> isValid()){
           $reserva = $form->getData();
           $em = $this->getDoctrine()->getManager();
-          $em -> persist($reserva);
-          $em -> flush();
-          return $this->redirectToRoute('datos_reserva');
+          $em->persist($reserva);
+          $em->flush();
+          return $this->redirectToRoute('datos_reserva', array('_locale' => $this->container->get('translator')->getLocale(), 'id' => $reserva->getId()));
         }
         return $this->render('@Principal/Viajes/reserva.html.twig', array('form' => $form -> createView()));
     }
 
     /**
-     * @Route("/{_locale}/viajes/datos_reserva", name="datos_reserva")
+     * @Route("/{_locale}/viajes/datos_reserva/{id}", defaults={"id"=1}, name="datos_reserva")
      */
-    public function datosReservaAction()
+    public function datosReservaAction($id)
     {
         return $this->render('@Principal/Viajes/datosReserva.html.twig');
     }

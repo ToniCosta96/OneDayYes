@@ -59,14 +59,14 @@ class Reserva
     /**
      * @var bool
      *
-     * @ORM\Column(name="comida", type="boolean")
+     * @ORM\Column(name="comida", type="boolean", nullable=true)
      */
     private $comida;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="cena", type="boolean")
+     * @ORM\Column(name="cena", type="boolean", nullable=true)
      */
     private $cena;
 
@@ -87,14 +87,14 @@ class Reserva
     /**
      * @var bool
      *
-     * @ORM\Column(name="barca", type="boolean")
+     * @ORM\Column(name="barca", type="boolean", nullable=true)
      */
     private $barca;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="visita_escuela", type="boolean")
+     * @ORM\Column(name="visita_escuela", type="boolean", nullable=true)
      */
     private $visitaEscuela;
 
