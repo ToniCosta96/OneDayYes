@@ -180,7 +180,7 @@ class UserController extends Controller
         $em = $this->getDoctrine()->getManager();
         $usuario = $em->getRepository(User::class)->find($id);
         if ($usuario->getCodigoValidacion()==$hash){
-          $usuario->setVerificado("1");
+          $usuario->setCodigoValidacion("");
           $em->persist($usuario);
           $em->flush();
         }

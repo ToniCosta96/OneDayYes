@@ -84,12 +84,7 @@ class User implements UserInterface
       */
      private $codigoValidacion;
 
-     /**
-      * @var bool
-      *
-      * @ORM\Column(name="verificado", type="boolean", nullable=true)
-      */
-     private $verificado;
+
 
     /**
      * Get id
@@ -279,27 +274,5 @@ class User implements UserInterface
     }
 
 
-    /**
-     * Set verificado
-     *
-     * @param boolean $verificado
-     *
-     * @return User
-     */
-    public function setVerificado($verificado)
-    {
-        $this->verificado = $verificado;
-
-        return $this;
-    }
-
-    /**
-     * Get verificado
-     *
-     * @return boolean
-     */
-    public function getVerificado()
-    {
-        return $this->verificado;
-    }
+  
 }
