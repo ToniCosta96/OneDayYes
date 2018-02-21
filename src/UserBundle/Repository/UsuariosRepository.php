@@ -22,8 +22,8 @@ class UsuariosRepository extends \Doctrine\ORM\EntityRepository
         $stringWhere = "";
         $parameters = [];
         if(!is_null($filtro->getNombre())){
-          $stringWhere = "(u.name = :nombre OR u.username = :nombre)";
-          $parameters['nombre'] = $filtro->getNombre();
+          $stringWhere = "(u.name LIKE :nombre OR u.username = :nombre)";
+          $parameters['nombre'] = "%".$filtro->getNombre()."%";
         }
         if(!is_null($filtro->getEmail())){
           if(count($parameters)>0){

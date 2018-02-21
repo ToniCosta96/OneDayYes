@@ -16,6 +16,9 @@ security:
     access_control:
         - {path: ^/usuarios/login, roles: IS_AUTHENTICATED_ANONYMOUSLY}
         - {path: ^/usuarios/verificar, roles: ROLE_USER}
+        - {path: ^/es/viajes/reserva, roles: [ROLE_USER,ROLE_ADMIN]}
+        - {path: ^/en/viajes/reserva, roles: [ROLE_USER,ROLE_ADMIN]}
+        - {path: ^/de/viajes/reserva, roles: [ROLE_USER,ROLE_ADMIN]}
         - {path: ^/usuarios/eliminarUsuario, roles: ROLE_ADMIN}
         - {path: ^/admin, roles: ROLE_ADMIN}
 

@@ -18,7 +18,7 @@
       <h3>You did it! You registered!</h3>
       <p>Hi {{user.username}}! You're successfully registered.</p>
       Haz click aqui para finalizar tu registro:<br>
-      <a href="{{path('verificar_correo', {'codigo': user.codigoValidacion})}}">Verificar email.</a> 
+      <a href="{{url('verificar_correo', {'codigo': user.codigoValidacion})}}">Verificar email.</a> 
     </div>
   </body>
 </html>

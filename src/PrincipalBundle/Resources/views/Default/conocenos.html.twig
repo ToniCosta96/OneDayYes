@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block body %}
+{% set locale = app.request.getLocale() %}
 
 <div class="contenido">
 
@@ -19,7 +20,7 @@
       <h3 class="h3 mb-4 wow fadeIn" style="text-align:center;" data-wow-delay="1.3s">{% trans %}Golf{% endtrans %}</h3>
       <p class="wow fadeIn" data-wow-delay="1.8s">{% trans %}DescripcionGolf{% endtrans %}</p>
         <div class="wow zoomIn" data-wow-delay="2s"><br>
-        <p><a href="#"><button type="button" style="margin-left: 30%;" class="btn btn-success">{% trans %}Reservar Actividad{% endtrans %}</button></a></p>
+        <p><a href="{{path('reserva', { '_locale': locale })}}"><button type="button" style="margin-left: 30%;" class="btn btn-success">{% trans %}Reservar Actividad{% endtrans %}</button></a></p>
         </div>
     </div>
   </div>
@@ -32,7 +33,7 @@
       <h3 class="h3 mb-4 wow fadeIn" style="text-align:center;" data-wow-delay="0.8s">{% trans %}Buceo{% endtrans %}</h3>
       <p class="wow fadeIn" data-wow-delay="1.4s">{% trans %}DescripcionBuceo{% endtrans %}</p>
       <div class="wow zoomIn" data-wow-delay="1.2s"><br>
-      <p><a href="#"><button type="button" style="margin-left: 30%;" class="btn btn-success">{% trans %}Reservar Actividad{% endtrans %}</button></a></p>
+      <p><a href="{{path('reserva', { '_locale': locale })}}"><button type="button" style="margin-left: 30%;" class="btn btn-success">{% trans %}Reservar Actividad{% endtrans %}</button></a></p>
       </div>
     </div>
   </div>
@@ -45,7 +46,7 @@
       <h3 class="h3 mb-4 wow fadeIn" style="text-align:center;" data-wow-delay="0.8s">{% trans %}Safari{% endtrans %}</h3>
       <p class="wow fadeIn" data-wow-delay="1.4s">{% trans %}DescripcionSafari{% endtrans %}</p>
       <div class="wow zoomIn" data-wow-delay="1.2s"><br>
-      <p><a href="#"><button type="button" style="margin-left: 30%;" class="btn btn-success">{% trans %}Reservar Actividad{% endtrans %}</button></a></p>
+      <p><a href="{{path('reserva', { '_locale': locale })}}"><button type="button" style="margin-left: 30%;" class="btn btn-success">{% trans %}Reservar Actividad{% endtrans %}</button></a></p>
       </div>
     </div>
   </div>
@@ -58,7 +59,7 @@
       <h3 class="h3 mb-4 wow fadeIn" style="text-align:center;" data-wow-delay="0.8s">{% trans %}Viaje en barca{% endtrans %}</h3>
       <p class="wow fadeIn" data-wow-delay="1.4s">{% trans %}DescripcionBarca{% endtrans %}</p>
       <div class="wow zoomIn" data-wow-delay="1.2s"><br>
-      <p><a href="#"><button type="button" style="margin-left: 30%;" class="btn btn-success">{% trans %}Reservar Actividad{% endtrans %}</button></a></p>
+      <p><a href="{{path('reserva', { '_locale': locale })}}"><button type="button" style="margin-left: 30%;" class="btn btn-success">{% trans %}Reservar Actividad{% endtrans %}</button></a></p>
       </div>
     </div>
   </div>
@@ -70,7 +71,7 @@
       <h3 class="h3 mb-4 wow fadeIn" style="text-align:center;" data-wow-delay="1.3s">{% trans %}Rafting{% endtrans %}</h3>
       <p class="wow fadeIn" data-wow-delay="1.8s">{% trans %}DescripcionRafting{% endtrans %}</p>
         <div class="wow zoomIn" data-wow-delay="2s"><br>
-        <p><a href="#"><button type="button" style="margin-left: 30%;" class="btn btn-success">{% trans %}Reservar Actividad{% endtrans %}</button></a></p>
+        <p><a href="{{path('reserva', { '_locale': locale })}}"><button type="button" style="margin-left: 30%;" class="btn btn-success">{% trans %}Reservar Actividad{% endtrans %}</button></a></p>
         </div>
     </div>
   </div>
@@ -83,7 +84,7 @@
       <h3 class="h3 mb-4 wow fadeIn" style="text-align:center;" data-wow-delay="0.8s">{% trans %}Visita al museo{% endtrans %}</h3>
       <p class="wow fadeIn" data-wow-delay="1.4s">{% trans %}DescripcionMuseo{% endtrans %}</p>
       <div class="wow zoomIn" data-wow-delay="1.2s"><br>
-      <p><a href="#"><button type="button" style="margin-left: 30%;" class="btn btn-success">{% trans %}Reservar Actividad{% endtrans %}</button></a></p>
+      <p><a href="{{path('reserva', { '_locale': locale })}}"><button type="button" style="margin-left: 30%;" class="btn btn-success">{% trans %}Reservar Actividad{% endtrans %}</button></a></p>
       </div>
     </div>
   </div>
@@ -96,7 +97,7 @@
       <h3 class="h3 mb-4 wow fadeIn" style="text-align:center;" data-wow-delay="0.8s">{% trans %}Visita a la cascada{% endtrans %}</h3>
       <p class="wow fadeIn" data-wow-delay="1.4s">{% trans %}DescripcionCascada{% endtrans %}</p>
       <div class="wow zoomIn" data-wow-delay="1.2s"><br>
-      <p><a href="#"><button type="button" style="margin-left: 30%;" class="btn btn-success">{% trans %}Reservar Actividad{% endtrans %}</button></a></p>
+      <p><a href="{{path('reserva', { '_locale': locale })}}"><button type="button" style="margin-left: 30%;" class="btn btn-success">{% trans %}Reservar Actividad{% endtrans %}</button></a></p>
       </div>
     </div>
   </div>
@@ -109,7 +110,7 @@
       <h3 class="h3 mb-4 wow fadeIn" style="text-align:center;" data-wow-delay="0.8s">{% trans %}Escalada{% endtrans %}</h3>
       <p class="wow fadeIn" data-wow-delay="1.4s">{% trans %}DescripcionEscalada{% endtrans %}</p>
       <div class="wow zoomIn" data-wow-delay="1.2s"><br>
-      <p><a href="#"><button type="button" style="margin-left: 30%;" class="btn btn-success">{% trans %}Reservar Actividad{% endtrans %}</button></a></p>
+      <p><a href="{{path('reserva', { '_locale': locale })}}"><button type="button" style="margin-left: 30%;" class="btn btn-success">{% trans %}Reservar Actividad{% endtrans %}</button></a></p>
       </div>
     </div>
   </div>

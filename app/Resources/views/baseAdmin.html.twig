@@ -46,18 +46,20 @@
             <!-- Links -->
             <div class="collapse navbar-collapse" id="nav-content">
               <ul class="navbar-nav nav ml-auto">
-
                 <li class="nav-item {% if routeSelected == 'index' %}active{% endif %}">
                   <a class="nav-link" href="{{path('index', { '_locale': locale })}}">One Day Yes</a>
                 </li>
                 <li class="nav-item {% if routeSelected == 'conocenos' %}active{% endif %}">
-                  <a class="nav-link" href="{{path('conocenos', { '_locale': locale })}}">Conocenos</a>
+                  <a class="nav-link" href="{{path('conocenos', { '_locale': locale })}}">{% trans %}Actividades{% endtrans %}</a>
+                </li>
+                <li class="nav-item {% if routeSelected == 'galeria' %}active{% endif %}">
+                  <a class="nav-link" href="{{path('galeria', { '_locale': locale })}}">{% trans %}Galeria{% endtrans %}</a>
                 </li>
                 <li class="nav-item {% if routeSelected == 'ven_a_lamu' %}active{% endif %}">
-                  <a class="nav-link" href="{{path('ven_a_lamu', { '_locale': locale })}}">Ven a Lamu</a>
+                  <a class="nav-link" href="{{path('ven_a_lamu', { '_locale': locale })}}">{% trans %}Ven a Lamu{% endtrans %}</a>
                 </li>
                 <li class="nav-item {% if routeSelected == 'contacto' %}active{% endif %}">
-                  <a class="nav-link" href="{{path('contacto', { '_locale': locale })}}">Contacto</a>
+                  <a class="nav-link" href="{{path('contacto', { '_locale': locale })}}">{% trans %}Contacto{% endtrans %}</a>
                 </li>
               </ul>
             </div>

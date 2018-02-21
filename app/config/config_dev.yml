@@ -36,7 +36,7 @@ monolog:
         #chromephp:
         #    type: chromephp
         #    level: info
-        
+
 swiftmailer:
     transport: gmail
     username: '%mailer_user%'
